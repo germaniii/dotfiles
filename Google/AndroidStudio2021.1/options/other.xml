@@ -1,0 +1,77 @@
+<application>
+  <component name="ProjectPluginTrackerManager">
+    <trackers>
+      <map>
+        <entry key="1vc9lsEpwS6flpFCPancwz3cqOx">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+      </map>
+    </trackers>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.FULL.AUTO_HIDE" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.FULL.LEFT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.FULL.MINIMIZED" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.COMPONENT_TREE.FULL.SPLIT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.FULL.AUTO_HIDE" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.FULL.LEFT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.FULL.MINIMIZED" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PALETTE.FULL.SPLIT" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.FULL.AUTO_HIDE" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.FULL.LEFT" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.FULL.MINIMIZED" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.PROPERTIES.FULL.SPLIT" value="false" />
+    <property name="ATTACHED_TOOL_WINDOW.DEFAULT.NELE_EDITOR.TOOL_ORDER" value="PALETTE,PROPERTIES,COMPONENT_TREE" />
+    <property name="ATTACHED_TOOL_WINDOW.NELE_EDITOR.COMPONENT_TREE.FULL.LEFT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.NELE_EDITOR.COMPONENT_TREE.FULL.SPLIT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.NELE_EDITOR.PALETTE.FULL.LEFT" value="true" />
+    <property name="ATTACHED_TOOL_WINDOW.NELE_EDITOR.TOOL_ORDER" value="PALETTE,PROPERTIES,COMPONENT_TREE" />
+    <property name="AndroidInitConfigurator.V1" value="true" />
+    <property name="AndroidInitConfigurator.V3" value="true" />
+    <property name="AndroidInitConfigurator.V5" value="true" />
+    <property name="CUSTOMIZE_ACTIONS" value="sdk" />
+    <property name="Darcula.SavedEditorTheme" value="_@user_Darcula" />
+    <property name="Default.SavedEditorTheme" value="_@user_Default" />
+    <property name="FindSplitterProportion" value="0.3608327" />
+    <property name="InstalledPluginsSearchHistory" value="Gruvbox&#10;Gruvb&#10;Gruv&#10;Gru&#10;Gr" />
+    <property name="MarketplacePluginsSearchHistory" value="gruv&#10;wifi adb&#10;wifi ad&#10;adb&#10;Gruvbox" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="NonModalCommitCustomization.IsApplied" value="true" />
+    <property name="SettingsSearchHistory" value="sdk&#10;plugin&#10;dark&#10;da" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="UITheme.relaunch" value="true" />
+    <property name="appcds.runOnSecondStart" value="AI-211.7628.21.2111.8309675-f97b9e3ab42d690e97c61044b7ba8a9d839bbb501be40705e25a7798107106be" />
+    <property name="build.toolwindow.Build Output.selection.state" value="com.intellij.build.BuildTreeConsoleView" />
+    <property name="build.toolwindow.Sync.selection.state" value="com.intellij.build.BuildTreeConsoleView" />
+    <property name="com.dengzii.plugin.adb.config.adb" value="$USER_HOME$/Android/Sdk/platform-tools/adb" />
+    <property name="com.dengzii.plugin.adb.config.dialog" value="{&quot;col&quot;:[&quot;SN&quot;,&quot;NAME&quot;,&quot;IP&quot;,&quot;PORT&quot;,&quot;STATUS&quot;,&quot;OPERATE&quot;],&quot;colWidth&quot;:{&quot;default&quot;:-1,&quot;SN&quot;:124,&quot;NAME&quot;:124,&quot;IP&quot;:124,&quot;PORT&quot;:124,&quot;STATUS&quot;:125,&quot;OPERATE&quot;:124}}" />
+    <property name="com.dengzii.plugin.adb.devices" value="192.168.1.15:5555#|#192.168.1.15#|#SM_A750GN#|#a7y18ltedx#|#5555#|#DISCONNECTED#|##|#" />
+    <property name="defaultJdkConfigured" value="true" />
+    <property name="file.chooser.recent.files" value="$USER_HOME$/Documents/School/Thesis/Android-App/T7TA" />
+    <property name="file.gist.reindex.count" value="41" />
+    <property name="fileTypeChangedCounter" value="4" />
+    <property name="fileTypeDetectors" value="com.android.tools.idea.profilers.capture.MemoryCaptureFileType$Detector:com.android.tools.idea.sqlite.fileType.SqliteFileTypeDetector:com.intellij.ide.scratch.ScratchFileServiceImpl$Detector:com.jetbrains.cidr.lang.OCHeaderFileTypeDetector" />
+    <property name="got.it.tooltip.reader.mode.got.it" value="1" />
+    <property name="ide.updates.previous.build.number" value="AI-211.7628.21.2111.8309675" />
+    <property name="installed.kotlin.plugin.version" value="211-1.5.30-release-408-AS7442.40" />
+    <property name="kotlin.plugin.releaseDate" value="211-1.5.30-release-408-AS7442.40:2021-08-24" />
+    <property name="lastSeenTip" value="Kotlin_Java_convert.html" />
+    <property name="lastTimeTipsWereShown" value="1632983631374" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/School/Thesis/Android-App/T7TA" />
+    <property name="newly.installed.api.level" value="30" />
+    <property name="seenTips" value="Kotlin_Java_convert.html" />
+    <property name="selected.color.option.type" value="CONSOLE_DARKGRAY_OUTPUT" />
+    <property name="tasks.pass.word.conversion.enforced" value="true" />
+  </component>
+  <component name="TerminalCommandHistoryManager">
+    <command-history-files>
+      <command-history-file filename="EMAv1-history" project-path="$USER_HOME$/Documents/School/Thesis/Android-App/T7TA" last-access-time="1649670527586" />
+    </command-history-files>
+  </component>
+  <component name="ToolbarSettingsService">
+    <option name="NEW_TOOLBAR_SETTINGS" value="OLD_NAVBAR" />
+  </component>
+</application>

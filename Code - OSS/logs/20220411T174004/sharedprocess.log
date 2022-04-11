@@ -1,0 +1,22 @@
+[2022-04-11 17:40:06.404] [sharedprocess] [info] Starting worker process with pid 2144 (type: fileWatcher, window: 1).
+[2022-04-11 17:40:15.137] [sharedprocess] [info] Getting Manifest... ms-vscode.js-debug-companion
+[2022-04-11 17:40:15.138] [sharedprocess] [info] Getting Manifest... ms-vscode.references-view
+[2022-04-11 17:40:17.604] [sharedprocess] [info] Installing extension: ms-vscode.js-debug-companion
+[2022-04-11 17:40:17.604] [sharedprocess] [info] Installing extension: ms-vscode.references-view
+[2022-04-11 17:40:19.987] [sharedprocess] [info] Downloaded extension: ms-vscode.references-view /home/germaniii/.config/Code - OSS/CachedExtensionVSIXs/ms-vscode.references-view-0.0.89
+[2022-04-11 17:40:20.004] [sharedprocess] [info] Extracted extension to /home/germaniii/.vscode-oss/extensions/.022818ec-224f-42fd-bc4d-3692454090b2: ms-vscode.references-view
+[2022-04-11 17:40:20.013] [sharedprocess] [info] Renamed to /home/germaniii/.vscode-oss/extensions/ms-vscode.references-view-0.0.89
+[2022-04-11 17:40:20.014] [sharedprocess] [info] Extracting completed. ms-vscode.references-view
+[2022-04-11 17:40:20.024] [sharedprocess] [info] Extension installed successfully: ms-vscode.references-view
+[2022-04-11 17:40:20.273] [sharedprocess] [info] Downloaded extension: ms-vscode.js-debug-companion /home/germaniii/.config/Code - OSS/CachedExtensionVSIXs/ms-vscode.js-debug-companion-1.0.17
+[2022-04-11 17:40:20.286] [sharedprocess] [info] Extracted extension to /home/germaniii/.vscode-oss/extensions/.fd4ca9c1-4503-4e6e-aa87-b62ffe31087e: ms-vscode.js-debug-companion
+[2022-04-11 17:40:20.296] [sharedprocess] [info] Renamed to /home/germaniii/.vscode-oss/extensions/ms-vscode.js-debug-companion-1.0.17
+[2022-04-11 17:40:20.297] [sharedprocess] [info] Extracting completed. ms-vscode.js-debug-companion
+[2022-04-11 17:40:20.307] [sharedprocess] [info] Extension installed successfully: ms-vscode.js-debug-companion
+[2022-04-11 17:40:22.829] [sharedprocess] [info] Getting Manifest... sainnhe.gruvbox-material
+[2022-04-11 17:40:23.133] [sharedprocess] [info] Installing extension: sainnhe.gruvbox-material
+[2022-04-11 17:40:31.750] [sharedprocess] [info] Downloaded extension: sainnhe.gruvbox-material /home/germaniii/.config/Code - OSS/CachedExtensionVSIXs/sainnhe.gruvbox-material-6.5.0
+[2022-04-11 17:40:31.808] [sharedprocess] [info] Extracted extension to /home/germaniii/.vscode-oss/extensions/.07a9f6e3-8e48-4254-85e5-c3202d2af46d: sainnhe.gruvbox-material
+[2022-04-11 17:40:31.818] [sharedprocess] [info] Renamed to /home/germaniii/.vscode-oss/extensions/sainnhe.gruvbox-material-6.5.0
+[2022-04-11 17:40:31.818] [sharedprocess] [info] Extracting completed. sainnhe.gruvbox-material
+[2022-04-11 17:40:31.819] [sharedprocess] [info] Extension installed successfully: sainnhe.gruvbox-material

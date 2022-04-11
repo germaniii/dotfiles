@@ -1,0 +1,181 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="$Redo">
+      <i c="5" l="1636539051087" />
+    </e>
+    <e n="$SelectAll">
+      <i c="2" l="1636543314901" />
+    </e>
+    <e n="$Undo">
+      <i c="170" l="1636721234597" />
+    </e>
+    <e n="ActivateProjectToolWindow">
+      <i c="3" l="1636522450003" />
+    </e>
+    <e n="Android.RunAndroidSdkManager">
+      <i c="2" l="1634632336052" />
+    </e>
+    <e n="EditCustomProperties">
+      <i c="1" l="1632983109469" />
+    </e>
+    <e n="EditorBackSpace">
+      <i c="838" l="1636721820333" />
+    </e>
+    <e n="EditorChooseLookupItem">
+      <i c="99" l="1636719767199" />
+    </e>
+    <e n="EditorCopy">
+      <i c="129" l="1636718554908" />
+    </e>
+    <e n="EditorCut">
+      <i c="38" l="1636721807901" />
+    </e>
+    <e n="EditorDeleteLine">
+      <i c="2" l="1636522351768" />
+    </e>
+    <e n="EditorDown">
+      <i c="71" l="1636719768477" />
+    </e>
+    <e n="EditorDuplicate">
+      <i c="1" l="1636524785414" />
+    </e>
+    <e n="EditorEnter">
+      <i c="154" l="1636721811221" />
+    </e>
+    <e n="EditorEscape">
+      <i c="7" l="1636543292368" />
+    </e>
+    <e n="EditorIndentSelection">
+      <i c="9" l="1636521463989" />
+    </e>
+    <e n="EditorLeft">
+      <i c="143" l="1636720902836" />
+    </e>
+    <e n="EditorPaste">
+      <i c="53" l="1636721811434" />
+    </e>
+    <e n="EditorRight">
+      <i c="166" l="1636720898022" />
+    </e>
+    <e n="EditorStartNewLine">
+      <i c="1" l="1636088663645" />
+    </e>
+    <e n="EditorTab">
+      <i c="78" l="1636719535119" />
+    </e>
+    <e n="EditorUnindentSelection">
+      <i c="7" l="1636523775758" />
+    </e>
+    <e n="EditorUp">
+      <i c="95" l="1636719768987" />
+    </e>
+    <e n="FileChooser.NewFolder">
+      <i c="2" l="1634632309562" />
+    </e>
+    <e n="FileChooser.ShowHiddens">
+      <i c="1" l="1634632172584" />
+    </e>
+    <e n="Find">
+      <i c="21" l="1636720912594" />
+    </e>
+    <e n="GotoDeclaration">
+      <i c="2" l="1636718793264" />
+    </e>
+    <e n="GotoSuperMethod">
+      <i c="1" l="1636539051098" />
+    </e>
+    <e n="HideAllWindows">
+      <i c="1" l="1636544176091" />
+    </e>
+    <e n="MakeGradleProject">
+      <i c="8" l="1636711302823" />
+    </e>
+    <e n="Replace">
+      <i c="2" l="1636521910675" />
+    </e>
+    <e n="Run">
+      <i c="105" l="1636721875141" />
+    </e>
+    <e n="SaveAll">
+      <i c="1919" l="1636721839721" />
+    </e>
+    <e n="SearchEverywhere">
+      <i c="1" l="1635824222625" />
+    </e>
+    <e n="SelectMultipleDevices">
+      <i c="1" l="1636522826320" />
+    </e>
+    <e n="ShowIntentionActions">
+      <i c="2" l="1636426771508" />
+    </e>
+    <e n="ShowSettings">
+      <i c="8" l="1636522994543" />
+    </e>
+    <e n="TabList">
+      <i c="2" l="1632984534553" />
+    </e>
+    <e n="ToggleLineBreakpoint">
+      <i c="1" l="1636524031835" />
+    </e>
+    <e n="WelcomeScreen.OpenProject">
+      <i c="1" l="1632983126303" />
+    </e>
+    <e n="com.android.tools.idea.run.deployment.SelectDeviceAction">
+      <i c="6" l="1636719384066" />
+    </e>
+    <e n="com.dengzii.plugin.adb.MainAction">
+      <i c="6" l="1636523198179" />
+    </e>
+    <e n="com.dengzii.plugin.adb.ui.ConfigAdbDialog$1">
+      <i c="1" l="1636522644478" />
+    </e>
+    <e n="com.intellij.find.SearchReplaceComponent$13">
+      <i c="11" l="1636543463949" />
+    </e>
+    <e n="com.intellij.find.editorHeaderActions.NextOccurrenceAction">
+      <i c="89" l="1636720966954" />
+    </e>
+    <e n="com.intellij.find.editorHeaderActions.PrevOccurrenceAction">
+      <i c="26" l="1636720938636" />
+    </e>
+    <e n="com.intellij.find.editorHeaderActions.SwitchToFind">
+      <i c="3" l="1636720942147" />
+    </e>
+    <e n="com.intellij.find.editorHeaderActions.ToggleSelectionOnlyAction">
+      <i c="3" l="1636087313734" />
+    </e>
+    <e n="com.intellij.ide.ReopenProjectAction">
+      <i c="13" l="1636718033507" />
+    </e>
+    <e n="com.intellij.ide.plugins.newui.TabbedPaneHeaderComponent$3">
+      <i c="3" l="1632983122299" />
+    </e>
+    <e n="com.intellij.notification.NotificationAction$Simple">
+      <i c="1" l="1632985305880" />
+    </e>
+    <e n="com.intellij.openapi.editor.impl.EditorMarkupModelImpl$StatusAction">
+      <i c="5" l="1636545813929" />
+    </e>
+    <e n="com.intellij.openapi.fileEditor.impl.tabActions.CloseTab">
+      <i c="20" l="1636545819796" />
+    </e>
+    <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
+      <i c="2" l="1635824222955" />
+    </e>
+    <e n="com.intellij.openapi.ui.impl.DialogWrapperPeerImpl$AnCancelAction">
+      <i c="4" l="1634632317143" />
+    </e>
+    <e n="com.intellij.openapi.updateSettings.impl.UpdateChecker$showUpdateResult$5$2">
+      <i c="1" l="1632976775289" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$HideAction">
+      <i c="3" l="1636719333701" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.welcomeScreen.WelcomeScreenComponentFactory$3">
+      <i c="1" l="1632983106384" />
+    </e>
+    <e n="com.intellij.ui.ScrollingUtil$7">
+      <i c="2" l="1636544484954" />
+    </e>
+  </component>
+</application>

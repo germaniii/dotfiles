@@ -1,0 +1,1349 @@
+29/08/21 (12:26:24) | ERROR: The read operation timed out
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1350, in do_open
+    r = h.getresponse()
+  File "/usr/lib/python3.9/http/client.py", line 1349, in getresponse
+    response.begin()
+  File "/usr/lib/python3.9/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.9/http/client.py", line 277, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+29/08/21 (12:37:44) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+29/08/21 (19:02:57) | ERROR: The read operation timed out
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1350, in do_open
+    r = h.getresponse()
+  File "/usr/lib/python3.9/http/client.py", line 1349, in getresponse
+    response.begin()
+  File "/usr/lib/python3.9/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.9/http/client.py", line 277, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+29/08/21 (20:04:13) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+30/08/21 (18:42:06) | ERROR: Exception when sending signal 15 to pid 45273
+30/08/21 (18:42:07) | ERROR: [Errno 1] Operation not permitted
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5459, in process_keys
+    os.kill(pid, sig)
+PermissionError: [Errno 1] Operation not permitted
+30/08/21 (18:42:14) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+10/09/21 (23:24:18) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+11/09/21 (16:09:26) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+12/09/21 (01:01:08) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+12/09/21 (14:21:08) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+14/09/21 (11:41:45) | ERROR: The read operation timed out
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1350, in do_open
+    r = h.getresponse()
+  File "/usr/lib/python3.9/http/client.py", line 1371, in getresponse
+    response.begin()
+  File "/usr/lib/python3.9/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.9/http/client.py", line 280, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+14/09/21 (11:42:07) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+14/09/21 (11:42:17) | ERROR: The read operation timed out
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1350, in do_open
+    r = h.getresponse()
+  File "/usr/lib/python3.9/http/client.py", line 1371, in getresponse
+    response.begin()
+  File "/usr/lib/python3.9/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.9/http/client.py", line 280, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+15/09/21 (14:47:19) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+15/09/21 (14:47:19) | ERROR: Data collection thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 2945, in _runner
+    else: Draw.out()
+  File "/usr/bin/bpytop", line 1071, in out
+    cls.now(out)
+  File "/usr/bin/bpytop", line 1019, in now
+    print(*args, sep="", end="", flush=True)
+OSError: [Errno 5] Input/output error
+16/09/21 (14:10:34) | ERROR: The read operation timed out
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1350, in do_open
+    r = h.getresponse()
+  File "/usr/lib/python3.9/http/client.py", line 1371, in getresponse
+    response.begin()
+  File "/usr/lib/python3.9/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.9/http/client.py", line 280, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+19/09/21 (16:12:49) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+26/09/21 (18:28:23) | ERROR: <urlopen error [Errno -3] Temporary failure in name resolution>
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.9/http/client.py", line 1279, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1325, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1274, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1034, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.9/http/client.py", line 974, in send
+    self.connect()
+  File "/usr/lib/python3.9/http/client.py", line 1441, in connect
+    super().connect()
+  File "/usr/lib/python3.9/http/client.py", line 945, in connect
+    self.sock = self._create_connection(
+  File "/usr/lib/python3.9/socket.py", line 823, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+30/09/21 (14:33:15) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+30/09/21 (14:33:30) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+30/09/21 (18:30:31) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+30/09/21 (18:30:41) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+30/09/21 (18:33:22) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+30/09/21 (19:20:33) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+01/10/21 (11:12:15) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+01/10/21 (14:39:38) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+01/10/21 (17:50:07) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+01/10/21 (19:17:46) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+01/10/21 (19:29:58) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+01/10/21 (19:30:04) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+03/10/21 (18:12:53) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+04/10/21 (11:30:20) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+04/10/21 (18:31:20) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+04/10/21 (18:31:21) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+04/10/21 (18:38:01) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+04/10/21 (18:38:06) | ERROR: The read operation timed out
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1350, in do_open
+    r = h.getresponse()
+  File "/usr/lib/python3.9/http/client.py", line 1371, in getresponse
+    response.begin()
+  File "/usr/lib/python3.9/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.9/http/client.py", line 280, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+04/10/21 (18:38:15) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+04/10/21 (18:38:27) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (00:06:19) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (01:23:42) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (01:23:55) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+05/10/21 (01:34:02) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (01:34:07) | ERROR: The read operation timed out
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1350, in do_open
+    r = h.getresponse()
+  File "/usr/lib/python3.9/http/client.py", line 1371, in getresponse
+    response.begin()
+  File "/usr/lib/python3.9/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.9/http/client.py", line 280, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+05/10/21 (01:34:25) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+05/10/21 (09:22:37) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (09:22:50) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+05/10/21 (09:47:32) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (10:45:06) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (12:13:10) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (12:13:11) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+05/10/21 (12:20:34) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (12:45:58) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (12:54:58) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (13:20:09) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (13:20:17) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+05/10/21 (13:25:12) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (14:03:46) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (14:04:16) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (14:10:05) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/10/21 (14:11:22) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+06/10/21 (10:17:20) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+06/10/21 (10:42:43) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+06/10/21 (15:15:28) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+06/10/21 (18:32:27) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+06/10/21 (21:59:27) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+07/10/21 (12:35:30) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+07/10/21 (16:40:56) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+07/10/21 (16:57:04) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+07/10/21 (17:09:20) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+07/10/21 (18:27:53) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+07/10/21 (18:28:00) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+07/10/21 (19:21:30) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+09/10/21 (20:23:29) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+10/10/21 (06:44:11) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+10/10/21 (11:24:54) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+10/10/21 (11:24:54) | ERROR: <urlopen error [Errno -3] Temporary failure in name resolution>
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.9/http/client.py", line 1279, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1325, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1274, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1034, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.9/http/client.py", line 974, in send
+    self.connect()
+  File "/usr/lib/python3.9/http/client.py", line 1441, in connect
+    super().connect()
+  File "/usr/lib/python3.9/http/client.py", line 945, in connect
+    self.sock = self._create_connection(
+  File "/usr/lib/python3.9/socket.py", line 823, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+11/10/21 (09:34:55) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/10/21 (10:56:44) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/10/21 (11:24:31) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/10/21 (12:47:57) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/10/21 (12:48:04) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+11/10/21 (13:00:59) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/10/21 (13:01:05) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+11/10/21 (13:01:06) | ERROR: Data collection thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 2925, in _runner
+    if CONFIG.draw_clock and CONFIG.update_ms != 1000: Box.draw_clock()
+  File "/usr/bin/bpytop", line 1726, in draw_clock
+    Draw.buffer("clock", out, z=1, now=now, once=not force, only_save=Menu.active)
+  File "/usr/bin/bpytop", line 1046, in buffer
+    cls.out(name)
+  File "/usr/bin/bpytop", line 1060, in out
+    cls.now(out)
+  File "/usr/bin/bpytop", line 1019, in now
+    print(*args, sep="", end="", flush=True)
+OSError: [Errno 5] Input/output error
+11/10/21 (13:01:21) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/10/21 (13:12:53) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/10/21 (13:12:58) | ERROR: <urlopen error _ssl.c:1112: The handshake operation timed out>
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.9/http/client.py", line 1279, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1325, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1274, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1034, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.9/http/client.py", line 974, in send
+    self.connect()
+  File "/usr/lib/python3.9/http/client.py", line 1448, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/usr/lib/python3.9/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/usr/lib/python3.9/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/usr/lib/python3.9/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+socket.timeout: _ssl.c:1112: The handshake operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error _ssl.c:1112: The handshake operation timed out>
+11/10/21 (13:13:05) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+11/10/21 (14:26:00) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/10/21 (17:49:24) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/10/21 (18:15:02) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+12/10/21 (09:46:35) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+12/10/21 (10:47:40) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+12/10/21 (10:47:48) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+12/10/21 (14:28:15) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+13/10/21 (09:58:09) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+13/10/21 (14:04:13) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+13/10/21 (14:07:43) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+13/10/21 (20:20:30) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+14/10/21 (11:14:16) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+14/10/21 (11:21:34) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+14/10/21 (12:06:14) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+14/10/21 (18:48:51) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+14/10/21 (19:48:16) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+14/10/21 (19:48:16) | ERROR: <urlopen error [Errno -3] Temporary failure in name resolution>
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.9/http/client.py", line 1279, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1325, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1274, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1034, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.9/http/client.py", line 974, in send
+    self.connect()
+  File "/usr/lib/python3.9/http/client.py", line 1441, in connect
+    super().connect()
+  File "/usr/lib/python3.9/http/client.py", line 945, in connect
+    self.sock = self._create_connection(
+  File "/usr/lib/python3.9/socket.py", line 823, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+14/10/21 (20:45:36) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+14/10/21 (20:45:36) | ERROR: <urlopen error [Errno -3] Temporary failure in name resolution>
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.9/http/client.py", line 1279, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1325, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1274, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1034, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.9/http/client.py", line 974, in send
+    self.connect()
+  File "/usr/lib/python3.9/http/client.py", line 1441, in connect
+    super().connect()
+  File "/usr/lib/python3.9/http/client.py", line 945, in connect
+    self.sock = self._create_connection(
+  File "/usr/lib/python3.9/socket.py", line 823, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+16/10/21 (08:02:12) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+16/10/21 (08:02:12) | ERROR: <urlopen error [Errno -3] Temporary failure in name resolution>
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.9/http/client.py", line 1279, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1325, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1274, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1034, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.9/http/client.py", line 974, in send
+    self.connect()
+  File "/usr/lib/python3.9/http/client.py", line 1441, in connect
+    super().connect()
+  File "/usr/lib/python3.9/http/client.py", line 945, in connect
+    self.sock = self._create_connection(
+  File "/usr/lib/python3.9/socket.py", line 823, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+16/10/21 (08:04:44) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+16/10/21 (08:04:44) | ERROR: <urlopen error [Errno -3] Temporary failure in name resolution>
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/urllib/request.py", line 1346, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/lib/python3.9/http/client.py", line 1279, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1325, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1274, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.9/http/client.py", line 1034, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.9/http/client.py", line 974, in send
+    self.connect()
+  File "/usr/lib/python3.9/http/client.py", line 1441, in connect
+    super().connect()
+  File "/usr/lib/python3.9/http/client.py", line 945, in connect
+    self.sock = self._create_connection(
+  File "/usr/lib/python3.9/socket.py", line 823, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1349, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+16/10/21 (08:10:30) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+16/10/21 (15:25:00) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+16/10/21 (20:34:58) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+17/10/21 (16:01:05) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+17/10/21 (16:01:29) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 937, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error
+18/10/21 (11:22:30) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+18/10/21 (12:25:06) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+19/10/21 (11:27:22) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+19/10/21 (13:12:38) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+19/10/21 (16:43:58) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+19/10/21 (16:44:03) | ERROR: The read operation timed out
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 5009, in _checker
+    with urllib.request.urlopen("https://github.com/aristocratos/bpytop/raw/master/bpytop.py", timeout=5) as source: # type: ignore
+  File "/usr/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/usr/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/usr/lib/python3.9/urllib/request.py", line 1350, in do_open
+    r = h.getresponse()
+  File "/usr/lib/python3.9/http/client.py", line 1371, in getresponse
+    response.begin()
+  File "/usr/lib/python3.9/http/client.py", line 319, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.9/http/client.py", line 280, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+19/10/21 (16:44:33) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+19/10/21 (18:26:03) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+19/10/21 (18:31:12) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+19/10/21 (22:14:19) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+20/10/21 (00:13:05) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+20/10/21 (10:38:04) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+20/10/21 (22:06:36) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+20/10/21 (22:26:29) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+21/10/21 (12:57:05) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+21/10/21 (15:03:05) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+21/10/21 (15:04:55) | ERROR: Input thread failed with exception: (5, 'Input/output error')
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 985, in _get_key
+    input_key = ""
+  File "/usr/bin/bpytop", line 778, in __exit__
+    termios.tcsetattr(self.stream, termios.TCSANOW, self.original_stty)
+termios.error: (5, 'Input/output error')
+21/10/21 (15:10:56) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+21/10/21 (18:04:48) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+21/10/21 (20:24:52) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+22/10/21 (12:06:05) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+22/10/21 (19:23:36) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+22/10/21 (19:49:47) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+23/10/21 (13:28:26) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+23/10/21 (17:42:23) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+23/10/21 (21:51:12) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+24/10/21 (18:00:02) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+24/10/21 (18:10:23) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+25/10/21 (11:33:28) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+25/10/21 (17:54:51) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+26/10/21 (10:13:26) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+26/10/21 (12:26:44) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+26/10/21 (16:43:45) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+27/10/21 (19:04:34) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+27/10/21 (20:28:31) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+28/10/21 (11:49:11) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+28/10/21 (18:18:46) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+28/10/21 (21:28:17) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+28/10/21 (21:32:22) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+01/11/21 (20:22:06) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+02/11/21 (11:33:31) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+03/11/21 (12:00:52) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+03/11/21 (20:38:25) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+04/11/21 (11:58:09) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+04/11/21 (17:05:38) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/11/21 (12:20:37) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+05/11/21 (17:40:35) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+08/11/21 (19:04:10) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+09/11/21 (10:28:42) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+10/11/21 (07:37:39) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+10/11/21 (17:42:34) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/11/21 (11:07:51) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/11/21 (19:03:40) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+12/11/21 (08:16:23) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1337, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+11/04/22 (17:37:45) | ERROR: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 1357, in refresh
+    for f in os.listdir(d):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/germaniii/.config/bpytop/themes'
