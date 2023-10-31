@@ -1,0 +1,103 @@
+!#/bin/bash
+
+############################################################################
+# ARCH TERMINAL UTILITIES
+############################################################################
+
+echo
+echo "Installing Terminal Utilities"
+echo
+
+ARCHPKGS=(
+    'cronie'                  # cron jobs
+    'curl'                    # Remote content retrieval
+    'gtop'                    # System monitoring via terminal
+    'gufw'                    # Firewall manager
+    'hardinfo'                # Hardware info app
+    'bpytop'                  # Process viewer
+    'neofetch'                # Shows system info when you launch terminal
+    'ntp'                     # Network Time Protocol to set time via network.
+    'unrar'                   # RAR compression program
+    'unzip'                   # Zip compression program
+    'wget'                    # Remote content retrieval
+    'vim'                     # Terminal Editor
+    'zip'                     # Zip compression program
+    'ranger'    	      # Filesystem browser
+    'feh'  	              # Wallpaper changer
+    'neovim'
+)
+
+for PKG in "${ARCHPKGS[@]}"; do
+    echo "INSTALLING: ${PKG}"
+    sudo pacman -S "$PKG" --noconfirm --needed
+done
+
+# Update font cache
+sudo fc-cache --force
+
+echo
+echo "Done!"
+echo
+
+############################################################################
+# AUR TERMINAL UTILITIES
+############################################################################
+
+
+AURPKGS=(
+    # UTILITIES -----------------------------------------------------------
+
+    'timeshift'                 # Backup and Restore
+    'helvum'
+    'zerotier-one'
+    'docker'
+    'docker-compose'
+)
+
+cd ${HOME}/yay
+makepkg -si
+
+for PKG in "${AURPKGS[@]}"; do
+    yay -S --noconfirm $PKG
+done
+
+echo
+echo "Done!"
+echo
+
+############################################################################
+# NVIM SETUP
+############################################################################
+
+echo
+echo "Setting up Neovim workstation"
+echo
+
+# Install COC Node.js for lsp
+
+# Install NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+nvm_setup_code='
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+'
+# Append the code to .bashrc if it doesn't already exist
+if ! grep -q "This loads nvm" ~/.bashrc; then
+    echo "$nvm_setup_code" >> ~/.bashrc
+    echo "NVM setup code added to ~/.bashrc"
+else
+    echo "NVM setup code is already in ~/.bashrc"
+fi
+
+echo
+echo "Please install nvm lts if node fails in neovim"
+echo "Then open nvim and do :PlugInstall"
+echo
+
+source ~/.bashrc
+nvm install --lts
+
+# NVIM Install with vim-plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+

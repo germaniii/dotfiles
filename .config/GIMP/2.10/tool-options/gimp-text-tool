@@ -1,0 +1,10 @@
+# GIMP gimp-text-tool options
+
+(palette "Standard")
+(font "Sans-serif")
+(font-size 40)
+(hint-style slight)
+(justify center)
+(box-mode fixed)
+
+# end of gimp-text-tool options
