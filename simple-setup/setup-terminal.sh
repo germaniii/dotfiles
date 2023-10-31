@@ -52,6 +52,7 @@ AURPKGS=(
     'zerotier-one'
     'docker'
     'docker-compose'
+    'ttf-fira-code'
 )
 
 cd ${HOME}/yay
@@ -64,6 +65,9 @@ done
 echo
 echo "Done!"
 echo
+
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
 
 ############################################################################
 # NVIM SETUP
