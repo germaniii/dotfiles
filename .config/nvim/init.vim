@@ -6,7 +6,7 @@ Plug 'morhetz/gruvbox'
 
 " Use release branch (recommended)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = [ 'coc-clangd', 'coc-css', 'coc-html', 'coc-java', 'coc-json', 'coc-markdownlint', 'coc-phpls', 'coc-rust-analyzer', 'coc-sh', 'coc-sumneko-lua', 'coc-yank', 'coc-prettier', 'coc-emmet', 'coc-tsserver', 'coc-tslint-plugin' ]
+let g:coc_global_extensions = [ 'coc-clangd', 'coc-css', 'coc-html', 'coc-java', 'coc-json', 'coc-markdownlint', 'coc-phpls', 'coc-rust-analyzer', 'coc-sh', 'coc-sumneko-lua', 'coc-yank', 'coc-prettier', 'coc-emmet', 'coc-tsserver', 'coc-tslint-plugin', '@yaegassy/coc-volar', '@yaegassy/coc-typescript-vue-plugin', '@yaegassy/coc-tailwindcss3']
 
 "------------------------ VIM TSX ------------------------
 " by default, if you open tsx file, neovim does not show syntax colors
