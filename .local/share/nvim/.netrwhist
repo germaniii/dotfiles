@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/germaniii/Documents/germaniii-master/.git'
+let g:netrw_dirhist_6='/home/germaniii/Documents/germaniii-master/germaniii.com/root/app'
+let g:netrw_dirhist_5='/home/germaniii/Documents/germaniii-master/germaniii.com/root'
+let g:netrw_dirhist_4='/home/germaniii/Documents/germaniii-master/germaniii.com/root/app/projects/_components/ProjectCard'
+let g:netrw_dirhist_3='/home/germaniii/Documents/germaniii-master/germaniii.com/root/app/projects/_components'
+let g:netrw_dirhist_2='/home/germaniii/Documents/germaniii-master/germaniii.com/root/app/projects'
+let g:netrw_dirhist_1='/home/germaniii/Documents/germaniii-master/germaniii.com/root/app'
+let g:netrw_dirhist_0='/home/germaniii/Documents/germaniii-master/germaniii.com/root'
+let g:netrw_dirhist_9='/home/germaniii/Documents/germaniii-master/germaniii.com/root/app/projects/_components/ProjectCard'
+let g:netrw_dirhist_8='/home/germaniii/Documents/germaniii-master/germaniii.com/root/app/projects/_components'

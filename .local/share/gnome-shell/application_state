@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<application-state>
+  <context id="">
+    <application id="firefox.desktop" score="1103.1271635675803" last-seen="1698922104"/>
+    <application id="kitty.desktop" score="19402.736948274076" last-seen="1698922478"/>
+    <application id="org.gnome.Nautilus.desktop" score="0.062530518509447575" last-seen="1698908212"/>
+    <application id="org.gnome.PowerStats.desktop" score="6.7986547946929932e-08" last-seen="1698752944"/>
+    <application id="org.gnome.tweaks.desktop" score="7.650390631519258" last-seen="1698912990"/>
+    <application id="org.gnome.Settings.desktop" score="5.0011291708797216" last-seen="1698910389"/>
+    <application id="chromium.desktop" score="0.000396728515625" last-seen="1698931273"/>
+  </context>
+</application-state>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/germaniii/.mozilla/firefox/l322kqev.default-release/chrome" added="2023-10-31T11:16:05.538888Z" modified="2023-10-31T11:16:05.538896Z" visited="2023-10-31T11:16:05.538889Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2023-10-31T11:16:05.538893Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/germaniii/Downloads/Gruvbox-Dark-B-GS.zip" added="2023-10-31T12:28:52.314641Z" modified="2023-10-31T12:28:52.647239Z" visited="2023-10-31T12:28:52.314643Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2023-10-31T12:28:52.647232Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/germaniii/Downloads/pexels-roberto-nickson-2559941.jpg" added="2023-11-02T12:29:47.605290Z" modified="2023-11-02T12:29:50.813412Z" visited="2023-11-02T12:29:47.605293Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/jpeg"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2023-11-02T12:29:50.813407Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/germaniii/Downloads/Gruvbox-Dark-B.zip" added="2023-11-02T06:46:17.281294Z" modified="2023-11-02T06:46:17.593015Z" visited="2023-11-02T06:46:17.281298Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2023-11-02T06:46:17.593005Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/germaniii/Downloads/Gruvbox.tar.gz" added="2023-11-02T06:56:43.597024Z" modified="2023-11-02T06:56:44.439171Z" visited="2023-11-02T06:56:43.597029Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-compressed-tar"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2023-11-02T06:56:44.439157Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/germaniii/Downloads/GruvboxCursor.zip" added="2023-11-02T07:00:15.925346Z" modified="2023-11-02T07:00:16.246427Z" visited="2023-11-02T07:00:15.925348Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2023-11-02T07:00:16.246411Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
