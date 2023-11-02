@@ -50,7 +50,13 @@ elif [[ $choice == 4 ]]; then
 elif [[ $choice == 5 ]]; then
     ARCHPKGS+=(
         'hyprland'
-        'lightdm'
+        'hyprpaper'
+        'waybar'
+        'wofi'
+        'kitty'
+        'networkmanager'
+        'grim'
+        'slurp'
     )
 elif [[ $choice == 6 ]]; then
     echo "Skipped Installing Desktop Environment"
@@ -118,6 +124,7 @@ AURPKGS=(
     'gruvbox-material-icon-theme-git'
     'gruvbox-material-gtk-theme-git'
     'ttf-fira-code'
+    'ttf-font-awesome'
 )
 
 cd ${HOME}/yay
