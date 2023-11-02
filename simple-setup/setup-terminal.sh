@@ -57,6 +57,8 @@ elif [[ $choice == 5 ]]; then
         'networkmanager'
         'grim'
         'slurp'
+        'dunst'
+        'polkit-kde-agent'
     )
 elif [[ $choice == 6 ]]; then
     echo "Skipped Installing Desktop Environment"
