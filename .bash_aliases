@@ -13,6 +13,11 @@ local files
   [[ -n "$files" ]] && vim "${files[@]}"
 }
 
+function drb(){
+    docker compose down -v
+    docker compose up --build
+}
+
 function dcup(){
     docker compose up
 }
