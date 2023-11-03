@@ -30,7 +30,6 @@ elif [[ $choice == 2 ]]; then
         'dunst'
         'copyq'
         'picom'
-        'ufw'
         'lightdm'
         'arandr'
         'pipewire'
@@ -40,7 +39,6 @@ elif [[ $choice == 2 ]]; then
 elif [[ $choice == 3 ]]; then
     ARCHPKGS+=(
         'xfce4'
-        'ufw'
     )
 elif [[ $choice == 4 ]]; then 
     ARCHPKGS+=(
@@ -54,11 +52,12 @@ elif [[ $choice == 5 ]]; then
         'waybar'
         'wofi'
         'kitty'
-        'networkmanager'
         'grim'
         'slurp'
         'dunst'
         'polkit-kde-agent'
+        'swaylock'
+        'swayidle'
     )
 elif [[ $choice == 6 ]]; then
     echo "Skipped Installing Desktop Environment"
@@ -81,25 +80,23 @@ else
 
     ARCHPKGS+=(
         'cronie'                  # cron jobs
+        'wget'                    # Remote content retrieval
         'curl'                    # Remote content retrieval
-        'gtop'                    # System monitoring via terminal
-        'gufw'                    # Firewall manager
+        'firewalld'
         'hardinfo'                # Hardware info app
         'bpytop'                  # Process viewer
         'neofetch'                # Shows system info when you launch terminal
         'ntp'                     # Network Time Protocol to set time via network.
         'unrar'                   # RAR compression program
         'unzip'                   # Zip compression program
-        'wget'                    # Remote content retrieval
-        'vim'                     # Terminal Editor
         'zip'                     # Zip compression program
         'ranger'    	      # Filesystem browser
-        'feh'  	              # Wallpaper changer
         'neovim'
         'bpytop'
         'pipewire'
         'wireplumber'
         'xdg-desktop-portal-hyprland'
+        'networkmanager'
     )
 
     for PKG in "${ARCHPKGS[@]}"; do
