@@ -89,6 +89,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 set -o vi
+export MOZ_ENABLE_WAYLAND=1
 
 export EDITOR=nvim
 export VISUAL=nvim

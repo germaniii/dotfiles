@@ -97,6 +97,9 @@ else
         'feh'  	              # Wallpaper changer
         'neovim'
         'bpytop'
+        'pipewire'
+        'wireplumber'
+        'xdg-desktop-portal-hyprland'
     )
 
     for PKG in "${ARCHPKGS[@]}"; do
@@ -127,6 +130,7 @@ AURPKGS=(
     'gruvbox-material-gtk-theme-git'
     'ttf-fira-code'
     'ttf-font-awesome'
+    'wlrobs-hg'
 )
 
 cd ${HOME}/yay
