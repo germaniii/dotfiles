@@ -58,6 +58,7 @@ elif [[ $choice == 5 ]]; then
         'polkit-kde-agent'
         'swaylock'
         'swayidle'
+        'gdm'
     )
 elif [[ $choice == 6 ]]; then
     echo "Skipped Installing Desktop Environment"
