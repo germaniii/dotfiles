@@ -1,9 +1,9 @@
 * {
   border: none;
   border-radius: 0px;
-  font-family: "Fira Code";
+  font-family: "Font Awesome 6";
   font-size: 12px;
-  min-height: 20px;
+  min-height: 25px;
   color: #ebdbb2;
 }
 
@@ -19,7 +19,6 @@ window#waybar {
 #window {
   font-weight: 800;
 }
-
 /* Workspace Buttons */
 #workspaces button label {
   color: #689d6a;

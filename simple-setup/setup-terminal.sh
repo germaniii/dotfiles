@@ -97,6 +97,9 @@ else
         'wireplumber'
         'xdg-desktop-portal-hyprland'
         'networkmanager'
+        'ack'
+        'nodejs'
+        'fzf'
     )
 
     for PKG in "${ARCHPKGS[@]}"; do
@@ -154,27 +157,7 @@ echo "Setting up Neovim workstation"
 echo
 
 # Install COC Node.js for lsp
-
-# Install NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-nvm_setup_code='
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-'
-# Append the code to .bashrc if it doesn't already exist
-if ! grep -q "This loads nvm" ~/.bashrc; then
-    echo "$nvm_setup_code" >> ~/.bashrc
-    echo "NVM setup code added to ~/.bashrc"
-else
-    echo "NVM setup code is already in ~/.bashrc"
-fi
-
+echo 
+echo "Open nvim and do :PlugInstall"
 echo
-echo "Please install nvm lts if node fails in neovim"
-echo "Then open nvim and do :PlugInstall"
-echo
-
-source ~/.bashrc
-nvm install --lts
-
 

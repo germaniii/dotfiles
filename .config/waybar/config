@@ -2,13 +2,13 @@
     "layer": "top",
     "position": "top",
     "height": 30,
-    "modules-left": ["sway/workspaces", "custom/music"],
-    "modules-center": ["sway/window", "sway/mode"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window", "hyprland/mode"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
-        "format": "❰<span color=\"#ebdbb2\"> {name} </span>❱", 
+        "all-outputs": false,
+        "format": "<span color=\"#ebdbb2\"> {name} </span>", 
         "format-icons": {
             "1:web": "www",
             "2:code": "",
@@ -27,7 +27,7 @@
             "deactivated": ""
         }
     },
-    "sway/mode": {
+    "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
