@@ -59,6 +59,7 @@ elif [[ $choice == 5 ]]; then
         'swaylock'
         'swayidle'
         'gdm'
+        'brightnessctl'
     )
 elif [[ $choice == 6 ]]; then
     echo "Skipped Installing Desktop Environment"
