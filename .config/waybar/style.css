@@ -9,7 +9,7 @@
 
 window#waybar {
   border-bottom-style: inset;
-  border-bottom: 4px solid #689d6a;
+  border-bottom: 0.5em solid #689d6a;
   background: #1d2021;
 }
 
@@ -60,16 +60,16 @@ window#waybar {
 #clock {
   margin: 0;
   color: #fabd2f;
-  border-bottom: 4px solid #fabd2f;
+  border-bottom: 0.5em solid #fabd2f;
 }
 
 #network.disconnected {
   color: #cc241d;
-  border-bottom: 4px solid #cc241d;
+  border-bottom: 0.5em solid #cc241d;
 }
 
 #pulseaudio.muted {
   padding: 0 20px;
   color: #cc241d;
-  border-bottom: 4px solid #cc241d;
+  border-bottom: 0.5em solid #cc241d;
 }
