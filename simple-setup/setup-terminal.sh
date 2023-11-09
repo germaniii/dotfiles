@@ -164,3 +164,5 @@ echo
 echo "Open nvim and do :PlugInstall"
 echo
 
+# Setup crontab
+crontab < /home/germaniii/.crontab
