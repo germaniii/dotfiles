@@ -35,6 +35,7 @@ elif [[ $choice == 2 ]]; then
         'pipewire'
         'lib32-pipewire'
         'helvum'
+        'acpi'
     )
 elif [[ $choice == 3 ]]; then
     ARCHPKGS+=(
@@ -60,6 +61,7 @@ elif [[ $choice == 5 ]]; then
         'swayidle'
         'gdm'
         'brightnessctl'
+        'acpi'
     )
 elif [[ $choice == 6 ]]; then
     echo "Skipped Installing Desktop Environment"
