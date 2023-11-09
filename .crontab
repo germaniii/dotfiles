@@ -1,0 +1,1 @@
+*/5 * * * * bash /home/germaniii/.config/low-batt-notify.sh
