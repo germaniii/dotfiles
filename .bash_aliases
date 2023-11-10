@@ -3,6 +3,12 @@ export EDITOR=nvim
 export VISUAL=nvim
 export g3pc=192.168.196.28
 
+function updateCloudflared(){
+    sudo cloudflared service uninstall
+    sudo rm /etc/cloudflared/config.yml
+    sudo cloudflared --config $1 service install
+}
+
 function list-fonts(){
     fc-list | grep -i $1
 }

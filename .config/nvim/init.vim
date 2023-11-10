@@ -48,6 +48,11 @@ set shiftwidth=4
 set expandtab
 set nu! rnu!
 set clipboard=unnamedplus
+set undofile
+set ignorecase
+set smartcase
+set hlsearch!
+set breakindent
 
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -71,7 +76,7 @@ set nowritebackup
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
-set updatetime=300
+set updatetime=250
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved
