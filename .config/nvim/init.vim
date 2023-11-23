@@ -15,6 +15,8 @@ Plug 'ianks/vim-tsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -53,6 +55,20 @@ set ignorecase
 set smartcase
 set hlsearch!
 set breakindent
+
+" Initialize configuration dictionary
+let g:fzf_vim = {}
+" Preview window is hidden by default. You can toggle it with ctrl-/.
+" It will show on the right with 50% width, but if the width is smaller
+" than 70 columns, it will show above the candidate list
+let g:fzf_vim.preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'enter': 'vsplit',
+  \ 'ctrl-v': 'vsplit' }
+nnoremap <silent> <C-space> :Files<CR>
 
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
