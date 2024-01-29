@@ -37,6 +37,7 @@ elif [[ $choice == 2 ]]; then
         'helvum'
         'acpi'
         'poweralertd'
+        'blueman'
     )
 elif [[ $choice == 3 ]]; then
     ARCHPKGS+=(
@@ -64,6 +65,7 @@ elif [[ $choice == 5 ]]; then
         'brightnessctl'
         'acpi'
         'poweralertd'
+        'blueman'
     )
 elif [[ $choice == 6 ]]; then
     echo "Skipped Installing Desktop Environment"
