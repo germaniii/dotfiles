@@ -66,6 +66,7 @@ elif [[ $choice == 5 ]]; then
         'acpi'
         'poweralertd'
         'blueman'
+        'copyq'
     )
 elif [[ $choice == 6 ]]; then
     echo "Skipped Installing Desktop Environment"
