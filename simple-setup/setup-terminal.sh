@@ -157,7 +157,7 @@ echo "Done!"
 echo
 
 # NVIM Install kickstart.nvim
-git clone https://github.com/germaniii/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone -b germaniii https://github.com/germaniii/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
 ############################################################################
 # NVIM SETUP
