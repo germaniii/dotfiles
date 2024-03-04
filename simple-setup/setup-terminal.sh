@@ -16,7 +16,12 @@ echo "7. Quit"
 
 read -p "Enter the number of your choice: " choice
 
-ARCHPKGS=()
+ARCHPKGS=(
+    'ripgrep'
+    'neovim'
+    'cloudflared'
+    'zerotier-one'
+    )
 
 if [[ $choice == 1 ]]; then
     ARCHPKGS+=('gnome')
@@ -52,6 +57,7 @@ elif [[ $choice == 5 ]]; then
     ARCHPKGS+=(
         'hyprland'
         'hyprpaper'
+        'xdg-desktop-portal-hyprland'
         'waybar'
         'wofi'
         'kitty'
@@ -99,11 +105,9 @@ else
         'unzip'                   # Zip compression program
         'zip'                     # Zip compression program
         'ranger'    	      # Filesystem browser
-        'neovim'
         'bpytop'
         'pipewire'
         'wireplumber'
-        'xdg-desktop-portal-hyprland'
         'networkmanager'
         'ack'
         'nodejs'
@@ -152,9 +156,8 @@ echo
 echo "Done!"
 echo
 
-# NVIM Install with vim-plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# NVIM Install kickstart.nvim
+git clone https://github.com/germaniii/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
 ############################################################################
 # NVIM SETUP
@@ -166,7 +169,7 @@ echo
 
 # Install COC Node.js for lsp
 echo 
-echo "Open nvim and do :PlugInstall"
+echo "Open nvim and do :Lazy"
 echo
 
 # Setup crontab
