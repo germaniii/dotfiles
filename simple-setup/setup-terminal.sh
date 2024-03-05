@@ -73,6 +73,7 @@ elif [[ $choice == 5 ]]; then
         'poweralertd'
         'blueman'
         'copyq'
+        'wl-clipboard'
     )
 elif [[ $choice == 6 ]]; then
     echo "Skipped Installing Desktop Environment"
