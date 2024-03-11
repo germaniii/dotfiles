@@ -21,6 +21,7 @@ ARCHPKGS=(
     'neovim'
     'cloudflared'
     'zerotier-one'
+    'firewalld'
     )
 
 if [[ $choice == 1 ]]; then
@@ -98,7 +99,6 @@ else
         'cronie'                  # cron jobs
         'wget'                    # Remote content retrieval
         'curl'                    # Remote content retrieval
-        'firewalld'
         'bpytop'                  # Process viewer
         'neofetch'                # Shows system info when you launch terminal
         'ntp'                     # Network Time Protocol to set time via network.
