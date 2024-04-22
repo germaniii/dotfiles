@@ -54,11 +54,11 @@
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ifname}: {ipaddr} ",
         "format-disconnected": "Disconnected ⚠",
-        "on-click": "kitty --class floating -e nmtui"
+        "on-click": "kitty --class nmtui_floating -e nmtui"
     },
     "battery": {
         "format": "{capacity}% ",
-        "on-click": "kitty --class floating -e bpytop"
+        "on-click": "kitty --class bpytop_floating -e bpytop"
     },
     "pulseaudio": {
         //"scroll-step": 1,

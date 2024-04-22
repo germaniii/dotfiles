@@ -26,7 +26,7 @@ window#waybar {
 #workspaces button.focused label {
   color: #1d2021;
 }
-#workspaces button.visible {
+#workspaces button.focused {
   background: #689d6a;
 }
 
