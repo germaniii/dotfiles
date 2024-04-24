@@ -144,6 +144,7 @@ AURPKGS=(
     'ttf-fira-code'
     'ttf-font-awesome'
     'wlrobs-hg'
+    'tlpui'
 )
 
 cd ${HOME}/yay
