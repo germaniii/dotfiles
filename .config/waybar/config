@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window", "hyprland/mode"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock", "custom/hyprlock"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock", "custom/wlogout"],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -27,9 +27,9 @@
             "deactivated": ""
         }
     },
-    "custom/hyprlock": {
-        "format": "  ",
-        "on-click": "hyprlock"
+    "custom/wlogout": {
+        "format": "  ",
+        "on-click": "wlogout"
     },
     "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>"
