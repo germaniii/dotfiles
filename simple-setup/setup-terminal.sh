@@ -60,6 +60,7 @@ elif [[ $choice == 5 ]]; then
         'hyprpaper'
         'hyprlock'
         'xdg-desktop-portal-hyprland'
+        'wlogout'
         'waybar'
         'wofi'
         'kitty'
