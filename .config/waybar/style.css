@@ -16,16 +16,20 @@ window#waybar {
 #workspaces,
 #clock,
 #custom-music,
+
 #window {
   font-weight: 800;
 }
+
 /* Workspace Buttons */
 #workspaces button label {
   color: #689d6a;
 }
+
 #workspaces button.focused label {
   color: #1d2021;
 }
+
 #workspaces button.focused {
   background: #689d6a;
 }
@@ -43,6 +47,7 @@ window#waybar {
 #pulseaudio,
 #tray,
 #mode,
+#custom-hyprlock,
 #idle_inhibitor {
   padding: 0 0.3em;
   margin: 0 0.5em;
@@ -58,7 +63,7 @@ window#waybar {
 }
 
 #clock {
-  margin: 0;
+  margin: 0 0.5em;
   color: #fabd2f;
   border-bottom: 0.5em solid #fabd2f;
 }

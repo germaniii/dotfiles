@@ -58,6 +58,7 @@ elif [[ $choice == 5 ]]; then
     ARCHPKGS+=(
         'hyprland'
         'hyprpaper'
+        'hyprlock'
         'xdg-desktop-portal-hyprland'
         'waybar'
         'wofi'
