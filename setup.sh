@@ -126,7 +126,6 @@ AURPKGS=(
     'ttf-fira-code'
     'ttf-font-awesome'
     'wlrobs-hg'
-    'tlpui'
 )
 
 cd ${HOME}/yay
@@ -140,9 +139,6 @@ echo
 echo "Done!"
 echo
 
-# NVIM Install kickstart.nvim
-git clone -b germaniii https://github.com/germaniii/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-
 ############################################################################
 # NVIM SETUP
 ############################################################################
@@ -151,10 +147,13 @@ echo
 echo "Setting up Neovim workstation"
 echo
 
+# NVIM Install kickstart.nvim
+git clone -b germaniii https://github.com/germaniii/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+
 # Install COC Node.js for lsp
 echo 
 echo "Open nvim and do :Lazy"
 echo
 
 # Setup crontab
-crontab < /home/germaniii/.crontab
+crontab < ~/.crontab
