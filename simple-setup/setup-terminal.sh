@@ -7,12 +7,11 @@
 # Provide a menu for the user to select the desktop environment
 echo "Select your desktop environment:"
 echo "1. GNOME"
-echo "2. Qtile"
-echo "3. Xfce desktop only"
-echo "4. Xfce with Goodies"
-echo "5. Hyprland"
-echo "6. Skip"
-echo "7. Quit"
+echo "2. Xfce desktop only"
+echo "3. Xfce with Goodies"
+echo "4. Hyprland"
+echo "5. Skip"
+echo "6. Quit"
 
 read -p "Enter the number of your choice: " choice
 
@@ -28,33 +27,14 @@ if [[ $choice == 1 ]]; then
     ARCHPKGS+=('gnome')
 elif [[ $choice == 2 ]]; then
     ARCHPKGS+=(
-        'qtile'
-        'rofi'
-        'flameshot'
-        'kitty'
-        'feh'
-        'dunst'
-        'copyq'
-        'picom'
-        'lightdm'
-        'arandr'
-        'pipewire'
-        'lib32-pipewire'
-        'helvum'
-        'acpi'
-        'poweralertd'
-        'blueman'
-    )
-elif [[ $choice == 3 ]]; then
-    ARCHPKGS+=(
         'xfce4'
     )
-elif [[ $choice == 4 ]]; then 
+elif [[ $choice == 3 ]]; then 
     ARCHPKGS+=(
         'xfce4'
         'xfce4-goodies'
     )
-elif [[ $choice == 5 ]]; then
+elif [[ $choice == 4 ]]; then
     ARCHPKGS+=(
         'hyprland'
         'hyprpaper'
@@ -62,7 +42,6 @@ elif [[ $choice == 5 ]]; then
         'xdg-desktop-portal-hyprland'
         'wlogout'
         'waybar'
-        'wofi'
         'kitty'
         'grim'
         'slurp'
@@ -78,7 +57,7 @@ elif [[ $choice == 5 ]]; then
         'copyq'
         'wl-clipboard'
     )
-elif [[ $choice == 6 ]]; then
+elif [[ $choice == 5 ]]; then
     echo "Skipped Installing Desktop Environment"
 else
     echo "Invalid choice. Please enter a valid number."
@@ -138,6 +117,7 @@ read -p "Would you like to install aur pakages?[Y/n]" aur_packs_choice
 AURPKGS=(
     # UTILITIES -----------------------------------------------------------
     'timeshift'                 # Backup and Restore
+    'rofi-lbonn-wayland-git'
     # 'zerotier-one'
     'docker'
     'docker-compose'
