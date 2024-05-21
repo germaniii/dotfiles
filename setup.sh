@@ -28,11 +28,13 @@ if [[ $choice == 1 ]]; then
 elif [[ $choice == 2 ]]; then
     ARCHPKGS+=(
         'xfce4'
+        'x11vnc'
     )
 elif [[ $choice == 3 ]]; then 
     ARCHPKGS+=(
         'xfce4'
         'xfce4-goodies'
+        'x11vnc'
     )
 elif [[ $choice == 4 ]]; then
     ARCHPKGS+=(
