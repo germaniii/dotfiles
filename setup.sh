@@ -77,6 +77,7 @@ else
     echo
 
     ARCHPKGS+=(
+        'tmux'
         'cronie'                  # cron jobs
         'wget'                    # Remote content retrieval
         'curl'                    # Remote content retrieval
