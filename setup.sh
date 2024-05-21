@@ -129,6 +129,17 @@ AURPKGS=(
     'ttf-fira-code'
     'ttf-font-awesome'
     'wlrobs-hg'
+
+    # FONTS ---------------------------------------------------------------
+    'ttf-freefont'
+    'ttf-ms-fonts'
+    'ttf-linux-libertine'
+    'ttf-dejavu'
+    'ttf-inconsolata'
+    'ttf-ubuntu-font-family'
+    'noto-fonts-cjk'
+    'noto-fonts-emoji'
+    'noto-fonts'
 )
 
 cd ${HOME}/yay
