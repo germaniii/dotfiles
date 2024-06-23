@@ -9,14 +9,12 @@
 
 window#waybar {
   border-bottom-style: inset;
-  border-bottom: 0.5em solid #689d6a;
-  background: #1d2021;
+  border-bottom: 0.3em solid #689d6a;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 #workspaces,
 #clock,
-#custom-music,
-
 #window {
   font-weight: 800;
 }
@@ -30,8 +28,16 @@ window#waybar {
   color: #1d2021;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   background: #689d6a;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#idle_inhibitor:hover,
+#network:hover,
+#workspaces button:hover {
+  background: #689d6a;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #mode {
@@ -63,7 +69,7 @@ window#waybar {
 }
 
 #clock {
-  margin: 0 0.5em;
+  margin: 0;
   color: #fabd2f;
   border-bottom: 0.5em solid #fabd2f;
 }
