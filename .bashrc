@@ -5,36 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-[[ -f ~/.welcome_screen ]] && . ~/.welcome_screen
-
-_set_liveuser_PS1() {
-    PS1='[\u@\h \W]\$ '
-    if [ "$(whoami)" = "liveuser" ] ; then
-        local iso_version="$(grep ^VERSION= /usr/lib/endeavouros-release 2>/dev/null | cut -d '=' -f 2)"
-        if [ -n "$iso_version" ] ; then
-            local prefix="eos-"
-            local iso_info="$prefix$iso_version"
-            PS1="[\u@$iso_info \W]\$ "
-        fi
-    fi
-}
-_set_liveuser_PS1
-unset -f _set_liveuser_PS1
-
-ShowInstallerIsoInfo() {
-    local file=/usr/lib/endeavouros-release
-    if [ -r $file ] ; then
-        cat $file
-    else
-        echo "Sorry, installer ISO info is not available." >&2
-    fi
-}
-
-
-alias ls='ls --color=auto'
-alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
-alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
-
 [[ "$(whoami)" = "root" ]] && return
 
 [[ -z "$FUNCNEST" ]] && export FUNCNEST=100          # limits recursive functions, see 'man bash'
@@ -75,30 +45,24 @@ _open_files_for_editing() {
     echo "$FUNCNAME: package 'xdg-utils' or 'exo' is required." >&2
 }
 
+# Git branch in prompt.
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    . "$HOME/.bash_aliases"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-set -o vi
 export MOZ_ENABLE_WAYLAND=1
-
 export EDITOR=nvim
 export VISUAL=nvim
-export PATH=~/Documents/Programs/bin:$PATH
 export TERM=xterm-256color tmux
-
-# Git branch in prompt.
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
 export PS1="\u@\h \[\033[35m\]\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PATH=~/Documents/Programs/bin:$PATH

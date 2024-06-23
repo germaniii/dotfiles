@@ -1,7 +1,7 @@
 alias vim=nvim
-export EDITOR=nvim
-export VISUAL=nvim
-export g3pc=192.168.196.28
+alias ls='ls --color=auto'
+alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
+alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
 
 function updateCloudflared(){
     sudo cloudflared service uninstall
