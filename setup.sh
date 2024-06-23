@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 ############################################################################
 # DE SELECTION
@@ -13,15 +13,9 @@ echo "4. Hyprland"
 echo "5. Skip"
 echo "6. Quit"
 
-read -p "Enter the number of your choice: " choice
+read -rp "Enter the number of your choice: " choice
 
-ARCHPKGS=(
-    'ripgrep'
-    'neovim'
-    'cloudflared'
-    'zerotier-one'
-    'firewalld'
-    )
+ARCHPKGS=()
 
 if [[ $choice == 1 ]]; then
     ARCHPKGS+=('gnome')
@@ -58,6 +52,7 @@ elif [[ $choice == 4 ]]; then
         'blueman'
         'copyq'
         'wl-clipboard'
+        'sddm'
     )
 elif [[ $choice == 5 ]]; then
     echo "Skipped Installing Desktop Environment"
@@ -69,34 +64,47 @@ fi
 ############################################################################
 # ARCH TERMINAL UTILITIES
 ############################################################################
-read -p "Would you like to install terminal utilities?[Y/n]" terminal_utilities_choice
+read -rp "Would you like to install essential terminal utilities?[Y/n]" terminal_utilities_choice
 
-if [[ $terminal_utilities_choice == n ]]; then
-    echo "Skipping Terminal Utilities Setup"
-else
+if [[ $terminal_utilities_choice != n ]]; then
     echo
     echo "Installing Terminal Utilities"
     echo
 
     ARCHPKGS+=(
+        # Workflow Essentials
+        'fzf'
+        'ripgrep'
+        'neovim'
         'tmux'
-        'cronie'                  # cron jobs
+        'ack'
+        'ranger'
+        'bpytop'
+
+        # Networking Essentials
         'wget'                    # Remote content retrieval
         'curl'                    # Remote content retrieval
-        'bpytop'                  # Process viewer
-        'neofetch'                # Shows system info when you launch terminal
         'ntp'                     # Network Time Protocol to set time via network.
+        'networkmanager'
+        'cloudflared'
+        'zerotier-one'
+        'firewalld'
+
+        # Programming essentials
+        'base-devel'
+        'git'
+        'docker'
+        'docker-compose'
+
+        # Audio Essentials
+        'pipewire'
+        'wireplumber'
+
+        # Additional but not Optional
+        'cronie'                  # cron jobs
         'unrar'                   # RAR compression program
         'unzip'                   # Zip compression program
         'zip'                     # Zip compression program
-        'ranger'    	      # Filesystem browser
-        'bpytop'
-        'pipewire'
-        'wireplumber'
-        'networkmanager'
-        'ack'
-        'nodejs'
-        'fzf'
     )
 
     for PKG in "${ARCHPKGS[@]}"; do
@@ -115,38 +123,64 @@ fi
 ############################################################################
 # AUR TERMINAL UTILITIES
 ############################################################################
-read -p "Would you like to install aur pakages?[Y/n]" aur_packs_choice
+read -rp "Would you like to install essential aur pakages?[Y/n]" aur_packs_choice
 
-AURPKGS=(
-    # UTILITIES -----------------------------------------------------------
-    'timeshift'                 # Backup and Restore
-    'rofi-lbonn-wayland-git'
-    # 'zerotier-one'
-    'docker'
-    'docker-compose'
-    'gruvbox-material-icon-theme-git'
-    'gruvbox-material-gtk-theme-git'
-    'ttf-fira-code'
-    'ttf-font-awesome'
-    'wlrobs-hg'
+if [[ $aur_packs_choice != n ]]; then
+    AURPKGS=(
+        'timeshift'                 # Backup and Restore
+        'wlrobs-hg'                 # Used in OBS Studio and Screen Sharing
 
-    # FONTS ---------------------------------------------------------------
-    'ttf-freefont'
-    'ttf-ms-fonts'
-    'ttf-linux-libertine'
-    'ttf-dejavu'
-    'ttf-inconsolata'
-    'ttf-ubuntu-font-family'
-    'noto-fonts-cjk'
-    'noto-fonts-emoji'
-    'noto-fonts'
-)
+        # Essential Fonts
+        'ttf-fira-code'
+        'ttf-font-awesome'
+    )
+fi
 
-cd ${HOME}/yay
+read -rp "Would you like to install additional theming for TWMs? [Y/n]" additional_twm_theming_choice
+
+if [[ $additional_twm_theming_choice != n ]]; then
+    AURPKGS+=(
+        'rofi-lbonn-wayland-git'
+        'gruvbox-material-icon-theme-git'
+        'gruvbox-material-gtk-theme-git'
+        'sddm-sugar-dark'
+    )
+fi
+
+read -rp "Would you like to install additional fonts?[Y/n]" additional_fonts_choice
+
+if [[ $additional_fonts_choice != n ]]; then
+    AURPKGS+=(
+        'ttf-freefont'
+        'ttf-ms-fonts'
+        'ttf-linux-libertine'
+        'ttf-dejavu'
+        'ttf-inconsolata'
+        'ttf-ubuntu-font-family'
+        'noto-fonts-cjk'
+        'noto-fonts-emoji'
+        'noto-fonts'
+    )
+fi
+
+read -rp "Would you like to install additional apps?[Y/n]" additional_apps_choice
+
+if [[ $additional_apps_choice != n ]]; then
+    AURPKGS+=(
+        'obs-studio'
+    )
+fi
+
+# Install yay
+cd ~ || exit
+git clone https://aur.archlinux.org/yay.git
+cd yay || exit
 makepkg -si
+cd ~ || exit
+rm -rf ~/yay
 
 for PKG in "${AURPKGS[@]}"; do
-    yay -S --noconfirm $PKG
+    yay -S --noconfirm "$PKG"
 done
 
 echo
