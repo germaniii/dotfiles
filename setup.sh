@@ -80,6 +80,7 @@ if [[ $terminal_utilities_choice != n ]]; then
         'ack'
         'ranger'
         'bpytop'
+        'fastfetch'
 
         # Networking Essentials
         'wget'                    # Remote content retrieval
