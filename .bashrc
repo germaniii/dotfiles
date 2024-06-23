@@ -59,6 +59,8 @@ parse_git_branch() {
 if [ -f ~/.bash_aliases ]; then
     . "$HOME/.bash_aliases"
 fi
+# NVM source proper
+source /usr/share/nvm/init-nvm.sh
 
 export MOZ_ENABLE_WAYLAND=1
 export EDITOR=nvim
