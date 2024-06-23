@@ -129,6 +129,7 @@ if [[ $aur_packs_choice != n ]]; then
     AURPKGS=(
         'timeshift'                 # Backup and Restore
         'wlrobs-hg'                 # Used in OBS Studio and Screen Sharing
+        'sddm-sugar-dark'
 
         # Essential Fonts
         'ttf-fira-code'
@@ -143,7 +144,6 @@ if [[ $additional_twm_theming_choice != n ]]; then
         'rofi-lbonn-wayland-git'
         'gruvbox-material-icon-theme-git'
         'gruvbox-material-gtk-theme-git'
-        'sddm-sugar-dark'
     )
 fi
 
