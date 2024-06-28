@@ -131,6 +131,7 @@ if [[ $aur_packs_choice != n ]]; then
         'timeshift'                 # Backup and Restore
         'wlrobs-hg'                 # Used in OBS Studio and Screen Sharing
         'sddm-sugar-dark'
+        'tmux-plugin-manager'
 
         # Essential Fonts
         'ttf-fira-code'
