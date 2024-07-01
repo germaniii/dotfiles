@@ -3,6 +3,22 @@ alias ls='ls --color=auto'
 alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
 alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
 
+########################################################################
+# Auto complete sample
+########################################################################
+function autoComp () {
+    echo "auto comp $1"
+}
+function _autoComp () {
+    local cur opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts="auto-answer mass-message scenario line-webhook backup-scenario"
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    return 0
+}
+complete -F _autoComp autoComp
+
 function updateCloudflared(){
     sudo cloudflared service uninstall
     sudo rm /etc/cloudflared/config.yml
