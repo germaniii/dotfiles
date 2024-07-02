@@ -3,6 +3,8 @@
 #
 
 # If not running interactively, don't do anything
+stty -ixon # Prevent ranger from freezing
+
 [[ $- != *i* ]] && return
 
 [[ "$(whoami)" = "root" ]] && return
