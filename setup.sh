@@ -88,8 +88,8 @@ if [[ $terminal_utilities_choice != n ]]; then
         'ntp'                     # Network Time Protocol to set time via network.
         'networkmanager'
         'cloudflared'
-        'zerotier-one'
         'firewalld'
+        'reflector'
 
         # Programming essentials
         'base-devel'
@@ -128,12 +128,7 @@ read -rp "Would you like to install essential aur pakages?[Y/n]" aur_packs_choic
 
 if [[ $aur_packs_choice != n ]]; then
     AURPKGS=(
-        'timeshift'                 # Backup and Restore
-        'wlrobs-hg'                 # Used in OBS Studio and Screen Sharing
-        'sddm-sugar-dark'
         'tmux-plugin-manager'
-
-        # Essential Fonts
         'ttf-fira-code'
         'ttf-font-awesome'
     )
@@ -146,6 +141,7 @@ if [[ $additional_twm_theming_choice != n ]]; then
         'rofi-lbonn-wayland-git'
         'gruvbox-material-icon-theme-git'
         'gruvbox-material-gtk-theme-git'
+        'sddm-sugar-dark'
     )
 fi
 
@@ -165,11 +161,13 @@ if [[ $additional_fonts_choice != n ]]; then
     )
 fi
 
-read -rp "Would you like to install additional apps?[Y/n]" additional_apps_choice
+read -rp "Would you like to install additional apps for Desktop?[Y/n]" additional_apps_choice
 
 if [[ $additional_apps_choice != n ]]; then
     AURPKGS+=(
         'obs-studio'
+        'wlrobs-hg'                 # Used in OBS Studio and Screen Sharing
+        'timeshift'                 # Backup and Restore
     )
 fi
 
