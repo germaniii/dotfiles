@@ -64,7 +64,7 @@ fi
 ############################################################################
 # ARCH TERMINAL UTILITIES
 ############################################################################
-read -rp "Would you like to install essential terminal utilities?[Y/n]" terminal_utilities_choice
+read -rp "[Terminal] Would you like to install essential utilities?[Y/n]" terminal_utilities_choice
 
 if [[ $terminal_utilities_choice != n ]]; then
     echo
@@ -79,7 +79,7 @@ if [[ $terminal_utilities_choice != n ]]; then
         'tmux'
         'ack'
         'ranger'
-        'bpytop'
+        'htop'
         'fastfetch'
 
         # Networking Essentials
@@ -124,7 +124,7 @@ fi
 ############################################################################
 # AUR TERMINAL UTILITIES
 ############################################################################
-read -rp "Would you like to install essential aur pakages?[Y/n]" aur_packs_choice
+read -rp "[Terminal] Would you like to install essential aur pakages?[Y/n]" aur_packs_choice
 
 if [[ $aur_packs_choice != n ]]; then
     AURPKGS=(
@@ -134,18 +134,7 @@ if [[ $aur_packs_choice != n ]]; then
     )
 fi
 
-read -rp "Would you like to install additional theming for TWMs? [Y/n]" additional_twm_theming_choice
-
-if [[ $additional_twm_theming_choice != n ]]; then
-    AURPKGS+=(
-        'rofi-lbonn-wayland-git'
-        'gruvbox-material-icon-theme-git'
-        'gruvbox-material-gtk-theme-git'
-        'sddm-sugar-dark'
-    )
-fi
-
-read -rp "Would you like to install additional fonts?[Y/n]" additional_fonts_choice
+read -rp "[Terminal & GUI] Would you like to install additional fonts?[Y/n]" additional_fonts_choice
 
 if [[ $additional_fonts_choice != n ]]; then
     AURPKGS+=(
@@ -161,7 +150,19 @@ if [[ $additional_fonts_choice != n ]]; then
     )
 fi
 
-read -rp "Would you like to install additional apps for Desktop?[Y/n]" additional_apps_choice
+read -rp "[GUI] Would you like to install additional theming for TWMs? [Y/n]" additional_twm_theming_choice
+
+if [[ $additional_twm_theming_choice != n ]]; then
+    AURPKGS+=(
+        'rofi-lbonn-wayland-git'
+        'gruvbox-material-icon-theme-git'
+        'gruvbox-material-gtk-theme-git'
+        'sddm-sugar-dark'
+    )
+fi
+
+
+read -rp "[GUI] Would you like to install additional apps for Desktop?[Y/n]" additional_apps_choice
 
 if [[ $additional_apps_choice != n ]]; then
     AURPKGS+=(
@@ -204,4 +205,6 @@ echo "Open nvim and do :Lazy"
 echo
 
 # Setup crontab
-crontab < ~/.crontab
+if [ -f ~/.crontab ]; then
+    crontab < ~/.crontab
+fi
