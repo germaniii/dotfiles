@@ -47,27 +47,28 @@ _open_files_for_editing() {
     echo "$FUNCNAME: package 'xdg-utils' or 'exo' is required." >&2
 }
 
-# Git branch in prompt.
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+####################################################################################
+# Sources
+####################################################################################
 
 if [ -f ~/.bash_aliases ]; then
     . "$HOME/.bash_aliases"
 fi
-# NVM source proper
 source /usr/share/nvm/init-nvm.sh
+
+####################################################################################
+# Exports
+####################################################################################
+
+# Git branch in prompt.
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \[\033[35m\]\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 export MOZ_ENABLE_WAYLAND=1
 export EDITOR=nvim
 export VISUAL=nvim
 export TERM=xterm-256color tmux
-export PS1="\u@\h \[\033[35m\]\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 export PATH=~/Documents/Programs/bin:$PATH
 fastfetch
