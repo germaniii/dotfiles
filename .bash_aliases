@@ -1,15 +1,19 @@
+####################################################################
+# Aliases
+####################################################################
+
 alias vim=nvim
+alias vidir="nvim -c 'Oil'"
+alias edir="nvim -c 'Oil'"
 alias ls='ls --color=auto'
 alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
 alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
 
-function updateMirrors () {
-    reflector --verbose -l 200 -n 20 -p http --sort rate --save /etc/pacman.d/mirrorlist
-} 
+####################################################################
+# Functions
+####################################################################
 
-########################################################################
 # Auto complete sample
-########################################################################
 function autoComp () {
     echo "auto comp $1"
 }
@@ -22,6 +26,15 @@ function _autoComp () {
     return 0
 }
 complete -F _autoComp autoComp
+
+function updateMirrors () {
+    reflector --verbose -l 200 -n 20 -p http --sort rate --save /etc/pacman.d/mirrorlist
+}
+
+function globalGitIgnore() {
+    touch ~/.gitignore
+    git config --global core.excludesFile '~/.gitignore'
+}
 
 function updateCloudflared(){
     sudo cloudflared service uninstall
@@ -56,4 +69,7 @@ function dcmd(){
     docker exec -it $1 ${@:2}
 }
 
-
+function mysql_connect () {
+ sudo mysql -u root -pmysql2023 \
+    -h $1 -P $2 
+}
