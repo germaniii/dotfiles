@@ -75,6 +75,7 @@ if [[ $terminal_utilities_choice != n ]]; then
         # Workflow Essentials
         'fzf'
         'ripgrep'
+        'sed'
         'neovim'
         'tmux'
         'ack'
