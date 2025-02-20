@@ -82,6 +82,7 @@ if [[ $terminal_utilities_choice != n ]]; then
         'ranger'
         'htop'
         'fastfetch'
+        'entr' # tmux dep
 
         # Networking Essentials
         'wget'                    # Remote content retrieval
