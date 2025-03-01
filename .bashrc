@@ -58,6 +58,9 @@ fi
 # NVM source proper
 source /usr/share/nvm/init-nvm.sh
 
+# Miniconda
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
 ####################################################################################
 # Exports
 ####################################################################################
