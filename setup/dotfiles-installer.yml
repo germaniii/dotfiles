@@ -1,0 +1,4 @@
+name: dotfiles-installer
+dependencies:
+  - python=3.9
+  - rich
