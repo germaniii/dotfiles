@@ -15,4 +15,6 @@ export PATH=~/Documents/Programs/bin:~/.nvm/versions/node/v18.20.3/bin:$PATH
 export DISPLAY=:0
 export EDITOR=nvim
 export VISUAL=nvim
+# conda error
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 source /usr/share/nvm/init-nvm.sh
