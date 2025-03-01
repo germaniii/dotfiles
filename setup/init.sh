@@ -64,7 +64,7 @@ nvm install --lts
 echo
 echo "Setting up initial Miniconda environment"
 echo
-eval "$(conda shell.bash hook)"
+source /opt/miniconda3/bin/activate
 conda env create -f ./dotfiles-installer.yml
 conda activate dotfiles-installer
 python py-install.py
