@@ -58,12 +58,14 @@ echo
 echo
 echo "Setting up Node Version Manager"
 echo
-. ~/.bash_profile
+source ~/.bash_profile
 nvm install --lts
 
 echo
 echo "Setting up initial Miniconda environment"
 echo
+conda init
+source ~/.bash_profile
 conda env create -f ./dotfiles-installer.yml
 conda activate dotfiles-installer
 python py-install.py
