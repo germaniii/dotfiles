@@ -1,130 +1,92 @@
-from constants.classes import DesktopEnvironment, Package
-from constants.enums import DE
+from constants.enums import Package
+from constants.enums import DE, DESKTOP_ENVIRONMENT_DICT
 
 DESKTOP_ENVIRONMENTS = [
-    DesktopEnvironment(
-        DE.GNOME,
-        "The Complete GNOME Desktop Environment",
-        [
-            Package(
-                "gnome",
-                "contains the base GNOME desktop and the well-integrated core applications",
-            ),
-        ],
-    ),
-    DesktopEnvironment(
-        DE.XFCE,
-        "",
-        [
-            Package("xfce4", ""),
-            Package("xfce4-goodies", ""),
-            Package("x11vnc", ""),
-        ],
-    ),
-    DesktopEnvironment(
-        DE.HYPRLAND,
-        "",
-        [
-            Package("hyprland", ""),
-            Package("hyprpaper", ""),
-            Package("hyprlock", ""),
-            Package("xdg-desktop-portal-hyprland", ""),
-            Package("wlogout", ""),
-            Package("waybar", ""),
-            Package("kitty", ""),
-            Package("grim", ""),
-            Package("slurp", ""),
-            Package("dunst", ""),
-            Package("polkit-kde-agent", ""),
-            Package("swaylock", ""),
-            Package("swayidle", ""),
-            Package("gdm", ""),
-            Package("brightnessctl", ""),
-            Package("acpi", ""),
-            Package("poweralertd", ""),
-            Package("blueman", ""),
-            Package("copyq", ""),
-            Package("wl-clipboard", ""),
-            Package("sddm", ""),
-        ],
-    ),
+    DESKTOP_ENVIRONMENT_DICT[DE.GNOME],
+    DESKTOP_ENVIRONMENT_DICT[DE.XFCE],
+    DESKTOP_ENVIRONMENT_DICT[DE.HYPRLAND],
+    DESKTOP_ENVIRONMENT_DICT[DE.NONE],
 ]
 
 TERMINAL_UTILITIES = [
     # Workflow Essentials
-    Package("fzf", ""),
-    Package("ripgrep", ""),
-    Package("sed", ""),
-    Package("neovim", ""),
-    Package("tmux", ""),
-    Package("ack", ""),
-    Package("ranger", ""),
-    Package("htop", ""),
-    Package("fd", ""),
-    Package("fastfetch", ""),
-    Package("entr", ""),  # tmux dep
+    Package("fzf", "A command-line fuzzy finder for searching and filtering."),
+    Package("ripgrep", "A fast, recursive search tool, similar to grep."),
+    Package("sed", "A stream editor for filtering and transforming text."),
+    Package("neovim", "A modern, extensible Vim-based text editor."),
+    Package("tmux", "A terminal multiplexer for managing multiple sessions."),
+    Package("ack", "A search tool optimized for programmers, similar to grep."),
+    Package("ranger", "A terminal file manager with VI key bindings."),
+    Package("htop", "An interactive process viewer and system monitor."),
+    Package("fd", "A faster alternative to 'find' for searching files."),
+    Package("fastfetch", "A lightweight system information tool, similar to neofetch."),
+    Package(
+        "entr", "A utility to run commands when files change (dependency for tmux)."
+    ),
     # Networking Essentials
-    Package("wget", ""),  # Remote content retrieval
-    Package("curl", ""),  # Remote content retrieval
-    Package("ntp", ""),  # Network Time Protocol to set time via network.
-    Package("networkmanager", ""),
-    Package("cloudflared", ""),
-    Package("firewalld", ""),
-    Package("reflector", ""),
-    # Programming essentials
-    Package("base-devel", ""),
-    Package("git", ""),
-    Package("docker", ""),
-    Package("docker-compose", ""),
+    Package("wget", "A command-line tool for retrieving files from the web."),
+    Package("curl", "A tool for transferring data from or to a server."),
+    Package("ntp", "A daemon for synchronizing the system clock over a network."),
+    Package("networkmanager", "A utility for managing network connections."),
+    Package("cloudflared", "A Cloudflare utility for creating secure tunnels."),
+    Package("firewalld", "A firewall management tool with D-Bus interface."),
+    Package(
+        "reflector", "A tool to update the Pacman mirror list with the fastest mirrors."
+    ),
+    # Programming Essentials
+    Package(
+        "base-devel", "A group of essential development tools, including make and gcc."
+    ),
+    Package("git", "A distributed version control system."),
+    Package("docker", "A containerization platform for running isolated applications."),
+    Package(
+        "docker-compose",
+        "A tool for defining and running multi-container Docker applications.",
+    ),
     # Audio Essentials
-    Package("pipewire", ""),
-    Package("wireplumber", ""),
+    Package("pipewire", "A low-latency audio and video processing engine."),
+    Package("wireplumber", "A session manager for PipeWire."),
     # Additional but not Optional
-    Package("cronie", ""),  # cron jobs
-    Package("unrar", ""),  # RAR compression program
-    Package("unzip", ""),  # Zip compression program
-    Package("zip", ""),  # Zip compression program
+    Package("cronie", "A daemon to schedule and run cron jobs."),
+    Package("unrar", "A utility for extracting RAR archives."),
+    Package("unzip", "A tool for extracting ZIP archives."),
+    Package("zip", "A tool for creating ZIP archives."),
 ]
 
 ESSENTIAL_AUR_PACKAGES = [
-    Package("tmux-plugin-manager", ""),
-    Package("tmux-ttf-fira-code", ""),
-    Package("tmux-ttf-font-awesome", ""),
+    Package("tmux-plugin-manager", "A plugin manager for tmux."),
+    Package("tmux-ttf-fira-code", "A Fira Code font package for tmux."),
+    Package("tmux-ttf-font-awesome", "A Font Awesome package for tmux."),
 ]
 
 FONT_PACKAGES = [
-    Package("ttf-freefont", ""),
-    Package("ttf-ms-fonts", ""),
-    Package("ttf-linux-libertine", ""),
-    Package("ttf-dejavu", ""),
-    Package("ttf-inconsolata", ""),
-    Package("ttf-ubuntu-font-family", ""),
-    Package("noto-fonts-cjk", ""),
-    Package("noto-fonts-emoji", ""),
-    Package("noto-fonts", ""),
-]
-
-FONT_PACKAGES = [
-    Package("ttf-freefont", ""),
-    Package("ttf-ms-fonts", ""),
-    Package("ttf-linux-libertine", ""),
-    Package("ttf-dejavu", ""),
-    Package("ttf-inconsolata", ""),
-    Package("ttf-ubuntu-font-family", ""),
-    Package("noto-fonts-cjk", ""),
-    Package("noto-fonts-emoji", ""),
-    Package("noto-fonts", ""),
+    Package("ttf-freefont", "A collection of high-quality TrueType fonts."),
+    Package("ttf-ms-fonts", "A collection of Microsoft TrueType fonts."),
+    Package("ttf-linux-libertine", "A high-quality serif font for Linux."),
+    Package("ttf-dejavu", "An improved font family based on the Vera fonts."),
+    Package("ttf-inconsolata", "A monospaced font for programming."),
+    Package("ttf-ubuntu-font-family", "The Ubuntu font family."),
+    Package("noto-fonts-cjk", "CJK font support for Noto Fonts."),
+    Package("noto-fonts-emoji", "Emoji font support for Noto Fonts."),
+    Package("noto-fonts", "A font family with wide Unicode coverage."),
 ]
 
 ADDITIONAL_THEMING_PACKAGES = [
-    Package("rofi-lbonn-wayland-git", ""),
-    Package("rofi-lgruvbox-material-icon-theme-git", ""),
-    Package("rofi-lgruvbox-material-gtk-theme-git", ""),
-    Package("rofi-lsddm-sugar-dark", ""),
+    Package("rofi-lbonn-wayland-git", "A Wayland-compatible version of Rofi."),
+    Package(
+        "rofi-lgruvbox-material-icon-theme-git", "Gruvbox Material icon theme for Rofi."
+    ),
+    Package(
+        "rofi-lgruvbox-material-gtk-theme-git", "Gruvbox Material GTK theme for Rofi."
+    ),
+    Package("rofi-lsddm-sugar-dark", "A dark theme for SDDM."),
 ]
 
 ADDITIONAL_APPLICATION_PACKAGES = [
-    Package("obs-studio", ""),
-    Package("wlrobs-hg", ""),  # Used in OBS Studio and Screen Sharing
-    Package("timeshift", ""),  # Backup and Restore
+    Package(
+        "obs-studio",
+        "A powerful open-source software for video recording and streaming.",
+    ),
+    Package("wlrobs-hg", "A Wayland screen capture plugin for OBS Studio."),
+    Package("timeshift", "A system restore utility for Linux."),
 ]
