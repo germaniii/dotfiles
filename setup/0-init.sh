@@ -65,7 +65,8 @@ echo
 echo "Setting up initial Miniconda environment"
 echo
 conda init
-source ~/.bash_profile
-conda env create -f ./dotfiles-installer.yml
-conda activate dotfiles-installer
-python py-install.py
+
+echo
+echo "Please restart your shell and run ./1-init.sh"
+echo
+exit
