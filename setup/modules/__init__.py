@@ -1,2 +1,2 @@
 from .screens import *
-from .installHelper import *
+from .install_helper import *
