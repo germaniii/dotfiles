@@ -8,7 +8,7 @@ from rich.text import Text
 console = Console()
 
 
-def getDETable():
+def print_desktop_environment_table():
     table = Table(title="Select a Desktop Environment")
 
     table.add_column("Name", justify="right", style="cyan", no_wrap=True)
@@ -26,24 +26,30 @@ def getDETable():
     return
 
 
-def getPackagesTable(selectedDE):
-    print("\n\n")
-    if selectedDE == DE.NONE:
+def print_de_packages_table(selected_de):
+    print("\n")
+    if selected_de == DE.NONE:
         noneSelectedText = Text("No packages will be installed")
         noneSelectedText.stylize("bold red")
         console.print(noneSelectedText)
         return
-    elif selectedDE in {DE.GNOME, DE.HYPRLAND, DE.XFCE}:
-        table = Table(title="Packages for ")
-
-        table.add_column("Name", justify="right", style="cyan", no_wrap=True)
-        table.add_column("Description", style="magenta")
-
-        packages = DESKTOP_ENVIRONMENT_DICT[selectedDE].packages
-        for pak in packages:
-            table.add_row(pak.name, pak.description)
-
-        table.add_row(end_section=True)
-
-        console.print(table)
+    elif selected_de in {DE.GNOME, DE.HYPRLAND, DE.XFCE}:
+        packages = DESKTOP_ENVIRONMENT_DICT[selected_de].packages
+        print_packages_table(selected_de.value, packages)
         return
+
+
+def print_packages_table(title, packages, caption=""):
+    print("\n")
+    table = Table(title=title, caption=caption)
+
+    table.add_column("Name", justify="right", style="cyan", no_wrap=True)
+    table.add_column("Description", style="magenta")
+
+    for pak in packages:
+        table.add_row(pak.name, pak.description)
+
+    table.add_row(end_section=True)
+
+    console.print(table)
+    return
