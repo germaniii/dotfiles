@@ -12,7 +12,7 @@ sudo pacman -S --noconfirm base-devel go
 AURPKGS=(
     'neovim'
     'nvm'
-    'miniconda'
+    'miniconda3'
 )
 
 # Install yay
