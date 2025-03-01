@@ -10,12 +10,11 @@ AURPKGS=(
 )
 
 # Install yay
-cd ~ || exit
 git clone https://aur.archlinux.org/yay.git
 cd yay || exit
 makepkg -si
-cd ~ || exit
-rm -rf ~/yay
+cd .. || exit
+rm -rf yay
 
 for PKG in "${AURPKGS[@]}"; do
     yay -S --noconfirm "$PKG"
