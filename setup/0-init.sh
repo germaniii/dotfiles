@@ -4,7 +4,7 @@
 # Initial Setup
 ############################################################################
 sudo pacman -Syu
-sudo pacman -S --noconfirm base-devel
+sudo pacman -S --noconfirm base-devel go
 
 ############################################################################
 # AUR TERMINAL UTILITIES
