@@ -58,6 +58,7 @@ echo
 echo
 echo "Setting up Node Version Manager"
 echo
+. ~/.bash_profile
 nvm install --lts
 
 echo
