@@ -27,9 +27,9 @@ for PKG in "${AURPKGS[@]}"; do
 done
 
 # Setup crontab
-if [ -f ~/.crontab ]; then
-    crontab < ~/.crontab
-fi
+# if [ -f ~/.crontab ]; then
+#     crontab < ~/.crontab
+# fi
 
 ############################################################################
 # NeoVim SETUP
