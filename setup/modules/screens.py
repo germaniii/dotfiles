@@ -28,15 +28,16 @@ def print_desktop_environment_table():
 
 def print_de_packages_table(selected_de):
     print("\n")
-    if selected_de == DE.NONE:
-        noneSelectedText = Text("No packages will be installed")
-        noneSelectedText.stylize("bold red")
-        console.print(noneSelectedText)
-        return
-    elif selected_de in {DE.GNOME, DE.HYPRLAND, DE.XFCE}:
-        packages = DESKTOP_ENVIRONMENT_DICT[selected_de].packages
-        print_packages_table(selected_de.value, packages)
-        return
+    match selected_de:
+        case DE.NONE:
+            noneSelectedText = Text("No packages will be installed")
+            noneSelectedText.stylize("bold red")
+            console.print(noneSelectedText)
+            return
+        case DE.GNOME | DE.HYPRLAND | DE.XFCE:
+            packages = DESKTOP_ENVIRONMENT_DICT[selected_de].packages
+            print_packages_table(selected_de.value, packages)
+            return
 
 
 def print_packages_table(title, packages, caption=""):
