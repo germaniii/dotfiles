@@ -1,13 +1,22 @@
 import curses
 from constants.colors import init_colors
 from constants.classes import Screen
-from screens import MainMenu
+from constants.constants import EXIT_CONFIRM, MAIN_MENU_ITEMS
+from screens import MainMenuScreen, ExitConfirmScreen
+
+# Curses Init
+stdscr = curses.initscr()
+curses.noecho()  # dont echo keystrokes
+curses.cbreak()  # dont wait for enter, handle keys immediately
+curses.start_color()
+curses.curs_set(0)
+init_colors()
 
 
-def print_screen(stdscr, current_screen):
+def get_screen(stdscr, current_screen):
     match current_screen:
         case Screen.MAIN_MENU:
-            return MainMenu(stdscr, ['item 1', 'item 2'])
+            return MainMenuScreen(stdscr, MAIN_MENU_ITEMS)
         case Screen.INSTALL_SELECT:
             pass
         case Screen.INSTALL_SUMMARY:
@@ -17,7 +26,7 @@ def print_screen(stdscr, current_screen):
         case Screen.INSTALL_COMPLETE:
             pass
         case Screen.EXIT_CONFIRM:
-            pass
+            return ExitConfirmScreen(stdscr, EXIT_CONFIRM)
 
 
 def print_center(stdscr, text):
@@ -29,30 +38,34 @@ def print_center(stdscr, text):
     stdscr.refresh()
 
 
-def main(stdscr):
-    curses.curs_set(0)
-    init_colors()
-
+def main(stdscr) -> None:
     current_screen = Screen.MAIN_MENU
-    selected_row = 0
+    current_row = 0
 
-    menu = print_screen(stdscr, current_screen)
+    menu = get_screen(stdscr, current_screen)
     if menu:
-        menu.print_menu(selected_row)
+        menu.print_menu(current_row)
 
     while 1:
-        menu = print_screen(stdscr, current_screen)
+        menu = get_screen(stdscr, current_screen)
         if not menu:
             break
 
-        menu.print_menu(selected_row)
-        selected_row = menu.watch_input(selected_row)
+        # Print Screen
+        menu.print_menu(current_row)
+
+        row, screen = menu.watch_input(current_row, current_screen)
+        current_row = row
+        current_screen = screen
 
     # eof
     stdscr.keypad(0)
 
 
+# Run main loop
 curses.wrapper(main)
+
+# Curses DeInit
 curses.nocbreak()
 curses.echo()
 curses.endwin()
