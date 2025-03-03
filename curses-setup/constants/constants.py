@@ -6,6 +6,15 @@ from constants.classes import (
     Package,
 )
 
+MAIN_MENU_ITEMS = [
+    "INSTALL",
+    "EXIT",
+]
+
+EXIT_CONFIRM = [
+    "Yes",
+    "No",
+]
 
 COLORS = [
     (DecoratedText.NORMAL.value, curses.COLOR_BLACK, curses.COLOR_WHITE),
