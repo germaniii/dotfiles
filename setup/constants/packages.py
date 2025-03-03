@@ -55,8 +55,6 @@ TERMINAL_UTILITIES = [
 
 ESSENTIAL_AUR_PACKAGES = [
     Package("tmux-plugin-manager", "A plugin manager for tmux."),
-    Package("tmux-ttf-fira-code", "A Fira Code font package for tmux."),
-    Package("tmux-ttf-font-awesome", "A Font Awesome package for tmux."),
 ]
 
 FONT_PACKAGES = [
