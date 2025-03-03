@@ -4,10 +4,10 @@ from constants.classes import Screen
 from screens import MainMenu
 
 
-def print_screen(stdscr, current_screen, selected_row):
+def print_screen(stdscr, current_screen):
     match current_screen:
         case Screen.MAIN_MENU:
-            return MainMenu(stdscr, [], selected_row)
+            return MainMenu(stdscr, ['item 1', 'item 2'])
         case Screen.INSTALL_SELECT:
             pass
         case Screen.INSTALL_SUMMARY:
@@ -34,17 +34,19 @@ def main(stdscr):
     init_colors()
 
     current_screen = Screen.MAIN_MENU
-    current_row = 0
+    selected_row = 0
 
-    print_screen(stdscr, current_screen, current_row)
+    menu = print_screen(stdscr, current_screen)
+    if menu:
+        menu.print_menu(selected_row)
 
     while 1:
-        menu = print_screen(stdscr, current_screen, current_row)
+        menu = print_screen(stdscr, current_screen)
         if not menu:
             break
 
-        menu.print_menu()
-        menu.watch_input()
+        menu.print_menu(selected_row)
+        selected_row = menu.watch_input(selected_row)
 
     # eof
     stdscr.keypad(0)
