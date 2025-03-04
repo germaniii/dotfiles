@@ -62,3 +62,9 @@ class InstallSelectDesktopScreen(BaseScreen):
                 stdscr.addstr(y, x, "- " + pkg.name)
 
         stdscr.refresh()
+
+    def get_packages(self):
+        if not len(self.items[self.current_row].packages):
+            return []
+
+        return self.items[self.current_row].packages
