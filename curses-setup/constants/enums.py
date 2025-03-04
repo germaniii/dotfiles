@@ -28,29 +28,3 @@ class Screen(Enum):
     INSTALL_CONFIRM = "install_confirm"
     INSTALL_COMPLETE = "install_complete"
     EXIT_CONFIRM = "exit_confirm"
-
-
-#####################################
-# CLASSES
-#####################################
-class DesktopEnvironment:
-    name = DE.NONE
-    description = ""
-    packages = []
-
-    def __init__(self, name, description, packages):
-        self.name = name
-        self.description = description
-        self.packages = packages
-
-    def __eq__(self, other):
-        return self.name.value == other.name.value
-
-
-class Package:
-    name = ""
-    description = ""
-
-    def __init__(self, name, description):
-        self.name = name
-        self.description = description
