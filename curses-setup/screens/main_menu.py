@@ -50,3 +50,6 @@ class MainMenuScreen(BaseScreen):
                 stdscr.addstr(y, x, row)
 
         stdscr.refresh()
+
+    def get_packages(self):
+        return super().get_packages()
