@@ -1,7 +1,9 @@
 from constants.classes import (
-    DE,
     DesktopEnvironment,
     Package,
+)
+from constants.enums import (
+    DE,
 )
 
 MAIN_MENU_ITEMS = [

@@ -1,5 +1,5 @@
 import curses
-from constants.classes import (
+from constants.enums import (
     DecoratedText,
 )
 

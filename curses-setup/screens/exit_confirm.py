@@ -1,7 +1,6 @@
 import curses
-from typing import Tuple
 from .screen import BaseScreen
-from constants.classes import DecoratedText, Screen
+from constants.enums import DecoratedText, Screen
 from constants.colors import get_color_pair
 
 
@@ -9,25 +8,29 @@ class ExitConfirmScreen(BaseScreen):
     def __init__(self, stdscr, items):
         self.stdscr = stdscr
         self.items = items
+        self.current_row = 0
 
-    def watch_input(self, current_row, current_screen) -> Tuple:
+    def watch_input(self, current_screen):
         stdscr = self.stdscr
         key = stdscr.getch()
 
-        if key in (curses.KEY_UP, ord("k")) and current_row > 0:
-            current_row -= 1
-        elif key in (curses.KEY_DOWN, ord("j")) and current_row < len(self.items) - 1:
-            current_row += 1
+        if key in (curses.KEY_UP, ord("k")) and self.current_row > 0:
+            self.current_row -= 1
+        elif (
+            key in (curses.KEY_DOWN, ord("j"))
+            and self.current_row < len(self.items) - 1
+        ):
+            self.current_row += 1
         elif key in (curses.KEY_ENTER, 10, 13):
-            match current_row:
+            match self.current_row:
                 case 0:
                     current_screen = None
                 case 1:
                     current_screen = Screen.MAIN_MENU
 
-        return (current_row, current_screen)
+        return current_screen
 
-    def print_menu(self, current_row) -> None:
+    def print_menu(self) -> None:
         stdscr = self.stdscr
         stdscr.clear()
 
@@ -39,7 +42,7 @@ class ExitConfirmScreen(BaseScreen):
         for idx, row in enumerate(self.items):
             x = w // 2 - len(row) // 2
             y = h // 2 - len(self.items) // 2 + idx
-            if idx == current_row:
+            if idx == self.current_row:
                 stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
                 stdscr.addstr(y, x, row)
                 stdscr.attroff(get_color_pair(DecoratedText.NORMAL))
