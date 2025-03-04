@@ -1,6 +1,18 @@
-from constants.constants import EXIT_CONFIRM, MAIN_MENU_ITEMS, DESKTOP_ENVIRONMENTS
+from constants.constants import (
+    EXIT_CONFIRM,
+    MAIN_MENU_ITEMS,
+    DESKTOP_ENVIRONMENTS,
+    TERMINAL_UTILITIES,
+    ESSENTIAL_AUR_PACKAGES,
+    FONT_PACKAGES,
+)
 from constants.enums import Screen
-from screens import MainMenuScreen, ExitConfirmScreen, InstallSelectDesktopScreen
+from screens import (
+    MainMenuScreen,
+    ExitConfirmScreen,
+    InstallSelectDesktopScreen,
+    InstallSelectPackagesScreen,
+)
 
 
 class ScreenManager:
@@ -13,11 +25,22 @@ class ScreenManager:
     exit_confirm = None
 
     def __init__(self, stdscr):
-        self.main_menu = MainMenuScreen(stdscr, MAIN_MENU_ITEMS)
-        self.install_select_de = InstallSelectDesktopScreen(
-            stdscr, DESKTOP_ENVIRONMENTS
+        self.main_menu = MainMenuScreen(
+            stdscr,
+            MAIN_MENU_ITEMS,
         )
-        self.install_select_pkgs = None
+        self.install_select_de = InstallSelectDesktopScreen(
+            stdscr,
+            DESKTOP_ENVIRONMENTS,
+        )
+        self.install_select_pkgs = InstallSelectPackagesScreen(
+            stdscr,
+            [
+                *TERMINAL_UTILITIES,
+                *ESSENTIAL_AUR_PACKAGES,
+                *FONT_PACKAGES,
+            ],
+        )
         self.install_summary = None
         self.install_confirm = None
         self.install_complete = None
@@ -30,7 +53,7 @@ class ScreenManager:
             case Screen.INSTALL_SELECT_DE:
                 return self.install_select_de
             case Screen.INSTALL_SELECT_PKGS:
-                pass
+                return self.install_select_pkgs
             case Screen.INSTALL_SUMMARY:
                 pass
             case Screen.INSTALL_CONFIRM:
