@@ -1,8 +1,8 @@
 import curses
 from constants.colors import init_colors
 from constants.classes import Screen
-from constants.constants import EXIT_CONFIRM, MAIN_MENU_ITEMS
-from screens import MainMenuScreen, ExitConfirmScreen
+from constants.constants import EXIT_CONFIRM, MAIN_MENU_ITEMS, DESKTOP_ENVIRONMENTS
+from screens import MainMenuScreen, ExitConfirmScreen, InstallSelectDesktopScreen
 
 # Curses Init
 stdscr = curses.initscr()
@@ -17,7 +17,9 @@ def get_screen(stdscr, current_screen):
     match current_screen:
         case Screen.MAIN_MENU:
             return MainMenuScreen(stdscr, MAIN_MENU_ITEMS)
-        case Screen.INSTALL_SELECT:
+        case Screen.INSTALL_SELECT_DE:
+            return InstallSelectDesktopScreen(stdscr, DESKTOP_ENVIRONMENTS)
+        case Screen.INSTALL_SELECT_PKGS:
             pass
         case Screen.INSTALL_SUMMARY:
             pass
@@ -32,8 +34,8 @@ def get_screen(stdscr, current_screen):
 def print_center(stdscr, text):
     stdscr.clear()
     h, w = stdscr.getmaxyx()
-    x = w//2 - len(text)//2
-    y = h//2
+    x = w // 2 - len(text) // 2
+    y = h // 2
     stdscr.addstr(y, x, text)
     stdscr.refresh()
 

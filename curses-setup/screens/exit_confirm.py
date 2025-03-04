@@ -2,6 +2,7 @@ import curses
 from typing import Tuple
 from .screen import BaseScreen
 from constants.classes import DecoratedText, Screen
+from constants.colors import get_color_pair
 
 
 class ExitConfirmScreen(BaseScreen):
@@ -13,10 +14,9 @@ class ExitConfirmScreen(BaseScreen):
         stdscr = self.stdscr
         key = stdscr.getch()
 
-        if key in (curses.KEY_UP, ord('k')) and current_row > 0:
+        if key in (curses.KEY_UP, ord("k")) and current_row > 0:
             current_row -= 1
-        elif (key in (curses.KEY_DOWN, ord('j'))
-              and current_row < len(self.items) - 1):
+        elif key in (curses.KEY_DOWN, ord("j")) and current_row < len(self.items) - 1:
             current_row += 1
         elif key in (curses.KEY_ENTER, 10, 13):
             match current_row:
@@ -31,18 +31,18 @@ class ExitConfirmScreen(BaseScreen):
         stdscr = self.stdscr
         stdscr.clear()
 
-        stdscr.attron(curses.color_pair(DecoratedText.ALERT.value))
-        stdscr.addstr(0, 0, 'Exit Confirmation')
-        stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
+        stdscr.attroff(get_color_pair(DecoratedText.ALERT))
+        stdscr.addstr(0, 0, "Exit Confirmation")
+        stdscr.attroff(get_color_pair(DecoratedText.NORMAL))
 
         h, w = stdscr.getmaxyx()
         for idx, row in enumerate(self.items):
-            x = w//2 - len(row)//2
-            y = h//2 - len(self.items)//2 + idx
+            x = w // 2 - len(row) // 2
+            y = h // 2 - len(self.items) // 2 + idx
             if idx == current_row:
-                stdscr.attron(curses.color_pair(DecoratedText.SELECTED.value))
+                stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
                 stdscr.addstr(y, x, row)
-                stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
+                stdscr.attroff(get_color_pair(DecoratedText.NORMAL))
             else:
                 stdscr.addstr(y, x, row)
 
