@@ -33,12 +33,13 @@ class ExitConfirmScreen(BaseScreen):
     def print_menu(self) -> None:
         stdscr = self.stdscr
         stdscr.clear()
-
-        stdscr.attroff(get_color_pair(DecoratedText.ALERT))
-        stdscr.addstr(0, 0, "Exit Confirmation")
-        stdscr.attroff(get_color_pair(DecoratedText.NORMAL))
-
         h, w = stdscr.getmaxyx()
+
+        stdscr.attron(curses.color_pair(DecoratedText.ALERT.value))
+        title = "Exit Confirmation"
+        stdscr.addstr(0, w // 2 - (len(title) // 2), title)
+        stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
+
         for idx, row in enumerate(self.items):
             x = w // 2 - len(row) // 2
             y = h // 2 - len(self.items) // 2 + idx
