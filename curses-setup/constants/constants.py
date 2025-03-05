@@ -6,6 +6,8 @@ from constants.enums import (
     DE,
 )
 
+HEADER_HEIGHT = 2
+
 MAIN_MENU_ITEMS = [
     "INSTALL",
     "EXIT",

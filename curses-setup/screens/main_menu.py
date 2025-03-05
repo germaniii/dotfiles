@@ -33,12 +33,13 @@ class MainMenuScreen(BaseScreen):
     def print_menu(self) -> None:
         stdscr = self.stdscr
         stdscr.clear()
+        h, w = stdscr.getmaxyx()
 
         stdscr.attron(curses.color_pair(DecoratedText.ALERT.value))
-        stdscr.addstr(0, 0, "Main Menu")
+        title = "Main Menu"
+        stdscr.addstr(0, w // 2 - (len(title) // 2), title)
         stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
 
-        h, w = stdscr.getmaxyx()
         for idx, row in enumerate(self.items):
             x = w // 2 - len(row) // 2
             y = h // 2 - len(self.items) // 2 + idx
