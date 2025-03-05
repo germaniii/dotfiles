@@ -2,6 +2,7 @@ import curses
 from .screen import BaseScreen
 from constants.enums import DecoratedText, Screen
 from constants.colors import get_color_pair
+from constants.constants import HEADER_HEIGHT
 
 
 class InstallSelectPackagesScreen(BaseScreen):
@@ -34,37 +35,32 @@ class InstallSelectPackagesScreen(BaseScreen):
     def print_menu(self) -> None:
         stdscr = self.stdscr
         stdscr.clear()
-
-        stdscr.attron(curses.color_pair(DecoratedText.ALERT.value))
-        stdscr.addstr(0, 0, "Install Packages Selection")
-        stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
-
         h, w = stdscr.getmaxyx()
 
-        for idx, row in enumerate(self.items):
-            x = w // 4 - len(row.name.value)
-            y = h // 2 - len(self.items) // 2 + idx
+        stdscr.attron(curses.color_pair(DecoratedText.ALERT.value))
+        title = "Install Packages Selection"
+        stdscr.addstr(0, w // 2 - (len(title) // 2), title)
+        stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
+
+        for idx, pkg in enumerate(self.items[0 : (h - HEADER_HEIGHT)]):
+            x = 0
+            y = HEADER_HEIGHT + idx
+
             if idx == self.current_row:
                 stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
-                stdscr.addstr(y, x, row.name.value)
+                stdscr.addstr(y, x, pkg.name)
                 stdscr.attron(get_color_pair(DecoratedText.NORMAL))
             else:
-                stdscr.addstr(y, x, row.name.value)
+                stdscr.addstr(y, x, pkg.name)
 
-        if not len(self.items[self.current_row].packages):
-            x = w // 3
-            y = h // 2
-            stdscr.addstr(y, x, "No Desktop Environment will be installed")
-        else:
-            for idx, pkg in enumerate(self.items[self.current_row].packages):
-                x = w // 3
-                y = h // 2 - len(self.items[self.current_row].packages) // 2 + idx
-                stdscr.addstr(y, x, "- " + pkg.name)
+        stdscr.addstr(
+            HEADER_HEIGHT, 10, self.items[self.current_row].description, curses.A_DIM
+        )
 
         stdscr.refresh()
 
     def get_packages(self):
-        if not len(self.items[self.current_row].packages):
+        if not len(self.items):
             return []
 
-        return self.items[self.current_row].packages
+        return self.items

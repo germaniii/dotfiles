@@ -2,6 +2,7 @@ import curses
 from .screen import BaseScreen
 from constants.enums import DecoratedText, Screen
 from constants.colors import get_color_pair
+from constants.constants import HEADER_HEIGHT
 
 
 class InstallSelectDesktopScreen(BaseScreen):
@@ -25,7 +26,7 @@ class InstallSelectDesktopScreen(BaseScreen):
             if self.current_row == len(self.items) - 1:
                 current_screen = Screen.MAIN_MENU
             else:
-                current_screen = Screen.EXIT_CONFIRM
+                current_screen = Screen.INSTALL_SELECT_PKGS
 
             self.current_row = 0
 
@@ -34,16 +35,16 @@ class InstallSelectDesktopScreen(BaseScreen):
     def print_menu(self) -> None:
         stdscr = self.stdscr
         stdscr.clear()
-
-        stdscr.attron(curses.color_pair(DecoratedText.ALERT.value))
-        stdscr.addstr(0, 0, "Install Desktop Environment Selection")
-        stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
-
         h, w = stdscr.getmaxyx()
 
+        stdscr.attron(curses.color_pair(DecoratedText.ALERT.value))
+        title = "Install Desktop Environment Selection"
+        stdscr.addstr(0, w // 2 - (len(title) // 2), title)
+        stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
+
         for idx, row in enumerate(self.items):
-            x = w // 4 - len(row.name.value)
-            y = h // 2 - len(self.items) // 2 + idx
+            x = 0
+            y = HEADER_HEIGHT + idx
             if idx == self.current_row:
                 stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
                 stdscr.addstr(y, x, row.name.value)
@@ -52,14 +53,15 @@ class InstallSelectDesktopScreen(BaseScreen):
                 stdscr.addstr(y, x, row.name.value)
 
         if not len(self.items[self.current_row].packages):
-            x = w // 3
-            y = h // 2
-            stdscr.addstr(y, x, "No Desktop Environment will be installed")
+            title = "*No Desktop Environment will be installed*"
+            x = 10
+            y = HEADER_HEIGHT
+            stdscr.addstr(y, x, title, curses.A_DIM)
         else:
             for idx, pkg in enumerate(self.items[self.current_row].packages):
-                x = w // 3
-                y = h // 2 - len(self.items[self.current_row].packages) // 2 + idx
-                stdscr.addstr(y, x, "- " + pkg.name)
+                x = 10
+                y = HEADER_HEIGHT + idx
+                stdscr.addstr(y, x, "- " + pkg.name, curses.A_DIM)
 
         stdscr.refresh()
 
