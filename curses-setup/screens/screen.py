@@ -55,7 +55,13 @@ class BaseScreen:
             x = 0
             y = HEADER_HEIGHT + idx
 
-            if idx == 0:  # self.current_row:
+            if len(
+                [a for a in self.scrmanager.data["selected_packages"] if a.name == item]
+            ):
+                self.stdscr.attron(get_color_pair(DecoratedText.SELECTED))
+                self.stdscr.addstr(y, x, item)
+                self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
+            elif idx == 0:  # self.current_row:
                 self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
                 self.stdscr.addstr(y, x, item)
                 self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
