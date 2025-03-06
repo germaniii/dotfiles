@@ -16,49 +16,47 @@ from screens import (
 
 
 class ScreenManager:
-    main_menu = None
-    install_select_de = None
-    install_select_pkgs = None
-    install_summary = None
-    install_confirm = None
-    install_complete = None
-    exit_confirm = None
+    screens = {
+        Screen.MAIN_MENU: None,
+        Screen.INSTALL_SELECT_DE: None,
+        Screen.INSTALL_SELECT_PKGS: None,
+        Screen.INSTALL_SUMMARY: None,
+        Screen.INSTALL_CONFIRM: None,
+        Screen.INSTALL_COMPLETE: None,
+        Screen.EXIT_CONFIRM: None,
+    }
+    data = None
 
     def __init__(self, stdscr):
-        self.main_menu = MainMenuScreen(
-            stdscr,
-            MAIN_MENU_ITEMS,
-        )
-        self.install_select_de = SelectDesktopScreen(
-            stdscr,
-            DESKTOP_ENVIRONMENTS,
-        )
-        self.install_select_pkgs = SelectPackagesScreen(
-            stdscr,
-            [
-                *TERMINAL_UTILITIES,
-                *ESSENTIAL_AUR_PACKAGES,
-                *FONT_PACKAGES,
-            ],
-        )
-        self.install_summary = None
-        self.install_confirm = None
-        self.install_complete = None
-        self.exit_confirm = ExitConfirmScreen(stdscr, EXIT_CONFIRM)
+        self.screens = {
+            Screen.MAIN_MENU: MainMenuScreen(
+                self,
+                stdscr,
+                MAIN_MENU_ITEMS,
+            ),
+            Screen.INSTALL_SELECT_DE: SelectDesktopScreen(
+                self,
+                stdscr,
+                DESKTOP_ENVIRONMENTS,
+            ),
+            Screen.INSTALL_SELECT_PKGS: SelectPackagesScreen(
+                self,
+                stdscr,
+                [
+                    *TERMINAL_UTILITIES,
+                    *ESSENTIAL_AUR_PACKAGES,
+                    *FONT_PACKAGES,
+                ],
+            ),
+            Screen.INSTALL_SUMMARY: None,
+            Screen.INSTALL_CONFIRM: None,
+            Screen.INSTALL_COMPLETE: None,
+            Screen.EXIT_CONFIRM: ExitConfirmScreen(
+                self,
+                stdscr,
+                EXIT_CONFIRM,
+            ),
+        }
 
     def get_screen(self, current_screen):
-        match current_screen:
-            case Screen.MAIN_MENU:
-                return self.main_menu
-            case Screen.INSTALL_SELECT_DE:
-                return self.install_select_de
-            case Screen.INSTALL_SELECT_PKGS:
-                return self.install_select_pkgs
-            case Screen.INSTALL_SUMMARY:
-                pass
-            case Screen.INSTALL_CONFIRM:
-                pass
-            case Screen.INSTALL_COMPLETE:
-                pass
-            case Screen.EXIT_CONFIRM:
-                return self.exit_confirm
+        return self.screens[current_screen]
