@@ -5,7 +5,8 @@ from constants.constants import HEADER_HEIGHT
 
 
 class SelectPackagesScreen(BaseScreen):
-    def __init__(self, stdscr, items):
+    def __init__(self, scrmanager, stdscr, items):
+        self.scrmanager = scrmanager
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0

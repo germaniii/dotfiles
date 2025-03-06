@@ -5,7 +5,8 @@ from constants.constants import HEADER_HEIGHT
 
 
 class SelectDesktopScreen(BaseScreen):
-    def __init__(self, stdscr, items):
+    def __init__(self, scrmanager, stdscr, items):
+        self.scrmanager = scrmanager
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0
@@ -34,7 +35,7 @@ class SelectDesktopScreen(BaseScreen):
         self.stdscr.clear()
         h, w = self.stdscr.getmaxyx()
 
-        self.print_header(h, w, "DESKTOP Environment SELECTION", "")
+        self.print_header(h, w, "DESKTOP ENVIRONMENT SELECTION", "")
         self.print_scrollable_list(
             h, w, [a.name.value for a in self.items], self.current_row
         )
