@@ -44,19 +44,21 @@ class SelectDesktopScreen(BaseScreen):
 
         self.print_header(h, w, "DESKTOP ENVIRONMENT SELECTION", "")
         self.print_scrollable_list(
-            h, w, [a.name.value for a in self.items], self.current_row
+            h, w, 0, 0, [a.name.value for a in self.items], self.current_row
         )
 
         if not len(self.items[self.current_row].packages):
             title = "*No Desktop Environment will be installed*"
-            x = 10
-            y = HEADER_HEIGHT
-            self.stdscr.addstr(y, x, title, curses.A_DIM)
+            self.print_description(HEADER_HEIGHT, 10, title)
         else:
-            for idx, pkg in enumerate(self.items[self.current_row].packages):
-                x = 10
-                y = HEADER_HEIGHT + idx
-                self.print_description(y, x, "-" + pkg.name)
+            self.print_scrollable_list(
+                max_height=h,
+                max_width=w,
+                pos_y=0,
+                pos_x=10,
+                items=[a.name for a in self.items[self.current_row].packages],
+                current_row=0,
+            )
 
         self.stdscr.refresh()
 

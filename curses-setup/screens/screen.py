@@ -49,11 +49,15 @@ class BaseScreen:
     def get_packages(self):
         return []
 
-    def print_scrollable_list(self, h, w, items, current_row):
-        end_index = min(len(items), h - HEADER_HEIGHT + current_row)
+    def print_scrollable_list(
+        self, max_height, max_width, pos_y, pos_x, items, current_row
+    ):
+        end_index = min(len(items), max_height - HEADER_HEIGHT + current_row)
         for idx, item in enumerate(items[current_row:end_index]):
-            x = 0
-            y = HEADER_HEIGHT + idx
+            x = pos_x
+            y = pos_y
+            if not pos_y:
+                y = HEADER_HEIGHT + idx
 
             if len(
                 [a for a in self.scrmanager.data["selected_packages"] if a.name == item]

@@ -35,10 +35,12 @@ class ExitConfirmScreen(BaseScreen):
 
         self.print_header(h, w, "EXIT CONFIRMATION", "")
         self.print_scrollable_list(
-            h,
-            w,
-            [a for a in self.items],
-            self.current_row,
+            max_height=h,
+            max_width=w,
+            pos_y=0,
+            pos_x=0,
+            items=[a for a in self.items],
+            current_row=self.current_row,
         )
 
         self.stdscr.refresh()
