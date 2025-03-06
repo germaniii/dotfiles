@@ -6,7 +6,7 @@ from constants.constants import (
     ESSENTIAL_AUR_PACKAGES,
     FONT_PACKAGES,
 )
-from constants.enums import Screen
+from constants.enums import DE, Screen
 from screens import (
     MainMenuScreen,
     ExitConfirmScreen,
@@ -25,7 +25,6 @@ class ScreenManager:
         Screen.INSTALL_COMPLETE: None,
         Screen.EXIT_CONFIRM: None,
     }
-    data = None
 
     def __init__(self, stdscr):
         self.screens = {
@@ -57,6 +56,16 @@ class ScreenManager:
                 EXIT_CONFIRM,
             ),
         }
+        self.data = {
+            "selected_packages": [],
+            "selected_desktopenv": DE.NONE,
+        }
 
     def get_screen(self, current_screen):
         return self.screens[current_screen]
+
+    def append_selected_packages(self, packages):
+        self.data["selected_packages"].append(*packages)
+
+    def set_selected_desktopenv(self, de):
+        self.data["selected_desktopenv"] = de

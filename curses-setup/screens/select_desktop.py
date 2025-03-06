@@ -22,10 +22,11 @@ class SelectDesktopScreen(BaseScreen):
         ):
             self.current_row += 1
         elif key in (curses.KEY_ENTER, 10, 13):
-            if self.current_row == len(self.items) - 1:
-                current_screen = Screen.MAIN_MENU
-            else:
-                current_screen = Screen.INSTALL_SELECT_PKGS
+            current_screen = Screen.INSTALL_SELECT_PKGS
+            self.scrmanager.set_selected_desktopenv(self.items[self.current_row].name)
+            self.scrmanager.append_selected_packages(
+                self.items[self.current_row].packages
+            )
 
             self.current_row = 0
 
