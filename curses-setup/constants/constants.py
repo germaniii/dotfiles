@@ -9,13 +9,13 @@ from constants.enums import (
 HEADER_HEIGHT = 2
 
 MAIN_MENU_ITEMS = [
-    "INSTALL",
-    "EXIT",
+    "install",
+    "exit",
 ]
 
 EXIT_CONFIRM = [
-    "Yes",
-    "No",
+    "yes",
+    "no",
 ]
 
 DESKTOP_ENVIRONMENTS = [

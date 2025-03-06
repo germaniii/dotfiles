@@ -1,5 +1,6 @@
 import curses
 from constants.colors import DecoratedText, get_color_pair
+from constants.constants import HEADER_HEIGHT
 
 
 class BaseScreen:
@@ -13,8 +14,7 @@ class BaseScreen:
         self.current_row = 0
 
     def watch_input(self, current_screen):
-        stdscr = self.stdscr
-        key = stdscr.getch()
+        key = self.stdscr.getch()
 
         if key in (curses.KEY_UP, ord("k")) and self.current_row > 0:
             self.current_row -= 1
@@ -29,21 +29,45 @@ class BaseScreen:
         return current_screen
 
     def print_menu(self) -> None:
-        stdscr = self.stdscr
-        stdscr.clear()
-        h, w = stdscr.getmaxyx()
+        self.stdscr.clear()
+        h, w = self.stdscr.getmaxyx()
 
         for idx, row in enumerate(self.items):
             x = w // 2 - len(row) // 2
             y = h // 2 - len(self.items) // 2 + idx
             if idx == self.current_row:
-                stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
-                stdscr.addstr(y, x, row)
-                stdscr.attron(get_color_pair(DecoratedText.NORMAL))
+                self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
+                self.stdscr.addstr(y, x, row)
+                self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
             else:
-                stdscr.addstr(y, x, row)
+                self.stdscr.addstr(y, x, row)
 
-        stdscr.refresh()
+        self.stdscr.refresh()
 
     def get_packages(self):
         return []
+
+    def print_scrollable_list(self, h, w, items, current_row):
+        end_index = min(len(items), h - HEADER_HEIGHT + current_row)
+        for idx, item in enumerate(items[current_row:end_index]):
+            x = 0
+            y = HEADER_HEIGHT + idx
+
+            if idx == 0:  # self.current_row:
+                self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
+                self.stdscr.addstr(y, x, item)
+                self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
+            else:
+                self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
+                self.stdscr.addstr(y, x, item)
+
+    def print_header(self, h, w, title, caption):
+        x = 0  # w // 2 - (len(title) // 2)
+        y = 0
+
+        self.stdscr.attron(curses.color_pair(DecoratedText.NORMAL.value))
+        self.stdscr.addstr(y, x, title)
+        self.stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
+
+    def print_description(self, y, x, text):
+        self.stdscr.addstr(y, x, text, curses.A_DIM)
