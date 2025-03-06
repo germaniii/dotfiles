@@ -21,7 +21,13 @@ class SelectDesktopScreen(BaseScreen):
             and self.current_row < len(self.items) - 1
         ):
             self.current_row += 1
-        elif key in (curses.KEY_ENTER, 10, 13):
+        elif (
+            key in (curses.KEY_LEFT, ord("h"))
+            and self.current_row < len(self.items) - 1
+        ):
+            current_screen = Screen.MAIN_MENU
+            self.scrmanager.data["selected_packages"] = []
+        elif key in (curses.KEY_ENTER, 10, 13, ord("l")):
             current_screen = Screen.INSTALL_SELECT_PKGS
             self.scrmanager.set_selected_desktopenv(self.items[self.current_row].name)
             self.scrmanager.append_selected_packages(

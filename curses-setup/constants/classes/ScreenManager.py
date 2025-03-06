@@ -67,5 +67,12 @@ class ScreenManager:
     def append_selected_packages(self, packages):
         self.data["selected_packages"].append(*packages)
 
+    def remove_selected_package(self, selected_item):
+        self.scrmanager.data["selected_packages"] = [
+            pkg
+            for pkg in self.scrmanager.data["selected_packages"]
+            if pkg.name != selected_item.name
+        ]
+
     def set_selected_desktopenv(self, de):
         self.data["selected_desktopenv"] = de
