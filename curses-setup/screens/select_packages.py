@@ -22,12 +22,7 @@ class SelectPackagesScreen(BaseScreen):
         ):
             self.current_row += 1
         elif key in (curses.KEY_ENTER, 10, 13):
-            if self.current_row == len(self.items) - 1:
-                current_screen = Screen.MAIN_MENU
-            else:
-                current_screen = Screen.EXIT_CONFIRM
-
-            self.current_row = 0
+            self.scrmanager.append_selected_packages([self.items[self.current_row]])
 
         return current_screen
 
@@ -36,9 +31,14 @@ class SelectPackagesScreen(BaseScreen):
         h, w = self.stdscr.getmaxyx()
 
         self.print_header(h, w, "PACKAGE SELECTION", "")
-        self.print_scrollable_list(h, w, [a.name for a in self.items], self.current_row)
+        self.print_scrollable_list(
+            h,
+            w,
+            [a.name for a in self.items],
+            self.current_row,
+        )
         self.print_description(
-            HEADER_HEIGHT, 20, self.items[self.current_row].description
+            HEADER_HEIGHT, 30, self.items[self.current_row].description
         )
 
         self.stdscr.refresh()
