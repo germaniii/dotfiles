@@ -10,8 +10,8 @@ from constants.enums import Screen
 from screens import (
     MainMenuScreen,
     ExitConfirmScreen,
-    InstallSelectDesktopScreen,
-    InstallSelectPackagesScreen,
+    SelectDesktopScreen,
+    SelectPackagesScreen,
 )
 
 
@@ -29,11 +29,11 @@ class ScreenManager:
             stdscr,
             MAIN_MENU_ITEMS,
         )
-        self.install_select_de = InstallSelectDesktopScreen(
+        self.install_select_de = SelectDesktopScreen(
             stdscr,
             DESKTOP_ENVIRONMENTS,
         )
-        self.install_select_pkgs = InstallSelectPackagesScreen(
+        self.install_select_pkgs = SelectPackagesScreen(
             stdscr,
             [
                 *TERMINAL_UTILITIES,
