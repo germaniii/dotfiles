@@ -34,7 +34,14 @@ class MainMenuScreen(BaseScreen):
         h, w = self.stdscr.getmaxyx()
 
         self.print_header(h, w, "MAIN MENU", "")
-        self.print_scrollable_list(h, w, [a for a in self.items], self.current_row)
+        self.print_scrollable_list(
+            max_height=h,
+            max_width=w,
+            pos_y=0,
+            pos_x=0,
+            items=[a for a in self.items],
+            current_row=self.current_row,
+        )
 
         self.stdscr.refresh()
 

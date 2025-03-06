@@ -65,12 +65,12 @@ class ScreenManager:
         return self.screens[current_screen]
 
     def append_selected_packages(self, packages):
-        self.data["selected_packages"].append(*packages)
+        self.data["selected_packages"].extend(packages)
 
     def remove_selected_package(self, selected_item):
-        self.scrmanager.data["selected_packages"] = [
+        self.data["selected_packages"] = [
             pkg
-            for pkg in self.scrmanager.data["selected_packages"]
+            for pkg in self.data["selected_packages"]
             if pkg.name != selected_item.name
         ]
 
