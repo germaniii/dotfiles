@@ -5,10 +5,12 @@ from constants.constants import HEADER_HEIGHT
 
 class BaseScreen:
     stdcr = None
+    scrmanager = None
     items = []
     current_row = 0
 
-    def __init__(self, stdscr, items):
+    def __init__(self, scrmanager, stdscr, items):
+        self.scrmanager = scrmanager
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0
