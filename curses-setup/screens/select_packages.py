@@ -13,6 +13,8 @@ class SelectPackagesScreen(BaseScreen):
 
     def watch_input(self, current_screen):
         key = self.stdscr.getch()
+        selected_item = self.items[self.current_row]
+        selected_packages = self.scrmanager.data["selected_packages"]
 
         if key in (curses.KEY_UP, ord("k")) and self.current_row > 0:
             self.current_row -= 1
@@ -21,8 +23,18 @@ class SelectPackagesScreen(BaseScreen):
             and self.current_row < len(self.items) - 1
         ):
             self.current_row += 1
-        elif key in (curses.KEY_ENTER, 10, 13):
-            self.scrmanager.append_selected_packages([self.items[self.current_row]])
+        elif (
+            key in (curses.A_LEFT, ord("h")) and self.current_row < len(self.items) - 1
+        ):
+            self.scrmanager.data["selected_packages"] = []
+            current_screen = Screen.INSTALL_SELECT_DE
+        elif key in (curses.KEY_ENTER, 10, 13, ord("l")):
+            if len(
+                [pkg for pkg in selected_packages if pkg.name == selected_item.name]
+            ):
+                self.scrmanager.remove_selected_package(selected_item)
+            else:
+                self.scrmanager.append_selected_packages([selected_item])
 
         return current_screen
 
@@ -33,7 +45,7 @@ class SelectPackagesScreen(BaseScreen):
         self.print_header(h, w, "PACKAGE SELECTION", "")
         self.print_scrollable_list(
             h,
-            w,
+            0,
             [a.name for a in self.items],
             self.current_row,
         )

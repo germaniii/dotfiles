@@ -20,7 +20,7 @@ class MainMenuScreen(BaseScreen):
             and self.current_row < len(self.items) - 1
         ):
             self.current_row += 1
-        elif key in (curses.KEY_ENTER, 10, 13):
+        elif key in (curses.KEY_ENTER, 10, 13, ord("l")):
             match self.current_row:
                 case 0:
                     current_screen = Screen.INSTALL_SELECT_DE
