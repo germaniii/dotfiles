@@ -1,7 +1,6 @@
 import curses
 from .screen import BaseScreen
-from constants.enums import DecoratedText, Screen
-from constants.colors import get_color_pair
+from constants.enums import Screen
 from constants.constants import HEADER_HEIGHT
 
 
@@ -12,8 +11,7 @@ class SelectDesktopScreen(BaseScreen):
         self.current_row = 0
 
     def watch_input(self, current_screen):
-        stdscr = self.stdscr
-        key = stdscr.getch()
+        key = self.stdscr.getch()
 
         if key in (curses.KEY_UP, ord("k")) and self.current_row > 0:
             self.current_row -= 1
@@ -33,37 +31,26 @@ class SelectDesktopScreen(BaseScreen):
         return current_screen
 
     def print_menu(self) -> None:
-        stdscr = self.stdscr
-        stdscr.clear()
-        h, w = stdscr.getmaxyx()
+        self.stdscr.clear()
+        h, w = self.stdscr.getmaxyx()
 
-        stdscr.attron(curses.color_pair(DecoratedText.ALERT.value))
-        title = "Install Desktop Environment Selection"
-        stdscr.addstr(0, w // 2 - (len(title) // 2), title)
-        stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
-
-        for idx, row in enumerate(self.items):
-            x = 0
-            y = HEADER_HEIGHT + idx
-            if idx == self.current_row:
-                stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
-                stdscr.addstr(y, x, row.name.value)
-                stdscr.attron(get_color_pair(DecoratedText.NORMAL))
-            else:
-                stdscr.addstr(y, x, row.name.value)
+        self.print_header(h, w, "DESKTOP Environment SELECTION", "")
+        self.print_scrollable_list(
+            h, w, [a.name.value for a in self.items], self.current_row
+        )
 
         if not len(self.items[self.current_row].packages):
             title = "*No Desktop Environment will be installed*"
             x = 10
             y = HEADER_HEIGHT
-            stdscr.addstr(y, x, title, curses.A_DIM)
+            self.stdscr.addstr(y, x, title, curses.A_DIM)
         else:
             for idx, pkg in enumerate(self.items[self.current_row].packages):
                 x = 10
                 y = HEADER_HEIGHT + idx
-                stdscr.addstr(y, x, "- " + pkg.name, curses.A_DIM)
+                self.print_description(y, x, "-" + pkg.name)
 
-        stdscr.refresh()
+        self.stdscr.refresh()
 
     def get_packages(self):
         if not len(self.items[self.current_row].packages):
