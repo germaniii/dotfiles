@@ -8,12 +8,14 @@ class BaseScreen:
     scrmanager = None
     items = []
     current_row = 0
+    current_col = 0
 
     def __init__(self, scrmanager, stdscr, items):
         self.scrmanager = scrmanager
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0
+        self.current_col = 0
 
     def watch_input(self, current_screen):
         key = self.stdscr.getch()
@@ -30,21 +32,12 @@ class BaseScreen:
 
         return current_screen
 
-    def print_menu(self) -> None:
-        self.stdscr.clear()
+    def print_menu(self):
         h, w = self.stdscr.getmaxyx()
+        controls = "<ENTER> Proceed  <h> Back/Left  <j> Down  <k> Up  <l> Proceed/Right"
 
-        for idx, row in enumerate(self.items):
-            x = w // 2 - len(row) // 2
-            y = h // 2 - len(self.items) // 2 + idx
-            if idx == self.current_row:
-                self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
-                self.stdscr.addstr(y, x, row)
-                self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
-            else:
-                self.stdscr.addstr(y, x, row)
-
-        self.stdscr.refresh()
+        self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
+        self.stdscr.addstr(h - 1, 0, controls)
 
     def get_packages(self):
         return []
@@ -65,7 +58,12 @@ class BaseScreen:
                 self.stdscr.attron(get_color_pair(DecoratedText.SELECTED))
                 self.stdscr.addstr(y, x, item)
                 self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
-            elif idx == 0:  # self.current_row:
+                if idx == 0 and self.current_col == 1:
+                    self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
+                    self.stdscr.addstr(y, x, item)
+                    self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
+
+            elif idx == 0 and self.current_col == 0:  # self.current_row:
                 self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
                 self.stdscr.addstr(y, x, item)
                 self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))

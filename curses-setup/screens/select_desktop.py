@@ -10,6 +10,7 @@ class SelectDesktopScreen(BaseScreen):
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0
+        self.current_col = 0
 
     def watch_input(self, current_screen):
         key = self.stdscr.getch()
@@ -55,11 +56,12 @@ class SelectDesktopScreen(BaseScreen):
                 max_height=h,
                 max_width=w,
                 pos_y=0,
-                pos_x=10,
+                pos_x=40,
                 items=[a.name for a in self.items[self.current_row].packages],
                 current_row=0,
             )
 
+        super().print_menu()
         self.stdscr.refresh()
 
     def get_packages(self):

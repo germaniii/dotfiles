@@ -43,6 +43,7 @@ class MainMenuScreen(BaseScreen):
             current_row=self.current_row,
         )
 
+        super().print_menu()
         self.stdscr.refresh()
 
     def get_packages(self):

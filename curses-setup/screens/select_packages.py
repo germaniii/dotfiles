@@ -6,7 +6,6 @@ from constants.constants import HEADER_HEIGHT
 
 class SelectPackagesScreen(BaseScreen):
     current_row_2 = 0
-    current_col = 0
 
     def __init__(self, scrmanager, stdscr, items):
         self.scrmanager = scrmanager
@@ -79,6 +78,7 @@ class SelectPackagesScreen(BaseScreen):
             HEADER_HEIGHT, 70, self.items[self.current_row].description
         )
 
+        super().print_menu()
         self.stdscr.refresh()
 
     def get_packages(self):
