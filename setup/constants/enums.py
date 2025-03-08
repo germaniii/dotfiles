@@ -26,5 +26,6 @@ class Screen(Enum):
     INSTALL_SELECT_PKGS = "install_select_pkgs"
     INSTALL_SUMMARY = "install_summary"
     INSTALL_CONFIRM = "install_confirm"
+    INSTALL_PROCESS = "install_process"
     INSTALL_COMPLETE = "install_complete"
     EXIT_CONFIRM = "exit_confirm"
