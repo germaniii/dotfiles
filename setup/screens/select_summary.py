@@ -35,23 +35,16 @@ class SelectSummaryScreen(BaseScreen):
     def print_menu(self) -> None:
         self.stdscr.clear()
         h, w = self.stdscr.getmaxyx()
+        item_names = [a.name for a in self.items]
 
         self.print_header(h, w, "INSTALL SUMMARY", "")
-        self.print_scrollable_list(
-            h,
-            w,
-            0,
-            0,
-            [a.name for a in self.items],
-            self.current_row,
-        )
-        self.print_scrollable_list(
+        self.print_wrapped_list(
             max_height=h,
             max_width=w,
             pos_y=0,
-            pos_x=40,
-            items=[a.name for a in self.items],
-            current_row=0,
+            pos_x=0,
+            items=item_names,
+            current_row=self.current_row,
         )
 
         super().print_menu()
