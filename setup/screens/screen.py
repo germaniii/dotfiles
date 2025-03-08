@@ -37,9 +37,6 @@ class BaseScreen:
         self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
         self.stdscr.addstr(h - 1, 0, controls)
 
-    def get_packages(self):
-        return []
-
     def print_scrollable_list(
         self, max_height, max_width, pos_y, pos_x, items, current_row
     ):

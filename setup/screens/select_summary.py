@@ -3,7 +3,7 @@ from .screen import BaseScreen
 from constants.enums import Screen
 
 
-class ExitConfirmScreen(BaseScreen):
+class SelectSummaryScreen(BaseScreen):
     def __init__(self, scrmanager, stdscr, items):
         self.scrmanager = scrmanager
         self.stdscr = stdscr
@@ -20,12 +20,15 @@ class ExitConfirmScreen(BaseScreen):
             and self.current_row < len(self.items) - 1
         ):
             self.current_row += 1
+        elif (
+            key in (curses.KEY_LEFT, ord("h"))
+            and self.current_row < len(self.items) - 1
+        ):
+            current_screen = Screen.MAIN_MENU
         elif key in (curses.KEY_ENTER, 10, 13):
-            match self.current_row:
-                case 0:
-                    current_screen = None
-                case 1:
-                    current_screen = Screen.MAIN_MENU
+            current_screen = Screen.EXIT_CONFIRM
+
+            self.current_row = 0
 
         return current_screen
 
@@ -33,14 +36,22 @@ class ExitConfirmScreen(BaseScreen):
         self.stdscr.clear()
         h, w = self.stdscr.getmaxyx()
 
-        self.print_header(h, w, "EXIT CONFIRMATION", "")
+        self.print_header(h, w, "INSTALL SUMMARY", "")
+        self.print_scrollable_list(
+            h,
+            w,
+            0,
+            0,
+            [a.name for a in self.items],
+            self.current_row,
+        )
         self.print_scrollable_list(
             max_height=h,
             max_width=w,
             pos_y=0,
-            pos_x=0,
-            items=[a for a in self.items],
-            current_row=self.current_row,
+            pos_x=40,
+            items=[a.name for a in self.items],
+            current_row=0,
         )
 
         super().print_menu()

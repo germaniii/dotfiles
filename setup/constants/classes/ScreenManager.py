@@ -12,6 +12,7 @@ from screens import (
     ExitConfirmScreen,
     SelectDesktopScreen,
     SelectPackagesScreen,
+    SelectSummaryScreen,
 )
 
 
@@ -27,6 +28,10 @@ class ScreenManager:
     }
 
     def __init__(self, stdscr):
+        self.data = {
+            "selected_packages": [],
+            "selected_desktopenv": DE.NONE,
+        }
         self.screens = {
             Screen.MAIN_MENU: MainMenuScreen(
                 self,
@@ -47,7 +52,11 @@ class ScreenManager:
                     *FONT_PACKAGES,
                 ],
             ),
-            Screen.INSTALL_SUMMARY: None,
+            Screen.INSTALL_SUMMARY: SelectSummaryScreen(
+                self,
+                stdscr,
+                self.data["selected_packages"],
+            ),
             Screen.INSTALL_CONFIRM: None,
             Screen.INSTALL_COMPLETE: None,
             Screen.EXIT_CONFIRM: ExitConfirmScreen(
@@ -55,10 +64,6 @@ class ScreenManager:
                 stdscr,
                 EXIT_CONFIRM,
             ),
-        }
-        self.data = {
-            "selected_packages": [],
-            "selected_desktopenv": DE.NONE,
         }
 
     def get_screen(self, current_screen):
@@ -76,3 +81,6 @@ class ScreenManager:
 
     def set_selected_desktopenv(self, de):
         self.data["selected_desktopenv"] = de
+
+    def set_summary_items(self):
+        self.screens[Screen.INSTALL_SUMMARY].items = self.data["selected_packages"]

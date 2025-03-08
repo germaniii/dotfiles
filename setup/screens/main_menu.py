@@ -45,6 +45,3 @@ class MainMenuScreen(BaseScreen):
 
         super().print_menu()
         self.stdscr.refresh()
-
-    def get_packages(self):
-        return super().get_packages()

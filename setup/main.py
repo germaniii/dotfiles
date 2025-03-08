@@ -22,7 +22,6 @@ def print_center(stdscr, text):
 
 def main(stdscr) -> None:
     current_screen = Screen.MAIN_MENU
-    packages = []
     screen_manager = ScreenManager(stdscr)
 
     while 1:
@@ -34,7 +33,6 @@ def main(stdscr) -> None:
         menu.print_menu()
 
         screen = menu.watch_input(current_screen)
-        packages.append(menu.get_packages())
         current_screen = screen
 
     # eof
