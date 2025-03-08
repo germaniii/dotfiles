@@ -8,14 +8,12 @@ class BaseScreen:
     scrmanager = None
     items = []
     current_row = 0
-    current_col = 0
 
     def __init__(self, scrmanager, stdscr, items):
         self.scrmanager = scrmanager
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0
-        self.current_col = 0
 
     def watch_input(self, current_screen):
         key = self.stdscr.getch()
@@ -45,26 +43,23 @@ class BaseScreen:
     def print_scrollable_list(
         self, max_height, max_width, pos_y, pos_x, items, current_row
     ):
-        end_index = min(len(items), max_height - HEADER_HEIGHT + current_row)
-        for idx, item in enumerate(items[current_row:end_index]):
+        # FIX: There is a bug where if the list is longer, it will have invisible items
+        start_index = max(0, current_row - (max_height - HEADER_HEIGHT))
+        end_index = min(len(items), max_height + start_index - HEADER_HEIGHT)
+        for idx, item in enumerate(items[start_index:end_index]):
             x = pos_x
             y = pos_y
             if not pos_y:
                 y = HEADER_HEIGHT + idx
 
-            if len(
+            if idx == current_row - start_index:
+                self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
+                self.stdscr.addstr(y, x, item)
+                self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
+            elif len(
                 [a for a in self.scrmanager.data["selected_packages"] if a.name == item]
             ):
                 self.stdscr.attron(get_color_pair(DecoratedText.SELECTED))
-                self.stdscr.addstr(y, x, item)
-                self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
-                if idx == 0 and self.current_col == 1:
-                    self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
-                    self.stdscr.addstr(y, x, item)
-                    self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
-
-            elif idx == 0 and self.current_col == 0:  # self.current_row:
-                self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
                 self.stdscr.addstr(y, x, item)
                 self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
             else:
@@ -75,9 +70,9 @@ class BaseScreen:
         x = 0  # w // 2 - (len(title) // 2)
         y = 0
 
-        self.stdscr.attron(curses.color_pair(DecoratedText.NORMAL.value))
+        self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
         self.stdscr.addstr(y, x, title)
-        self.stdscr.attroff(curses.color_pair(DecoratedText.NORMAL.value))
+        self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
 
     def print_description(self, y, x, text):
         self.stdscr.addstr(y, x, text, curses.A_DIM)
