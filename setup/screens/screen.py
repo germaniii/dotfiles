@@ -37,6 +37,30 @@ class BaseScreen:
         self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
         self.stdscr.addstr(h - 1, 0, controls)
 
+    def print_wrapped_list(
+        self, max_height, max_width, pos_y, pos_x, items, current_row
+    ):
+        col_width = max(len(item) for item in items) + 2
+        num_columns = max_width // col_width
+        items_per_column = max_height - HEADER_HEIGHT - 2
+
+        for idx, item in enumerate(items):
+            col = idx // items_per_column
+            row = idx % items_per_column
+            x = pos_x + col * col_width
+            y = HEADER_HEIGHT + row
+
+            if col >= num_columns:
+                break
+
+            if idx == current_row:
+                self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
+                self.stdscr.addstr(y, x, item)
+                self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
+            else:
+                self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
+                self.stdscr.addstr(y, x, item)
+
     def print_scrollable_list(
         self, max_height, max_width, pos_y, pos_x, items, current_row
     ):
