@@ -13,6 +13,8 @@ class SelectDesktopScreen(BaseScreen):
 
     def watch_input(self, current_screen):
         key = self.stdscr.getch()
+        selected_item = self.items[self.current_row]
+        selected_packages = self.scrmanager.data["selected_packages"]
 
         if key in (curses.KEY_UP, ord("k")) and self.current_row > 0:
             self.current_row -= 1
@@ -27,12 +29,21 @@ class SelectDesktopScreen(BaseScreen):
         ):
             current_screen = Screen.MAIN_MENU
             self.scrmanager.data["selected_packages"] = []
-        elif key in (curses.KEY_ENTER, 10, 13, ord("l")):
-            current_screen = Screen.INSTALL_SELECT_PKGS
-            self.scrmanager.set_selected_desktopenv(self.items[self.current_row].name)
-            self.scrmanager.append_selected_packages(
-                self.items[self.current_row].packages
-            )
+        elif key in [ord(" ")]:
+            if len(
+                [
+                    pkg
+                    for pkg in selected_packages
+                    if pkg.name == selected_item.name.value
+                ]
+            ):
+                for package in selected_item.packages:
+                    self.scrmanager.remove_selected_package(package)
+            else:
+                self.scrmanager.append_selected_packages(selected_item.packages)
+        elif key in (curses.KEY_ENTER, 10, 13):
+            if len(selected_packages):
+                current_screen = Screen.INSTALL_SELECT_PKGS
 
             self.current_row = 0
 

@@ -32,7 +32,7 @@ class BaseScreen:
 
     def print_menu(self):
         h, w = self.stdscr.getmaxyx()
-        controls = "<ENTER> Proceed  <h> Back/Left  <j> Down  <k> Up  <l> Proceed/Right"
+        controls = "<ENTER> Proceed  <h> Back/Left  <j> Down  <k> Up  <l> Proceed/Right <SPACE> Select Item"
 
         self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
         self.stdscr.addstr(h - 1, 0, controls)
