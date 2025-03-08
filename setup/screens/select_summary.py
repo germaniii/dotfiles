@@ -24,7 +24,7 @@ class SelectSummaryScreen(BaseScreen):
             key in (curses.KEY_LEFT, ord("h"))
             and self.current_row < len(self.items) - 1
         ):
-            current_screen = Screen.MAIN_MENU
+            current_screen = Screen.INSTALL_SELECT_PKGS
         elif key in (curses.KEY_ENTER, 10, 13):
             current_screen = Screen.EXIT_CONFIRM
 
