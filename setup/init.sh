@@ -67,6 +67,6 @@ echo
 echo "Setting up initial Miniconda environment"
 echo
 source /opt/miniconda3/bin/activate
-conda env create -f ./dotfiles-installer.yml
-conda activate dotfiles-installer
-python py-install.py
+conda env create -f ./dotfiles.yml
+conda activate dotfiles
+python main.py

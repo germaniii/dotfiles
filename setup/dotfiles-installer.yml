@@ -1,4 +1,0 @@
-name: dotfiles-installer
-dependencies:
-  - python=3.13
-  - rich
