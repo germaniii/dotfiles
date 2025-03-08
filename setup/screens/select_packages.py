@@ -19,6 +19,10 @@ class SelectPackagesScreen(BaseScreen):
 
         if key in (curses.KEY_UP, ord("k")) and self.current_row > 0:
             self.current_row -= 1
+        if key in [ord("g")]:
+            self.current_row = len(self.items) - 1
+        if key in [ord("G")]:
+            self.current_row = 0
         elif (
             key in (curses.KEY_DOWN, ord("j"))
             and self.current_row < len(self.items) - 1
@@ -49,7 +53,7 @@ class SelectPackagesScreen(BaseScreen):
 
         self.print_header(h, w, "PACKAGE SELECTION", "")
         self.print_scrollable_list(
-            max_height=h,
+            max_height=h - 2,  # - 2 to make way for controls display and padding
             max_width=0,
             pos_y=0,
             pos_x=0,
@@ -60,6 +64,7 @@ class SelectPackagesScreen(BaseScreen):
             HEADER_HEIGHT, 40, self.items[self.current_row].description
         )
 
+        super().print_menu()
         self.stdscr.refresh()
 
     def get_packages(self):
