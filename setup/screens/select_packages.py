@@ -43,7 +43,8 @@ class SelectPackagesScreen(BaseScreen):
             else:
                 self.scrmanager.append_selected_packages([selected_item])
         elif key in (curses.KEY_ENTER, 10, 13):
-            current_screen = Screen.EXIT_CONFIRM
+            self.scrmanager.set_summary_items()
+            current_screen = Screen.INSTALL_SUMMARY
 
         return current_screen
 
@@ -66,9 +67,3 @@ class SelectPackagesScreen(BaseScreen):
 
         super().print_menu()
         self.stdscr.refresh()
-
-    def get_packages(self):
-        if not len(self.items):
-            return []
-
-        return self.items
