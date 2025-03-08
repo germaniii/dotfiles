@@ -43,8 +43,7 @@ class BaseScreen:
     def print_scrollable_list(
         self, max_height, max_width, pos_y, pos_x, items, current_row
     ):
-        # FIX: There is a bug where if the list is longer, it will have invisible items
-        start_index = max(0, current_row - (max_height - HEADER_HEIGHT))
+        start_index = max(0, current_row - (max_height - HEADER_HEIGHT - 1))
         end_index = min(len(items), max_height + start_index - HEADER_HEIGHT)
         for idx, item in enumerate(items[start_index:end_index]):
             x = pos_x
