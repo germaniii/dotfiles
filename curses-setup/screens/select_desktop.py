@@ -10,7 +10,6 @@ class SelectDesktopScreen(BaseScreen):
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0
-        self.current_col = 0
 
     def watch_input(self, current_screen):
         key = self.stdscr.getch()
