@@ -13,6 +13,8 @@ from screens import (
     SelectDesktopScreen,
     SelectPackagesScreen,
     SelectSummaryScreen,
+    SelectConfirmScreen,
+    SelectProcessScreen,
 )
 
 
@@ -23,6 +25,7 @@ class ScreenManager:
         Screen.INSTALL_SELECT_PKGS: None,
         Screen.INSTALL_SUMMARY: None,
         Screen.INSTALL_CONFIRM: None,
+        Screen.INSTALL_PROCESS: None,
         Screen.INSTALL_COMPLETE: None,
         Screen.EXIT_CONFIRM: None,
     }
@@ -57,7 +60,12 @@ class ScreenManager:
                 stdscr,
                 self.data["selected_packages"],
             ),
-            Screen.INSTALL_CONFIRM: None,
+            Screen.INSTALL_CONFIRM: SelectConfirmScreen(
+                self,
+                stdscr,
+                EXIT_CONFIRM,
+            ),
+            Screen.INSTALL_PROCESS: SelectProcessScreen(self, stdscr, []),
             Screen.INSTALL_COMPLETE: None,
             Screen.EXIT_CONFIRM: ExitConfirmScreen(
                 self,

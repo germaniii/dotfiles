@@ -4,3 +4,5 @@ from .exit_confirm import *
 from .select_desktop import *
 from .select_packages import *
 from .select_summary import *
+from .select_confirm import *
+from .select_process import *
