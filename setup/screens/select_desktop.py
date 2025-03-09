@@ -1,7 +1,7 @@
 import curses
 from .screen import BaseScreen
 from constants.enums import Screen
-from constants.constants import HEADER_HEIGHT
+from constants.constants import HEADER_HEIGHT, TERMINAL_UTILITIES
 
 
 class SelectDesktopScreen(BaseScreen):
@@ -42,8 +42,15 @@ class SelectDesktopScreen(BaseScreen):
             else:
                 self.scrmanager.append_selected_packages(selected_item.packages)
         elif key in (curses.KEY_ENTER, 10, 13):
-            if len(selected_packages):
+            if (
+                len(selected_packages) or self.current_row == len(self.items) - 1
+            ):  # or none
                 current_screen = Screen.INSTALL_SELECT_PKGS
+                self.scrmanager.append_selected_packages(
+                    [
+                        *TERMINAL_UTILITIES,  # select terminal packages by default
+                    ]
+                )
 
             self.current_row = 0
 
