@@ -4,9 +4,18 @@
 # Initial Setup
 ############################################################################
 rm -rf ~/.git
+source ~/.bash_profile
 
+sudo pacman-key --init
+sudo pacman-key --populate
+sudo pacman -Sy archlinux-keyring
 sudo pacman -Syu
-sudo pacman -S --noconfirm base-devel go
+sudo pacman -S --noconfirm base-devel go reflector
+
+echo
+echo Updating Mirrors
+echo
+updateMirrors
 
 ############################################################################
 # AUR TERMINAL UTILITIES

@@ -118,7 +118,7 @@ function _autoComp () {
 complete -F _autoComp autoComp
 
 function updateMirrors () {
-    reflector --verbose -l 200 -n 20 -p http --sort rate --save /etc/pacman.d/mirrorlist
+    sudo reflector --verbose -l 20 -n 20 -p http --sort rate --save /etc/pacman.d/mirrorlist
 }
 
 function globalGitIgnore() {
