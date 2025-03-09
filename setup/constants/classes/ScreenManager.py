@@ -92,3 +92,4 @@ class ScreenManager:
 
     def set_summary_items(self):
         self.screens[Screen.INSTALL_SUMMARY].items = self.data["selected_packages"]
+        self.screens[Screen.INSTALL_PROCESS].items = self.data["selected_packages"]

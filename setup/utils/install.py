@@ -1,8 +1,10 @@
 import subprocess
 
 
-def install_packages(packages):
-    for pak in packages:
-        subprocess.run(
-            ["yay", "-S", "--noconfirm", pak.name],
-        )
+def install_package(package):
+    f = open("yay-logs.txt", "a")
+    subprocess.run(
+        ["yay", "-S", "--noconfirm", package.name],
+        stdout=f,
+        stderr=subprocess.STDOUT,
+    )

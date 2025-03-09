@@ -1,6 +1,9 @@
 import curses
+
+from constants.colors import get_color_pair
+from utils.install import install_package
 from .screen import BaseScreen
-from constants.enums import Screen
+from constants.enums import DecoratedText, Screen
 
 
 class SelectProcessScreen(BaseScreen):
@@ -9,23 +12,15 @@ class SelectProcessScreen(BaseScreen):
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0
+        self.current_item = None
+        self.success = False
+        self.error = False
 
     def watch_input(self, current_screen):
-        key = self.stdscr.getch()
-
-        if key in (curses.KEY_UP, ord("k")) and self.current_row > 0:
-            self.current_row -= 1
-        elif (
-            key in (curses.KEY_DOWN, ord("j"))
-            and self.current_row < len(self.items) - 1
-        ):
-            self.current_row += 1
-        elif key in (curses.KEY_ENTER, 10, 13):
-            match self.current_row:
-                case 0:
-                    current_screen = Screen.INSTALL_PROCESS
-                case 1:
-                    current_screen = Screen.MAIN_MENU
+        if self.success:
+            current_screen = Screen.EXIT_CONFIRM
+        elif self.error:
+            current_screen = Screen.MAIN_MENU
 
         return current_screen
 
@@ -33,7 +28,30 @@ class SelectProcessScreen(BaseScreen):
         self.stdscr.clear()
         h, w = self.stdscr.getmaxyx()
 
-        self.print_header(h, w, "INSTALLING", "")
+        try:
+            if not self.success or not self.error:
+                for index, package in enumerate(self.items):
+                    self.stdscr.clear()
+                    self.print_header(h, w, "INSTALLING", "")
+                    super().print_menu()
+                    self.stdscr.addstr(5, 0, "Installing package: " + package.name)
+                    for progress_unit in range(len(self.items)):
+                        if progress_unit <= index:
+                            self.stdscr.attron(get_color_pair(DecoratedText.WARNING))
+                            self.stdscr.addstr(h // 2, progress_unit, " ")
+                            self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
+                        else:
+                            self.stdscr.attron(get_color_pair(DecoratedText.ACTIVE))
+                            self.stdscr.addstr(h // 2, progress_unit, " ")
+                            self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
 
-        super().print_menu()
+                    self.stdscr.refresh()
+                    install_package(package)
+
+            self.success = True
+        except:
+            self.stdscr.addstr(5, 0, "There was a problem")
+            self.error = True
+            self.items = []
+
         self.stdscr.refresh()
