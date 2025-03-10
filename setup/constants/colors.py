@@ -6,7 +6,7 @@ from constants.enums import (
 
 color_arr = [
     (DecoratedText.NORMAL.value, curses.COLOR_WHITE, curses.COLOR_BLACK),
-    (DecoratedText.ALERT.value, curses.COLOR_RED, curses.COLOR_YELLOW),
+    (DecoratedText.ALERT.value, curses.COLOR_BLACK, curses.COLOR_RED),
     (DecoratedText.WARNING.value, curses.COLOR_BLACK, curses.COLOR_YELLOW),
     (DecoratedText.SELECTED.value, curses.COLOR_BLACK, curses.COLOR_GREEN),
     (DecoratedText.DISABLED.value, curses.COLOR_WHITE, curses.COLOR_BLACK),

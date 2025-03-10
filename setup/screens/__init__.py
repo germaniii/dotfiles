@@ -6,3 +6,4 @@ from .select_packages import *
 from .select_summary import *
 from .select_confirm import *
 from .select_process import *
+from .select_complete import *

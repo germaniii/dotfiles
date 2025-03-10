@@ -15,6 +15,7 @@ from screens import (
     SelectSummaryScreen,
     SelectConfirmScreen,
     SelectProcessScreen,
+    SelectCompleteScreen,
 )
 
 
@@ -66,7 +67,7 @@ class ScreenManager:
                 EXIT_CONFIRM,
             ),
             Screen.INSTALL_PROCESS: SelectProcessScreen(self, stdscr, []),
-            Screen.INSTALL_COMPLETE: None,
+            Screen.INSTALL_COMPLETE: SelectCompleteScreen(self, stdscr, []),
             Screen.EXIT_CONFIRM: ExitConfirmScreen(
                 self,
                 stdscr,
@@ -93,3 +94,6 @@ class ScreenManager:
     def set_summary_items(self):
         self.screens[Screen.INSTALL_SUMMARY].items = self.data["selected_packages"]
         self.screens[Screen.INSTALL_PROCESS].items = self.data["selected_packages"]
+
+    def append_error_items(self, packages):
+        self.screens[Screen.INSTALL_COMPLETE].error_items.extend(packages)

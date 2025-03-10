@@ -25,6 +25,9 @@ def main(stdscr) -> None:
     screen_manager = ScreenManager(stdscr)
 
     while 1:
+        if not current_screen:
+            break
+
         menu = screen_manager.get_screen(current_screen)
         if not menu:
             break
