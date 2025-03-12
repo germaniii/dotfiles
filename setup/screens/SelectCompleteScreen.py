@@ -28,7 +28,6 @@ class SelectCompleteScreen(BaseScreen):
 
     @override
     def watch_input(self, current_screen: Screen):
-        _ = self.stdscr.getch()
         current_screen = Screen.EXIT_CONFIRM
         return current_screen
 
@@ -37,10 +36,11 @@ class SelectCompleteScreen(BaseScreen):
         self.stdscr.clear()
         h, _ = self.stdscr.getmaxyx()
 
-        self.stdscr.addstr(5, 0, "There was a problem")
-        for package in self.error_items:
+        self.stdscr.addstr(5, 0, "Installation completed!")
+        for index, package in enumerate(self.error_items):
+            self.stdscr.addstr(6, 0, "Some packages failed to install")
             self.stdscr.attron(get_color_pair(DecoratedText.ALERT))
-            self.stdscr.addstr(h // 2, 0, package.name)
+            self.stdscr.addstr(7 + index, 0, package.name)
             self.stdscr.attron(get_color_pair(DecoratedText.NORMAL))
 
         self.stdscr.refresh()
