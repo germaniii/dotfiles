@@ -78,4 +78,4 @@ echo
 source /opt/miniconda3/bin/activate
 conda env create -f ./dotfiles.yml
 conda activate dotfiles
-python main.py
+python -m setup.main
