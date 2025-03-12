@@ -119,6 +119,7 @@ DESKTOP_ENVIRONMENTS = [
 
 TERMINAL_UTILITIES = [
     # Workflow Essentials
+    Package("asdfg", "A command-line fuzzy finder for searching and filtering."),
     Package("fzf", "A command-line fuzzy finder for searching and filtering."),
     Package("ripgrep", "A fast, recursive search tool, similar to grep."),
     Package("sed", "A stream editor for filtering and transforming text."),

@@ -1,6 +1,5 @@
 from collections.abc import Sequence
 import curses
-import subprocess
 from typing import cast, override
 
 from setup.constants.classes import DesktopEnvironment, Package, ScreenManager
@@ -60,7 +59,6 @@ class SelectProcessScreen(BaseScreen):
                             self.scrmanager.screens[Screen.INSTALL_COMPLETE],
                         )
 
-                        # FIX: Not Working
                         if name in [a.name for a in screen.error_items]:
                             self.stdscr.attron(get_color_pair(DecoratedText.ALERT))
                             self.stdscr.addstr(h // 2, progress_unit, " ")
@@ -76,9 +74,7 @@ class SelectProcessScreen(BaseScreen):
 
                 self.stdscr.refresh()
 
-                try:
-                    install_package(package)
-                except subprocess.CalledProcessError:
+                if not install_package(package):
                     self.scrmanager.append_error_items([package])
             # rof
 
