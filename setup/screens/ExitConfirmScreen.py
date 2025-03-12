@@ -1,16 +1,32 @@
+from collections.abc import Sequence
 import curses
-from .screen import BaseScreen
-from constants.enums import Screen
+from typing import override
+
+from setup.constants.classes import DesktopEnvironment, Package, ScreenManager
+from .BaseScreen import BaseScreen
+from setup.constants.enums import Screen
 
 
-class SelectConfirmScreen(BaseScreen):
-    def __init__(self, scrmanager, stdscr, items):
+class ExitConfirmScreen(BaseScreen):
+    scrmanager: ScreenManager
+    stdscr: curses.window
+    items: Sequence[str | Package | DesktopEnvironment]
+    current_row: int
+
+    def __init__(
+        self,
+        scrmanager: ScreenManager,
+        stdscr: curses.window,
+        items: Sequence[str],
+    ):
+        super().__init__(scrmanager, stdscr, items)
         self.scrmanager = scrmanager
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0
 
-    def watch_input(self, current_screen):
+    @override
+    def watch_input(self, current_screen: Screen) -> Screen:
         key = self.stdscr.getch()
 
         if key in (curses.KEY_UP, ord("k")) and self.current_row > 0:
@@ -23,17 +39,18 @@ class SelectConfirmScreen(BaseScreen):
         elif key in (curses.KEY_ENTER, 10, 13):
             match self.current_row:
                 case 0:
-                    current_screen = Screen.INSTALL_PROCESS
-                case 1:
+                    current_screen = Screen.NONE
+                case _:
                     current_screen = Screen.MAIN_MENU
 
         return current_screen
 
+    @override
     def print_menu(self) -> None:
         self.stdscr.clear()
         h, w = self.stdscr.getmaxyx()
 
-        self.print_header(h, w, "CONFIRM INSTALLATION", "")
+        self.print_header(h, w, "EXIT CONFIRMATION", "")
         self.print_scrollable_list(
             max_height=h,
             max_width=w,

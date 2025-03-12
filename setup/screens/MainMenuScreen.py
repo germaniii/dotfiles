@@ -1,16 +1,32 @@
+from collections.abc import Sequence
 import curses
-from .screen import BaseScreen
-from constants.enums import Screen
+from typing import override
+
+from setup.constants.classes import DesktopEnvironment, Package, ScreenManager
+from .BaseScreen import BaseScreen
+from setup.constants.enums import Screen
 
 
 class MainMenuScreen(BaseScreen):
-    def __init__(self, scrmanager, stdscr, items):
+    scrmanager: ScreenManager
+    stdscr: curses.window
+    items: Sequence[str | Package | DesktopEnvironment]
+    current_row: int
+
+    def __init__(
+        self,
+        scrmanager: ScreenManager,
+        stdscr: curses.window,
+        items: Sequence[str],
+    ):
+        super().__init__(scrmanager, stdscr, items)
         self.scrmanager = scrmanager
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0
 
-    def watch_input(self, current_screen):
+    @override
+    def watch_input(self, current_screen: Screen):
         key = self.stdscr.getch()
 
         if key in (curses.KEY_UP, ord("k")) and self.current_row > 0:
@@ -24,11 +40,12 @@ class MainMenuScreen(BaseScreen):
             match self.current_row:
                 case 0:
                     current_screen = Screen.INSTALL_SELECT_DE
-                case 1:
+                case _:
                     current_screen = Screen.EXIT_CONFIRM
 
         return current_screen
 
+    @override
     def print_menu(self) -> None:
         self.stdscr.clear()
         h, w = self.stdscr.getmaxyx()

@@ -29,3 +29,4 @@ class Screen(Enum):
     INSTALL_PROCESS = "install_process"
     INSTALL_COMPLETE = "install_complete"
     EXIT_CONFIRM = "exit_confirm"
+    NONE = "none"

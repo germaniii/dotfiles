@@ -1,8 +1,8 @@
-from constants.classes import (
+from .classes import (
     DesktopEnvironment,
     Package,
 )
-from constants.enums import (
+from .enums import (
     DE,
 )
 

@@ -1,16 +1,32 @@
+from collections.abc import Sequence
 import curses
-from .screen import BaseScreen
-from constants.enums import Screen
+from typing import cast, override
+
+from setup.constants.classes import DesktopEnvironment, Package, ScreenManager
+from .BaseScreen import BaseScreen
+from setup.constants.enums import Screen
 
 
 class SelectSummaryScreen(BaseScreen):
-    def __init__(self, scrmanager, stdscr, items):
+    scrmanager: ScreenManager
+    stdscr: curses.window
+    items: Sequence[str | Package | DesktopEnvironment]
+    current_row: int
+
+    def __init__(
+        self,
+        scrmanager: ScreenManager,
+        stdscr: curses.window,
+        items: Sequence[Package],
+    ):
+        super().__init__(scrmanager, stdscr, items)
         self.scrmanager = scrmanager
         self.stdscr = stdscr
         self.items = items
         self.current_row = 0
 
-    def watch_input(self, current_screen):
+    @override
+    def watch_input(self, current_screen: Screen):
         key = self.stdscr.getch()
 
         if key in (curses.KEY_UP, ord("k")) and self.current_row > 0:
@@ -32,10 +48,12 @@ class SelectSummaryScreen(BaseScreen):
 
         return current_screen
 
+    @override
     def print_menu(self) -> None:
         self.stdscr.clear()
         h, w = self.stdscr.getmaxyx()
-        item_names = [a.name for a in self.items]
+        items = cast(Sequence[Package], self.items)
+        item_names = [a.name for a in items]
 
         self.print_header(h, w, "INSTALL SUMMARY", "")
         self.print_wrapped_list(
