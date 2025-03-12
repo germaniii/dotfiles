@@ -1,15 +1,13 @@
-from constants.enums import DE
+from .Package import Package
+from setup.constants.enums import DE
 
 
 class DesktopEnvironment:
-    name = DE.NONE
-    description = ""
-    packages = []
+    name: DE
+    description: str
+    packages: list[Package]
 
-    def __init__(self, name, description, packages):
+    def __init__(self, name: DE, description: str, packages: list[Package]):
         self.name = name
         self.description = description
         self.packages = packages
-
-    def __eq__(self, other):
-        return self.name.value == other.name.value

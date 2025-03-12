@@ -1,5 +1,5 @@
 import curses
-from constants.enums import (
+from .enums import (
     DecoratedText,
 )
 
@@ -19,5 +19,5 @@ def init_colors():
         curses.init_pair(id, fg, bg)
 
 
-def get_color_pair(pair_id):
+def get_color_pair(pair_id: DecoratedText):
     return curses.color_pair(pair_id.value)

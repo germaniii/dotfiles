@@ -1,4 +1,7 @@
-from constants.constants import (
+import curses
+from typing import cast
+from setup.constants.classes import Package
+from setup.constants.constants import (
     EXIT_CONFIRM,
     MAIN_MENU_ITEMS,
     DESKTOP_ENVIRONMENTS,
@@ -6,8 +9,9 @@ from constants.constants import (
     ESSENTIAL_AUR_PACKAGES,
     FONT_PACKAGES,
 )
-from constants.enums import DE, Screen
-from screens import (
+from setup.constants.enums import Screen
+from setup.screens import (
+    BaseScreen,
     MainMenuScreen,
     ExitConfirmScreen,
     SelectDesktopScreen,
@@ -20,22 +24,11 @@ from screens import (
 
 
 class ScreenManager:
-    screens = {
-        Screen.MAIN_MENU: None,
-        Screen.INSTALL_SELECT_DE: None,
-        Screen.INSTALL_SELECT_PKGS: None,
-        Screen.INSTALL_SUMMARY: None,
-        Screen.INSTALL_CONFIRM: None,
-        Screen.INSTALL_PROCESS: None,
-        Screen.INSTALL_COMPLETE: None,
-        Screen.EXIT_CONFIRM: None,
-    }
+    selected_packages: list[Package]
+    screens: dict[Screen, BaseScreen | None]
 
-    def __init__(self, stdscr):
-        self.data = {
-            "selected_packages": [],
-            "selected_desktopenv": DE.NONE,
-        }
+    def __init__(self, stdscr: curses.window):
+        self.selected_packages = []
         self.screens = {
             Screen.MAIN_MENU: MainMenuScreen(
                 self,
@@ -59,7 +52,7 @@ class ScreenManager:
             Screen.INSTALL_SUMMARY: SelectSummaryScreen(
                 self,
                 stdscr,
-                self.data["selected_packages"],
+                self.selected_packages,
             ),
             Screen.INSTALL_CONFIRM: SelectConfirmScreen(
                 self,
@@ -73,27 +66,37 @@ class ScreenManager:
                 stdscr,
                 EXIT_CONFIRM,
             ),
+            Screen.NONE: None,
         }
 
-    def get_screen(self, current_screen):
+    def get_selected_packages(self):
+        return self.selected_packages
+
+    def set_selected_packages(self, packages: list[Package]):
+        self.selected_packages = packages
+
+    def get_screen(self, current_screen: Screen):
         return self.screens[current_screen]
 
-    def append_selected_packages(self, packages):
-        self.data["selected_packages"].extend(packages)
+    def append_selected_packages(self, packages: list[Package]):
+        self.selected_packages.extend(packages)
 
-    def remove_selected_package(self, selected_item):
-        self.data["selected_packages"] = [
-            pkg
-            for pkg in self.data["selected_packages"]
-            if pkg.name != selected_item.name
+    def remove_selected_package(self, selected_item: Package):
+        self.selected_packages = [
+            pkg for pkg in self.selected_packages if pkg.name != selected_item.name
         ]
 
-    def set_selected_desktopenv(self, de):
-        self.data["selected_desktopenv"] = de
-
     def set_summary_items(self):
-        self.screens[Screen.INSTALL_SUMMARY].items = self.data["selected_packages"]
-        self.screens[Screen.INSTALL_PROCESS].items = self.data["selected_packages"]
+        install_summary_screen = cast(
+            SelectSummaryScreen, self.screens[Screen.INSTALL_SUMMARY]
+        )
+        install_process_screen = cast(
+            SelectProcessScreen, self.screens[Screen.INSTALL_PROCESS]
+        )
 
-    def append_error_items(self, packages):
-        self.screens[Screen.INSTALL_COMPLETE].error_items.extend(packages)
+        install_summary_screen.items = self.selected_packages
+        install_process_screen.items = self.selected_packages
+
+    def append_error_items(self, packages: list[Package]):
+        screen = cast(SelectCompleteScreen, self.screens[Screen.INSTALL_COMPLETE])
+        screen.error_items.extend(packages)
