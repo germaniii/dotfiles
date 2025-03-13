@@ -89,6 +89,15 @@ On_IWhite='\033[0;107m'   # White
 # Functions
 ####################################################################
 
+function ssh-forward () {
+    # ssh -L localhost:8081:127.0.0.1:81 -N -f -p 22 <user>@<ip>
+    ssh -L "localhost:$1:127.0.0.1:$1" -N -f -p 22 $2
+}
+
+function ssh-forward-show () {
+    ps aux | grep ssh
+}
+
 function obsidian () {
     cd ~/vaults/personal
     git pull --rebase
