@@ -1,8 +1,8 @@
 #!/bin/bash
 
-############################################################################
-# Initial Setup
-############################################################################
+echo "############################################################################"
+echo "# Initial Setup"
+echo "############################################################################"
 rm -rf ~/.git
 source ~/.bash_profile
 
@@ -12,16 +12,17 @@ sudo pacman -Sy archlinux-keyring
 sudo pacman -Syu
 sudo pacman -S --noconfirm base-devel go reflector
 
+updateMirrors
+echo
 echo
 echo Updating Mirrors
 echo
-updateMirrors
+echo
 
-############################################################################
-# AUR TERMINAL UTILITIES
-############################################################################
+echo "############################################################################"
+echo "# Installing essential AUR packages"
+echo "############################################################################"
 AURPKGS=(
-    'neovim'
     'nvm'
     'miniconda3'
 )
@@ -42,38 +43,30 @@ done
 #     crontab < ~/.crontab
 # fi
 
-############################################################################
-# NeoVim SETUP
-############################################################################
-
-echo
-echo "Setting up Neovim workstation"
-echo
-
-# NeoVim Install kickstart.nvim
+echo "############################################################################"
+echo "# Setting up Neovim workstation"
+echo "############################################################################"
+rm -rf "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 git clone -b germaniii https://github.com/germaniii/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
-# Install Node.js for lsp
-echo 
+echo
+echo
 echo "Open nvim and do :Lazy"
 echo
 
-############################################################################
-# Development Environments SETUP
-############################################################################
-
-echo
-echo "Setting up Environments"
-echo
-
+echo "############################################################################"
+echo "# Setting up development environments"
+echo "############################################################################"
 echo
 echo "Setting up Node Version Manager"
+echo
 echo
 source ~/.bash_profile
 nvm install --lts
 
 echo
 echo "Setting up initial Miniconda environment"
+echo
 echo
 source /opt/miniconda3/bin/activate
 conda env create -f ./dotfiles.yml
