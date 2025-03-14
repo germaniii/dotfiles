@@ -1,4 +1,4 @@
 cd ~
 git clone https://github.com/germaniii/dotfiles .
-cd Setup
+cd setup
 ./init.sh
