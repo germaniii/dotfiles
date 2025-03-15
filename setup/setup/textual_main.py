@@ -1,44 +1,51 @@
 from textual.app import App, ComposeResult
-from textual import events
-from textual.widgets import Header, Button, Label
+from textual.widgets import Footer, Header, Static
+from setup.textual_screens.setup_wizard import SetupWizard
+from setup.textual_screens.exit_confirmation import ExitConfirmation
+
+
+WELCOME_TEXT = """
+    Hello and welcome to the Setup Wizard!
+    Press <Enter> to proceed
+    Press <q> to exit
+    """
 
 
 class SetupApp(App[str]):
 
     CSS_PATH = "textual_main.tcss"
-    COLORS = [
-        "white",
-        "maroon",
-        "red",
-        "purple",
-        "fuchsia",
-        "olive",
-        "yellow",
-        "navy",
-        "teal",
-        "aqua",
+    TITLE = "Linux Setup Helper"
+    SUB_TITLE = "A TUI application to help you install your favorite software"
+
+    BINDINGS = [
+        ("q", "request_quit", "Quit"),
+        ("enter", "request_proceed", "Proceed"),
+        ("tab", "", "switch focus"),
+        ("up", "", "up"),
+        ("down", "", "down"),
+        ("space", "", "select"),
     ]
-    TITLE = "A Question App"
-    SUB_TITLE = "The most important question"
 
     def on_mount(self) -> None:
-        self.screen.styles.background = "darkblue"
-
-    def on_key(self, event: events.Key) -> None:
-        if event.key.isdecimal():
-            self.screen.styles.background = self.COLORS[int(event.key)]
+        pass
 
     def compose(self) -> ComposeResult:
         yield Header()
-        yield Label("Do you love Textual?", id="question")
-        yield Button("Yes", id="yes", variant="primary")
-        yield Button("No", id="no", variant="error")
+        yield Static(WELCOME_TEXT)
+        yield Footer()
 
-    def on_button_pressed(self, event: Button.Pressed) -> None:
-        if event.button.id == "no":
-            self.exit(return_code=4, message="Critical error occurred")
-        else:
-            self.exit(return_code=0, message="Thanks!")
+    def action_request_quit(self):
+        def is_exit(exit: bool | None):
+            if exit:
+                self.exit(return_code=0, message="Exited")
+
+        self.push_screen(ExitConfirmation(), is_exit)
+
+    def action_request_proceed(self):
+        self.push_screen(SetupWizard())
+
+    def on_key(self, key):
+        print(key)
 
 
 if __name__ == "__main__":
