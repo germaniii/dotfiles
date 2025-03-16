@@ -3,6 +3,7 @@ from textual.app import ComposeResult
 from textual.events import Mount
 from textual.containers import Horizontal, VerticalScroll
 from textual.widgets import (
+    Button,
     Footer,
     Header,
     Pretty,
@@ -100,12 +101,110 @@ DESKTOP_ENVIRONMENTS = [
     ),
 ]
 
+TERMINAL_UTILITIES = [
+    # Workflow Essentials
+    ("asdfg", "A command-line fuzzy finder for searching and filtering.", True),
+    ("fzf", "A command-line fuzzy finder for searching and filtering.", True),
+    ("ripgrep", "A fast, recursive search tool, similar to grep.", True),
+    ("sed", "A stream editor for filtering and transforming text.", True),
+    ("neovim", "A modern, extensible Vim-based text editor.", True),
+    ("tmux", "A terminal multiplexer for managing multiple sessions.", True),
+    ("ack", "A search tool optimized for programmers, similar to grep.", True),
+    ("ranger", "A terminal file manager with VI key bindings.", True),
+    ("htop", "An interactive process viewer and system monitor.", True),
+    ("fd", "A faster alternative to 'find' for searching files.", True),
+    ("fastfetch", "A lightweight system information tool, similar to neofetch.", True),
+    (
+        "entr",
+        "A utility to run commands when files change (dependency for tmux).",
+        True,
+    ),
+    # Networking Essentials
+    ("wget", "A command-line tool for retrieving files from the web.", True),
+    ("curl", "A tool for transferring data from or to a server.", True),
+    ("ntp", "A daemon for synchronizing the system clock over a network.", True),
+    ("networkmanager", "A utility for managing network connections.", True),
+    ("cloudflared", "A Cloudflare utility for creating secure tunnels.", True),
+    ("firewalld", "A firewall management tool with D-Bus interface.", True),
+    (
+        "reflector",
+        "A tool to update the Pacman mirror list with the fastest mirrors.",
+        True,
+    ),
+    # Programming Essentials
+    (
+        "base-devel",
+        "A group of essential development tools, including make and gcc.",
+        True,
+    ),
+    ("git", "A distributed version control system.", True),
+    ("docker", "A containerization platform for running isolated applications.", True),
+    (
+        "docker-compose",
+        "A tool for defining and running multi-container Docker applications.",
+    ),
+    # Audio Essentials
+    ("pipewire", "A low-latency audio and video processing engine.", True),
+    ("wireplumber", "A session manager for PipeWire.", True),
+    # Additional but not Optional
+    ("cronie", "A daemon to schedule and run cron jobs.", True),
+    ("unrar", "A utility for extracting RAR archives.", True),
+    ("unzip", "A tool for extracting ZIP archives.", True),
+    ("zip", "A tool for creating ZIP archives.", True),
+]
+
+ESSENTIAL_AUR_PACKAGES = [
+    ("tmux-plugin-manager", "A plugin manager for tmux."),
+]
+
+FONT_PACKAGES = [
+    ("ttf-freefont", "A collection of high-quality TrueType fonts."),
+    ("ttf-ms-fonts", "A collection of Microsoft TrueType fonts."),
+    ("ttf-linux-libertine", "A high-quality serif font for Linux."),
+    ("ttf-dejavu", "An improved font family based on the Vera fonts."),
+    ("ttf-inconsolata", "A monospaced font for programming."),
+    ("ttf-ubuntu-font-family", "The Ubuntu font family."),
+    ("noto-fonts-cjk", "CJK font support for Noto Fonts."),
+    ("noto-fonts-emoji", "Emoji font support for Noto Fonts."),
+    ("noto-fonts", "A font family with wide Unicode coverage."),
+]
+
+ADDITIONAL_THEMING_PACKAGES = [
+    ("rofi-lbonn-wayland-git", "A Wayland-compatible version of Rofi."),
+    ("rofi-lgruvbox-material-icon-theme-git", "Gruvbox Material icon theme for Rofi."),
+    ("rofi-lgruvbox-material-gtk-theme-git", "Gruvbox Material GTK theme for Rofi."),
+    ("rofi-lsddm-sugar-dark", "A dark theme for SDDM."),
+]
+
+ADDITIONAL_APPLICATION_PACKAGES = [
+    (
+        "obs-studio",
+        "A powerful open-source software for video recording and streaming.",
+    ),
+    ("wlrobs-hg", "A Wayland screen capture plugin for OBS Studio."),
+    ("timeshift", "A system restore utility for Linux."),
+]
+
+PACKAGES = [
+    *TERMINAL_UTILITIES,
+    *ESSENTIAL_AUR_PACKAGES,
+    *FONT_PACKAGES,
+    *ADDITIONAL_THEMING_PACKAGES,
+    *ADDITIONAL_APPLICATION_PACKAGES,
+]
+
 
 class SetupWizard(Screen):
     CSS_PATH = "setup_wizard.tcss"
+    BINDINGS = [
+        ("g", "select_all", "Select All Packages"),
+        ("G", "deselect_all", "Deselect All Packages"),
+    ]
 
     desktop_selection = []
-    package_selection = []
+    package_selection = [
+        *TERMINAL_UTILITIES,
+    ]
     installation_confirmed = False
 
     def compose(self) -> ComposeResult:
@@ -117,16 +216,27 @@ class SetupWizard(Screen):
                 with Horizontal():
                     yield SelectionList[int](
                         *[(de[0], de[0]) for de in DESKTOP_ENVIRONMENTS],
-                        id="selection_list_desktop"
+                        id="selection_list_desktop",
                     )
-                    with VerticalScroll():
+                    with VerticalScroll(id="vertical_scroll_desktop"):
                         yield Pretty([], id="pretty_desktop")
             # ("package_selection", "Package Selection")
             with TabPane(id=TABS[1][0], title=TABS[1][1]):
-                yield Static(id=TABS[1][0], content=TABS[1][1])
+                with Horizontal():
+                    yield SelectionList[int](
+                        *[(pack[0], pack[0]) for pack in PACKAGES],
+                        id="selection_list_package",
+                    )
+                    with VerticalScroll(id="vertical_scroll_desktop"):
+                        yield Pretty([], id="pretty_package")
             # ("install_confirmation", "Install Confirmation")
             with TabPane(id=TABS[2][0], title=TABS[2][1]):
-                yield Static(id=TABS[2][0], content=TABS[2][1])
+                with VerticalScroll(id="vertical_scroll_install_confirmation"):
+                    yield Pretty(
+                        [*self.package_selection, *self.desktop_selection],
+                        id="pretty_install_confirmation",
+                    )
+                    yield Button(id="button_confirm", label="CONFIRM")
             # ("install_processing", "Install Process")
             with TabPane(id=TABS[3][0], title=TABS[3][1], disabled=True):
                 yield Static(id=TABS[3][0], content=TABS[3][1])
@@ -135,22 +245,57 @@ class SetupWizard(Screen):
                 yield Static(id=TABS[4][0], content=TABS[4][1])
 
     def on_mount(self):
-        self.query_one(Pretty).border_title = "Selected packages"
+        self.query_one("#pretty_desktop").border_title = "Selected packages"
+        self.query_one("#pretty_install_confirmation").border_title = (
+            "Selected packages"
+        )
 
-    @on(Mount)
-    @on(SelectionList.SelectedChanged)
-    def update_selected_view(self) -> None:
+    def set_selected_desktop_environment(self):
         selected_desktop_names = self.query_one("#selection_list_desktop").selected
         selected_desktops = [
             de for de in DESKTOP_ENVIRONMENTS if de[0] in selected_desktop_names
         ]
-        selected_packages = [
+        selected_desktop_packages = [
             pkg[0] + " - " + pkg[1] for de in selected_desktops for pkg in de[1]
         ]
-        self.query_one("#pretty_desktop").update(selected_packages)
-        self.desktop_selection = selected_packages
+        self.query_one("#pretty_desktop").update(selected_desktop_packages)
+        self.query_one("#pretty_install_confirmation").update(selected_desktop_packages)
+        self.desktop_selection = selected_desktop_packages
 
-        if len(selected_desktops):
+    def set_selected_packages(self):
+        selected_package_names = self.query_one("#selection_list_package").selected
+        selected_packages = [
+            pkg[0] + " - " + pkg[1]
+            for pkg in PACKAGES
+            if pkg[0] in selected_package_names
+        ]
+        self.query_one("#pretty_package").update(selected_packages)
+        self.package_selection = selected_packages
+
+    def action_select_all(self):
+        self.query_one("#selection_list_package").select_all()
+        self.package_selection = PACKAGES
+        pass
+
+    def action_deselect_all(self):
+        self.query_one("#selection_list_package").deselect_all()
+        self.package_selection = []
+        pass
+
+    def on_button_pressed(self, event: Button.Pressed):
+        if event.button.id == "button_confirm":
+            self.installation_confirmed = True
+            # self.query_one("#tab_content_setup_wizard").
+
+    @on(Mount)
+    @on(SelectionList.SelectedChanged)
+    def update_selected_view(self) -> None:
+        self.set_selected_desktop_environment()
+        self.set_selected_packages()
+
+        selected_packages = [*self.desktop_selection, *self.package_selection]
+        self.query_one("#pretty_install_confirmation").update(selected_packages)
+        if len(selected_packages):
             self.query_one("#tab_content_setup_wizard").enable_tab(
                 "install_confirmation"
             )
