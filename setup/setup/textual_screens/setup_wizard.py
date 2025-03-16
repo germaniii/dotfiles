@@ -1,3 +1,4 @@
+from typing import cast
 from textual import on
 from textual.app import ComposeResult
 from textual.events import Mount
@@ -211,7 +212,7 @@ class SetupWizard(Screen):
         yield Header()
         yield Footer(show_command_palette=True)
         with TabbedContent(id="tab_content_setup_wizard"):
-            # ("desktop_environment_selection", "Desktop Environment Selection")
+            # desktop_environment_selection"
             with TabPane(id=TABS[0][0], title=TABS[0][1]):
                 with Horizontal():
                     yield SelectionList[int](
@@ -220,7 +221,7 @@ class SetupWizard(Screen):
                     )
                     with VerticalScroll(id="vertical_scroll_desktop"):
                         yield Pretty([], id="pretty_desktop")
-            # ("package_selection", "Package Selection")
+            # "package_selection"
             with TabPane(id=TABS[1][0], title=TABS[1][1]):
                 with Horizontal():
                     yield SelectionList[int](
@@ -229,7 +230,7 @@ class SetupWizard(Screen):
                     )
                     with VerticalScroll(id="vertical_scroll_desktop"):
                         yield Pretty([], id="pretty_package")
-            # ("install_confirmation", "Install Confirmation")
+            # "install_confirmation"
             with TabPane(id=TABS[2][0], title=TABS[2][1]):
                 with VerticalScroll(id="vertical_scroll_install_confirmation"):
                     yield Pretty(
@@ -237,77 +238,104 @@ class SetupWizard(Screen):
                         id="pretty_install_confirmation",
                     )
                     yield Button(id="button_confirm", label="CONFIRM")
-            # ("install_processing", "Install Process")
+            # "install_processing"
             with TabPane(id=TABS[3][0], title=TABS[3][1], disabled=True):
                 yield Static(id=TABS[3][0], content=TABS[3][1])
-            # ("install_summary", "Installation Summary")
+            # "install_summary"
             with TabPane(id=TABS[4][0], title=TABS[4][1], disabled=True):
                 yield Static(id=TABS[4][0], content=TABS[4][1])
 
     def on_mount(self):
         self.query_one("#pretty_desktop").border_title = "Selected packages"
+        self.query_one("#pretty_package").border_title = "Selected packages"
         self.query_one("#pretty_install_confirmation").border_title = (
             "Selected packages"
         )
 
     def set_selected_desktop_environment(self):
-        selected_desktop_names = self.query_one("#selection_list_desktop").selected
+        selection_list = cast(
+            SelectionList,
+            self.query_one("#selection_list_desktop"),
+        )
+        pretty = cast(Pretty, self.query_one("#pretty_desktop"))
+
         selected_desktops = [
-            de for de in DESKTOP_ENVIRONMENTS if de[0] in selected_desktop_names
+            de for de in DESKTOP_ENVIRONMENTS if de[0] in selection_list.selected
         ]
         selected_desktop_packages = [
             pkg[0] + " - " + pkg[1] for de in selected_desktops for pkg in de[1]
         ]
-        self.query_one("#pretty_desktop").update(selected_desktop_packages)
-        self.query_one("#pretty_install_confirmation").update(selected_desktop_packages)
+
+        pretty.update(selected_desktop_packages)
         self.desktop_selection = selected_desktop_packages
 
     def set_selected_packages(self):
-        selected_package_names = self.query_one("#selection_list_package").selected
+        selection_list = cast(
+            SelectionList,
+            self.query_one("#selection_list_package"),
+        )
+        pretty = cast(Pretty, self.query_one("#pretty_package"))
+
+        selected_package_names = selection_list.selected
         selected_packages = [
             pkg[0] + " - " + pkg[1]
             for pkg in PACKAGES
             if pkg[0] in selected_package_names
         ]
-        self.query_one("#pretty_package").update(selected_packages)
+
+        pretty.update(selected_packages)
         self.package_selection = selected_packages
 
     def action_select_all(self):
-        self.query_one("#selection_list_package").select_all()
+        selection_list = cast(
+            SelectionList,
+            self.query_one("#selection_list_package"),
+        )
+        selection_list.select_all()
         self.package_selection = PACKAGES
         pass
 
     def action_deselect_all(self):
-        self.query_one("#selection_list_package").deselect_all()
+        selection_list = cast(
+            SelectionList,
+            self.query_one("#selection_list_package"),
+        )
+        selection_list.deselect_all()
         self.package_selection = []
         pass
 
     def on_button_pressed(self, event: Button.Pressed):
         if event.button.id == "button_confirm":
-            self.query_one("#tab_content_setup_wizard").disable_tab(
-                "desktop_environment_selection"
+            tabbed_content = cast(
+                TabbedContent,
+                self.query_one("#tab_content_setup_wizard"),
             )
-            self.query_one("#tab_content_setup_wizard").disable_tab("package_selection")
-            self.query_one("#tab_content_setup_wizard").disable_tab(
-                "install_confirmation"
-            )
-            self.query_one("#tab_content_setup_wizard").enable_tab("install_processing")
-            self.query_one("#tab_content_setup_wizard").active = "install_processing"
+
+            tabbed_content.disable_tab("desktop_environment_selection")
+            tabbed_content.disable_tab("package_selection")
+            tabbed_content.disable_tab("install_confirmation")
+            tabbed_content.enable_tab("install_processing")
+            tabbed_content.active = "install_processing"
             self.installation_confirmed = True
 
     @on(Mount)
     @on(SelectionList.SelectedChanged)
     def update_selected_view(self) -> None:
+        pretty_install_confirm = cast(
+            Pretty,
+            self.query_one("#pretty_install_confirmation"),
+        )
+        tabbed_content = cast(
+            TabbedContent,
+            self.query_one("#tab_content_setup_wizard"),
+        )
+
         self.set_selected_desktop_environment()
         self.set_selected_packages()
-
         selected_packages = [*self.desktop_selection, *self.package_selection]
-        self.query_one("#pretty_install_confirmation").update(selected_packages)
+        pretty_install_confirm.update(selected_packages)
+
         if len(selected_packages):
-            self.query_one("#tab_content_setup_wizard").enable_tab(
-                "install_confirmation"
-            )
+            tabbed_content.enable_tab("install_confirmation")
         else:
-            self.query_one("#tab_content_setup_wizard").disable_tab(
-                "install_confirmation"
-            )
+            tabbed_content.disable_tab("install_confirmation")
