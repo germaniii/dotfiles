@@ -284,8 +284,16 @@ class SetupWizard(Screen):
 
     def on_button_pressed(self, event: Button.Pressed):
         if event.button.id == "button_confirm":
+            self.query_one("#tab_content_setup_wizard").disable_tab(
+                "desktop_environment_selection"
+            )
+            self.query_one("#tab_content_setup_wizard").disable_tab("package_selection")
+            self.query_one("#tab_content_setup_wizard").disable_tab(
+                "install_confirmation"
+            )
+            self.query_one("#tab_content_setup_wizard").enable_tab("install_processing")
+            self.query_one("#tab_content_setup_wizard").active = "install_processing"
             self.installation_confirmed = True
-            # self.query_one("#tab_content_setup_wizard").
 
     @on(Mount)
     @on(SelectionList.SelectedChanged)
