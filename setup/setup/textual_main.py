@@ -1,7 +1,7 @@
 from textual.app import App, ComposeResult
 from textual.widgets import Footer, Header, Static
-from setup.textual_screens.setup_wizard import SetupWizard
-from setup.textual_screens.exit_confirmation import ExitConfirmation
+from textual_screens.setup_wizard import SetupWizard
+from textual_screens.exit_confirmation import ExitConfirmation
 
 
 WELCOME_TEXT = """
