@@ -208,7 +208,6 @@ class SetupWizard(Screen):
     package_selection = [
         *TERMINAL_UTILITIES,
     ]
-    installation_confirmed = False
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -258,38 +257,6 @@ class SetupWizard(Screen):
         self.query_one("#pretty_install_confirmation").border_title = (
             "Selected packages"
         )
-
-    def set_selected_desktop_environment(self):
-        selection_list = self.query_one(
-            "#selection_list_desktop",
-            SelectionList,
-        )
-        pretty = self.query_one("#pretty_desktop", Pretty)
-
-        selected_desktops = [
-            de for de in DESKTOP_ENVIRONMENTS if de[0] in selection_list.selected
-        ]
-        selected_desktop_packages = [
-            pkg[0] for de in selected_desktops for pkg in de[1]
-        ]
-
-        pretty.update(selected_desktop_packages)
-        self.desktop_selection = selected_desktop_packages
-
-    def set_selected_packages(self):
-        selection_list = self.query_one(
-            "#selection_list_package",
-            SelectionList,
-        )
-        pretty = self.query_one("#pretty_package", Pretty)
-
-        selected_package_names = selection_list.selected
-        selected_packages = [
-            pkg[0] for pkg in PACKAGES if pkg[0] in selected_package_names
-        ]
-
-        pretty.update(selected_packages)
-        self.package_selection = selected_packages
 
     def action_select_all(self):
         selection_list = self.query_one(
@@ -363,19 +330,15 @@ class SetupWizard(Screen):
             tabbed_content.disable_tab("install_confirmation")
             tabbed_content.enable_tab("install_processing")
             tabbed_content.active = "install_processing"
-            self.installation_confirmed = True
 
     @on(TabbedContent.TabActivated)
     async def initiate_install_process(self, event):
         if event.tab.id != "--content-tab-install_processing":
             return
 
-        print("GERMAN tab activated")
         self.install_packages()
 
-    @on(Mount)
-    @on(SelectionList.SelectedChanged)
-    def update_selected_view(self) -> None:
+    def update_confirm_pretty(self):
         pretty_install_confirm = self.query_one(
             "#pretty_install_confirmation",
             Pretty,
@@ -384,9 +347,6 @@ class SetupWizard(Screen):
             "#tab_content_setup_wizard",
             TabbedContent,
         )
-
-        self.set_selected_desktop_environment()
-        self.set_selected_packages()
         selected_packages = [*self.desktop_selection, *self.package_selection]
         pretty_install_confirm.update(selected_packages)
 
@@ -394,3 +354,41 @@ class SetupWizard(Screen):
             tabbed_content.enable_tab("install_confirmation")
         else:
             tabbed_content.disable_tab("install_confirmation")
+
+    @on(Mount)
+    @on(SelectionList.SelectedChanged, "#selection_list_desktop")
+    def update_selection_list_desktop(self) -> None:
+
+        selection_list = self.query_one(
+            "#selection_list_desktop",
+            SelectionList,
+        )
+        pretty = self.query_one("#pretty_desktop", Pretty)
+
+        selected_desktops = [
+            de for de in DESKTOP_ENVIRONMENTS if de[0] in selection_list.selected
+        ]
+        selected_desktop_packages = [
+            pkg[0] for de in selected_desktops for pkg in de[1]
+        ]
+        pretty.update(selected_desktop_packages)
+        self.desktop_selection = selected_desktop_packages
+
+        self.update_confirm_pretty()
+
+    @on(Mount)
+    @on(SelectionList.SelectedChanged, "#selection_list_package")
+    def update_selected_view(self) -> None:
+        selection_list = self.query_one(
+            "#selection_list_package",
+            SelectionList,
+        )
+        pretty = self.query_one("#pretty_package", Pretty)
+        selected_package_names = selection_list.selected
+        selected_packages = [
+            pkg[0] for pkg in PACKAGES if pkg[0] in selected_package_names
+        ]
+        pretty.update(selected_packages)
+        self.package_selection = selected_packages
+
+        self.update_confirm_pretty()
