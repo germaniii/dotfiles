@@ -1,8 +1,9 @@
+import subprocess
 from typing import cast
-from textual import on
+from textual import on, work
 from textual.app import ComposeResult
 from textual.events import Mount
-from textual.containers import Horizontal, VerticalScroll
+from textual.containers import Horizontal, VerticalScroll, Center, Middle
 from textual.widgets import (
     Button,
     Footer,
@@ -12,6 +13,7 @@ from textual.widgets import (
     Static,
     TabPane,
     TabbedContent,
+    ProgressBar,
 )
 from textual.screen import Screen
 
@@ -196,7 +198,6 @@ PACKAGES = [
 
 
 class SetupWizard(Screen):
-    CSS_PATH = "setup_wizard.tcss"
     BINDINGS = [
         ("g", "select_all", "Select All Packages"),
         ("G", "deselect_all", "Deselect All Packages"),
@@ -240,7 +241,13 @@ class SetupWizard(Screen):
                     yield Button(id="button_confirm", label="CONFIRM")
             # "install_processing"
             with TabPane(id=TABS[3][0], title=TABS[3][1], disabled=True):
-                yield Static(id=TABS[3][0], content=TABS[3][1])
+                with Center():
+                    with Middle():
+                        yield Static(
+                            "Installing...",
+                            id="install_processing-progress_text",
+                        )
+                        yield ProgressBar(id="install_processing-progress_bar")
             # "install_summary"
             with TabPane(id=TABS[4][0], title=TABS[4][1], disabled=True):
                 yield Static(id=TABS[4][0], content=TABS[4][1])
@@ -302,6 +309,50 @@ class SetupWizard(Screen):
         selection_list.deselect_all()
         self.package_selection = []
 
+    @work()
+    async def install_package(self, progress_text, progress_bar, package):
+        print("GERMAN installing package ", package[0])
+        with self.suspend():
+            progress_text.update("Installing: " + package[0])
+            f = open("yay-logs.txt", "a")
+            try:
+                _ = subprocess.run(
+                    ["yay", "-Si", package[0]],
+                    check=True,
+                    stdout=f,
+                    stderr=subprocess.STDOUT,
+                )
+                _ = subprocess.run(
+                    ["yay", "-S", "--noconfirm", package[0]],
+                    check=True,
+                    stdout=f,
+                    stderr=subprocess.STDOUT,
+                    text=True,
+                )
+
+                return True
+            except subprocess.CalledProcessError:
+                pass
+
+            progress_bar.advance(1)
+
+        return False
+
+    async def install_packages(self):
+        print("GERMAN installing packages")
+        selected_packages = [*self.desktop_selection, *self.package_selection]
+        progress_bar = cast(
+            ProgressBar, self.query_one("#install_processing-progress_bar")
+        )
+        progress_text = cast(
+            Static, self.query_one("#install_processing-progress_text")
+        )
+
+        progress_bar.total = len(selected_packages)
+        for package in selected_packages:
+            print("GERMAN looping packages")
+            self.install_package(progress_text, progress_bar, package)
+
     def on_button_pressed(self, event: Button.Pressed):
         if event.button.id == "button_confirm":
             tabbed_content = cast(
@@ -315,6 +366,14 @@ class SetupWizard(Screen):
             tabbed_content.enable_tab("install_processing")
             tabbed_content.active = "install_processing"
             self.installation_confirmed = True
+
+    @on(TabbedContent.TabActivated)
+    async def initiate_install_process(self, event):
+        if event.tab.id != "--content-tab-install_processing":
+            return
+
+        print("GERMAN tab activated")
+        await self.install_packages()
 
     @on(Mount)
     @on(SelectionList.SelectedChanged)
