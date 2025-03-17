@@ -293,7 +293,6 @@ class SetupWizard(Screen):
         )
         selection_list.select_all()
         self.package_selection = PACKAGES
-        pass
 
     def action_deselect_all(self):
         selection_list = cast(
@@ -302,7 +301,6 @@ class SetupWizard(Screen):
         )
         selection_list.deselect_all()
         self.package_selection = []
-        pass
 
     def on_button_pressed(self, event: Button.Pressed):
         if event.button.id == "button_confirm":
