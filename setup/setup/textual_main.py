@@ -27,7 +27,7 @@ class SetupApp(App[str]):
     ]
 
     def on_mount(self) -> None:
-        pass
+        self.push_screen(SetupWizard())
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -40,9 +40,6 @@ class SetupApp(App[str]):
                 self.exit(return_code=0, message="Exited")
 
         self.push_screen(ExitConfirmation(), is_exit)
-
-    def action_request_proceed(self):
-        self.push_screen(SetupWizard())
 
     def on_key(self, key):
         print(key)
