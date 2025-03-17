@@ -28,6 +28,7 @@ class SetupApp(App[str]):
 
     def on_mount(self) -> None:
         self.push_screen(SetupWizard())
+        self.theme = "gruvbox"
 
     def compose(self) -> ComposeResult:
         yield Header()
