@@ -7,14 +7,12 @@ from textual.widgets import (
     Button,
     Footer,
     Header,
+    Log,
     Pretty,
     SelectionList,
     Static,
     TabPane,
     TabbedContent,
-    ProgressBar,
-    ListView,
-    ListItem,
 )
 from textual.screen import Screen
 
@@ -243,8 +241,8 @@ class SetupWizard(Screen):
             with TabPane(id=TABS[3][0], title=TABS[3][1], disabled=True):
                 with Center():
                     with Middle():
-                        yield ProgressBar(id="install_processing-progress_bar")
-                        yield ListView(
+                        # yield LoadingIndicator(id="install_processing-progress_bar")
+                        yield Log(
                             id="install_processing-progress_text",
                         )
             # "install_summary"
@@ -277,46 +275,56 @@ class SetupWizard(Screen):
     @work(exit_on_error=False)
     async def install_packages(self):
         selected_packages = [*self.desktop_selection, *self.package_selection]
-        progress_bar = self.query_one(
-            "#install_processing-progress_bar",
-            ProgressBar,
-        )
-        progress_bar.total = len(selected_packages)
         progress_text = self.query_one(
             "#install_processing-progress_text",
-            ListView,
+            Log,
         )
         print("GERMAN selected_packages", selected_packages)
 
         for index, package in enumerate(selected_packages):
-            try:
-                await asyncio.create_subprocess_exec(
-                    "yay",
-                    "-Si",
-                    package,
-                    stdout=asyncio.subprocess.PIPE,
-                    stderr=asyncio.subprocess.PIPE,
-                )
-                await asyncio.create_subprocess_exec(
-                    "yay",
-                    "-S",
-                    "--noconfirm",
-                    package,
-                    stdout=asyncio.subprocess.PIPE,
-                    stderr=asyncio.subprocess.PIPE,
-                )
-
-                progress_text.append(
-                    ListItem(Static("Successfully Installed " + package))
-                )
-            except Exception as e:
-                print(e)
-                progress_text.append(ListItem(Static("Failed to Install " + package)))
-
-            # Update progress bar
-            progress_bar.update(
-                progress=int(((index + 1) / len(selected_packages)) * 100)
+            check_process = await asyncio.create_subprocess_exec(
+                "yay",
+                "-Si",
+                package,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
             )
+
+            await check_process.communicate()
+            if check_process.returncode != 0:
+                progress_text.write_line("Package not found: " + package)
+                continue
+
+            install_process = await asyncio.create_subprocess_exec(
+                "yay",
+                "-S",
+                "--noconfirm",
+                package,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
+            )
+
+            async def read_stream(stream, prefix):
+                """Read the stream line by line and append output to progress_text."""
+                while True:
+                    line = await stream.readline()
+                    if not line:
+                        break  # End of stream
+
+                    progress_text.write_line(f"{prefix} {line.decode().strip()}")
+
+            # Read stdout and stderr concurrently
+            await asyncio.gather(
+                read_stream(install_process.stdout, "[stdout]"),
+                read_stream(install_process.stderr, "[stderr]"),
+            )
+
+            if check_process.returncode != 0:
+                progress_text.write_line("Failed to install: " + package)
+            else:
+                progress_text.write_line("Successfully Installed " + package)
+
+            self.refresh()  # Ensure UI updates
 
     def on_button_pressed(self, event: Button.Pressed):
         if event.button.id == "button_confirm":
