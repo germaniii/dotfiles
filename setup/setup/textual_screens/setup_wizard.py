@@ -1,5 +1,4 @@
-import subprocess
-from typing import cast
+import asyncio
 from textual import on, work
 from textual.app import ComposeResult
 from textual.events import Mount
@@ -14,6 +13,8 @@ from textual.widgets import (
     TabPane,
     TabbedContent,
     ProgressBar,
+    ListView,
+    ListItem,
 )
 from textual.screen import Screen
 
@@ -243,11 +244,10 @@ class SetupWizard(Screen):
             with TabPane(id=TABS[3][0], title=TABS[3][1], disabled=True):
                 with Center():
                     with Middle():
-                        yield Static(
-                            "Installing...",
+                        yield ProgressBar(id="install_processing-progress_bar")
+                        yield ListView(
                             id="install_processing-progress_text",
                         )
-                        yield ProgressBar(id="install_processing-progress_bar")
             # "install_summary"
             with TabPane(id=TABS[4][0], title=TABS[4][1], disabled=True):
                 yield Static(id=TABS[4][0], content=TABS[4][1])
@@ -260,104 +260,102 @@ class SetupWizard(Screen):
         )
 
     def set_selected_desktop_environment(self):
-        selection_list = cast(
+        selection_list = self.query_one(
+            "#selection_list_desktop",
             SelectionList,
-            self.query_one("#selection_list_desktop"),
         )
-        pretty = cast(Pretty, self.query_one("#pretty_desktop"))
+        pretty = self.query_one("#pretty_desktop", Pretty)
 
         selected_desktops = [
             de for de in DESKTOP_ENVIRONMENTS if de[0] in selection_list.selected
         ]
         selected_desktop_packages = [
-            pkg[0] + " - " + pkg[1] for de in selected_desktops for pkg in de[1]
+            pkg[0] for de in selected_desktops for pkg in de[1]
         ]
 
         pretty.update(selected_desktop_packages)
         self.desktop_selection = selected_desktop_packages
 
     def set_selected_packages(self):
-        selection_list = cast(
+        selection_list = self.query_one(
+            "#selection_list_package",
             SelectionList,
-            self.query_one("#selection_list_package"),
         )
-        pretty = cast(Pretty, self.query_one("#pretty_package"))
+        pretty = self.query_one("#pretty_package", Pretty)
 
         selected_package_names = selection_list.selected
         selected_packages = [
-            pkg[0] + " - " + pkg[1]
-            for pkg in PACKAGES
-            if pkg[0] in selected_package_names
+            pkg[0] for pkg in PACKAGES if pkg[0] in selected_package_names
         ]
 
         pretty.update(selected_packages)
         self.package_selection = selected_packages
 
     def action_select_all(self):
-        selection_list = cast(
+        selection_list = self.query_one(
+            "#selection_list_package",
             SelectionList,
-            self.query_one("#selection_list_package"),
         )
         selection_list.select_all()
         self.package_selection = PACKAGES
 
     def action_deselect_all(self):
-        selection_list = cast(
+        selection_list = self.query_one(
+            "#selection_list_package",
             SelectionList,
-            self.query_one("#selection_list_package"),
         )
         selection_list.deselect_all()
         self.package_selection = []
 
-    @work()
-    async def install_package(self, progress_text, progress_bar, package):
-        print("GERMAN installing package ", package[0])
-        with self.suspend():
-            progress_text.update("Installing: " + package[0])
-            f = open("yay-logs.txt", "a")
-            try:
-                _ = subprocess.run(
-                    ["yay", "-Si", package[0]],
-                    check=True,
-                    stdout=f,
-                    stderr=subprocess.STDOUT,
-                )
-                _ = subprocess.run(
-                    ["yay", "-S", "--noconfirm", package[0]],
-                    check=True,
-                    stdout=f,
-                    stderr=subprocess.STDOUT,
-                    text=True,
-                )
-
-                return True
-            except subprocess.CalledProcessError:
-                pass
-
-            progress_bar.advance(1)
-
-        return False
-
+    @work(exit_on_error=False)
     async def install_packages(self):
-        print("GERMAN installing packages")
         selected_packages = [*self.desktop_selection, *self.package_selection]
-        progress_bar = cast(
-            ProgressBar, self.query_one("#install_processing-progress_bar")
+        progress_bar = self.query_one(
+            "#install_processing-progress_bar",
+            ProgressBar,
         )
-        progress_text = cast(
-            Static, self.query_one("#install_processing-progress_text")
-        )
-
         progress_bar.total = len(selected_packages)
-        for package in selected_packages:
-            print("GERMAN looping packages")
-            self.install_package(progress_text, progress_bar, package)
+        progress_text = self.query_one(
+            "#install_processing-progress_text",
+            ListView,
+        )
+        print("GERMAN selected_packages", selected_packages)
+
+        for index, package in enumerate(selected_packages):
+            try:
+                await asyncio.create_subprocess_exec(
+                    "yay",
+                    "-Si",
+                    package,
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE,
+                )
+                await asyncio.create_subprocess_exec(
+                    "yay",
+                    "-S",
+                    "--noconfirm",
+                    package,
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE,
+                )
+
+                progress_text.append(
+                    ListItem(Static("Successfully Installed " + package))
+                )
+            except Exception as e:
+                print(e)
+                progress_text.append(ListItem(Static("Failed to Install " + package)))
+
+            # Update progress bar
+            progress_bar.update(
+                progress=int(((index + 1) / len(selected_packages)) * 100)
+            )
 
     def on_button_pressed(self, event: Button.Pressed):
         if event.button.id == "button_confirm":
-            tabbed_content = cast(
+            tabbed_content = self.query_one(
+                "#tab_content_setup_wizard",
                 TabbedContent,
-                self.query_one("#tab_content_setup_wizard"),
             )
 
             tabbed_content.disable_tab("desktop_environment_selection")
@@ -373,18 +371,18 @@ class SetupWizard(Screen):
             return
 
         print("GERMAN tab activated")
-        await self.install_packages()
+        self.install_packages()
 
     @on(Mount)
     @on(SelectionList.SelectedChanged)
     def update_selected_view(self) -> None:
-        pretty_install_confirm = cast(
+        pretty_install_confirm = self.query_one(
+            "#pretty_install_confirmation",
             Pretty,
-            self.query_one("#pretty_install_confirmation"),
         )
-        tabbed_content = cast(
+        tabbed_content = self.query_one(
+            "#tab_content_setup_wizard",
             TabbedContent,
-            self.query_one("#tab_content_setup_wizard"),
         )
 
         self.set_selected_desktop_environment()
