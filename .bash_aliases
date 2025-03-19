@@ -102,6 +102,10 @@ function obsidian () {
     cd ~/vaults/personal
     git pull --rebase
     $EDITOR README.md
+}
+
+function obsidian-sync() {
+    git pull --rebase --autostash
     git add .
     git commit -m "vault backup: $(date)"
 
