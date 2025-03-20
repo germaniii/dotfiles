@@ -3,17 +3,23 @@ from textual import on, work
 from textual.app import ComposeResult
 from textual.events import Mount
 from textual.containers import Horizontal, VerticalScroll, Center, Middle
+from textual.message import Message
 from textual.widgets import (
     Button,
     Footer,
     Header,
+    Label,
+    ListItem,
+    ListView,
     Log,
+    OptionList,
     Pretty,
     SelectionList,
     Static,
     TabPane,
     TabbedContent,
 )
+from textual.widgets.option_list import Option
 from textual.screen import Screen
 
 TABS = [
@@ -196,6 +202,13 @@ PACKAGES = [
 ]
 
 
+class PackageInstalled(Message):
+    def __init__(self, package, is_success):
+        self.package = package
+        self.is_success = is_success
+        super().__init__()
+
+
 class SetupWizard(Screen):
     BINDINGS = [
         ("g", "select_all", "Select All Packages"),
@@ -206,6 +219,7 @@ class SetupWizard(Screen):
     package_selection = [
         *TERMINAL_UTILITIES,
     ]
+    installed_packages = []
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -241,13 +255,13 @@ class SetupWizard(Screen):
             with TabPane(id=TABS[3][0], title=TABS[3][1], disabled=True):
                 with Center():
                     with Middle():
-                        # yield LoadingIndicator(id="install_processing-progress_bar")
                         yield Log(
                             id="install_processing-progress_text",
                         )
             # "install_summary"
             with TabPane(id=TABS[4][0], title=TABS[4][1], disabled=True):
-                yield Static(id=TABS[4][0], content=TABS[4][1])
+                with VerticalScroll(id="vertical_scroll_summary"):
+                    yield Pretty(self.installed_packages)
 
     def on_mount(self):
         self.query_one("#pretty_desktop").border_title = "Selected packages"
@@ -279,7 +293,6 @@ class SetupWizard(Screen):
             "#install_processing-progress_text",
             Log,
         )
-        print("GERMAN selected_packages", selected_packages)
 
         for index, package in enumerate(selected_packages):
             check_process = await asyncio.create_subprocess_exec(
@@ -293,6 +306,7 @@ class SetupWizard(Screen):
             await check_process.communicate()
             if check_process.returncode != 0:
                 progress_text.write_line("Package not found: " + package)
+                self.post_message(PackageInstalled(package=package, is_success=False))
                 continue
 
             install_process = await asyncio.create_subprocess_exec(
@@ -321,10 +335,26 @@ class SetupWizard(Screen):
 
             if check_process.returncode != 0:
                 progress_text.write_line("Failed to install: " + package)
+                self.post_message(PackageInstalled(package=package, is_success=False))
             else:
                 progress_text.write_line("Successfully Installed " + package)
+                self.post_message(PackageInstalled(package=package, is_success=True))
 
             self.refresh()  # Ensure UI updates
+
+    @on(PackageInstalled)
+    async def on_package_installed(self, event: PackageInstalled):
+        self.installed_packages.append((event.package, event.is_success))
+
+        selected_packages = [*self.desktop_selection, *self.package_selection]
+        if len(self.installed_packages) == len(selected_packages):
+            tabbed_content = self.query_one(
+                "#tab_content_setup_wizard",
+                TabbedContent,
+            )
+            tabbed_content.disable_tab("install_processing")
+            tabbed_content.enable_tab("install_summary")
+            tabbed_content.active = "install_summary"
 
     def on_button_pressed(self, event: Button.Pressed):
         if event.button.id == "button_confirm":
