@@ -13,7 +13,7 @@ WELCOME_TEXT = """
 
 class SetupApp(App[str]):
 
-    CSS_PATH = "textual_main.tcss"
+    CSS_PATH = "main.tcss"
     TITLE = "Linux Setup Helper"
     SUB_TITLE = "A TUI application to help you install your favorite software"
 

@@ -71,4 +71,4 @@ echo
 source /opt/miniconda3/bin/activate
 conda env create
 conda activate dotfiles
-python ./setup/textual_main.py
+python ./setup/main.py
