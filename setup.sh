@@ -77,12 +77,13 @@ if [[ $terminal_utilities_choice != n ]]; then
         'ripgrep'
         'sed'
         'neovim'
-        'tmux'
+        # 'tmux'
+        'zellij'
         'ack'
         'ranger'
         'htop'
         'fastfetch'
-        'entr' # tmux dep
+        # 'entr' # tmux dep
 
         # Networking Essentials
         'wget'                    # Remote content retrieval
@@ -130,7 +131,7 @@ read -rp "[Terminal] Would you like to install essential aur pakages?[Y/n]" aur_
 
 if [[ $aur_packs_choice != n ]]; then
     AURPKGS=(
-        'tmux-plugin-manager'
+        # 'tmux-plugin-manager'
         'ttf-fira-code'
         'ttf-font-awesome'
     )

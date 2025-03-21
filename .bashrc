@@ -57,6 +57,9 @@ fi
 
 # NVM source proper
 source /usr/share/nvm/init-nvm.sh
+if [[ -z "$ZELLIJ" ]]; then
+    zellij attach --create germaniii
+fi
 
 ####################################################################################
 # Exports

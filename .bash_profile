@@ -1,11 +1,7 @@
 #
 # ~/.bash_profile
 #
-tmux new-session -A -s germaniii
-clear
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-
+# tmux new-session -A -s germaniii
 export MOZ_ENABLE_WAYLAND=1
 export EDITOR=nvim
 export VISUAL=nvim
@@ -21,4 +17,4 @@ export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 export HISTSIZE=
 export HISTFILESIZE=
 
-source /usr/share/nvm/init-nvm.sh
+[[ -f ~/.bashrc ]] && . ~/.bashrc
