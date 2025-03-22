@@ -8,8 +8,8 @@ source ~/.bash_profile
 
 sudo pacman-key --init
 sudo pacman-key --populate
-sudo pacman -Sy archlinux-keyring
-sudo pacman -Syu
+sudo pacman -Sy --noconfirm archlinux-keyring
+sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm base-devel go reflector
 
 updateMirrors
