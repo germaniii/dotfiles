@@ -55,14 +55,12 @@ if [ -f ~/.bash_aliases ]; then
     . "$HOME/.bash_aliases"
 fi
 
-# NVM source proper
-source /usr/share/nvm/init-nvm.sh
+# All in one "Declarative" Package Manager
+eval "$(mise activate bash)"
+
 if [[ -z "$ZELLIJ" ]]; then
     zellij attach --create germaniii
 fi
-
-# Miniconda
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 ####################################################################################
 # Exports

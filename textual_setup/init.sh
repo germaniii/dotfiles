@@ -9,34 +9,23 @@ source ~/.bash_profile
 sudo pacman-key --init
 sudo pacman-key --populate
 sudo pacman -Sy --noconfirm archlinux-keyring
-sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm base-devel go reflector
+sudo pacman -S --noconfirm reflector
 
+echo "############################################################################"
+echo "# Updating Mirrors"
+echo "############################################################################"
+source ~/.bash_aliases
 updateMirrors
-echo
-echo
-echo Updating Mirrors
-echo
-echo
 
 echo "############################################################################"
-echo "# Installing essential AUR packages"
+echo "# Updating System"
 echo "############################################################################"
-AURPKGS=(
-    'nvm'
-    'miniconda3'
-)
+sudo pacman -Syu --noconfirm
 
-# Install yay
-git clone https://aur.archlinux.org/yay.git
-cd yay || exit
-makepkg -si
-cd .. || exit
-rm -rf yay
-
-for PKG in "${AURPKGS[@]}"; do
-    yay -S --noconfirm "$PKG"
-done
+echo "############################################################################"
+echo "# Installing Essential Packages"
+echo "############################################################################"
+sudo pacman -S --noconfirm base-devel go mise
 
 # Setup crontab
 # if [ -f ~/.crontab ]; then
@@ -57,18 +46,11 @@ echo
 echo "############################################################################"
 echo "# Setting up development environments"
 echo "############################################################################"
-echo
-echo "Setting up Node Version Manager"
-echo
-echo
 source ~/.bash_profile
-nvm install --lts
+eval "$(mise activate bash)"
 
-echo
-echo "Setting up initial Miniconda environment"
-echo
-echo
-source /opt/miniconda3/bin/activate
-conda env create
-conda activate dotfiles
+echo "############################################################################"
+echo "# Installing Essential Python Packages"
+echo "############################################################################"
+pip install -r ./requirements.txt
 python ./setup/main.py
