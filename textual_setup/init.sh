@@ -48,6 +48,8 @@ echo "# Setting up development environments"
 echo "############################################################################"
 source ~/.bash_profile
 eval "$(mise activate bash)"
+mise trust
+mise install
 
 echo "############################################################################"
 echo "# Installing Essential Python Packages"
