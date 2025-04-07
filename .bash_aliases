@@ -111,9 +111,15 @@ function obsidian-sync() {
 
     echo
     echo Your changes has been added to git.
-    echo Please run:
-    echo -e "   ${Yellow}git push -u origin HEAD${Color_Off}"
     echo
+    read -p "Would you like to push your changes? [Y/n]" choice
+
+     if [[ "$choice" =~ ^[Nn]$ ]]; then
+        echo "Skipping push."
+        exit 0
+    fi
+
+     git push -u origin HEAD
 }
 
 # Auto complete sample
