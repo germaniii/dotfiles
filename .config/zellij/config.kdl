@@ -204,13 +204,13 @@ keybinds clear-defaults=true {
         bind "d" { Detach; }
     }
     tmux {
-        bind "Ctrl g" { SwitchToMode "locked" }
-        bind "," { SwitchToMode "renametab" }
+        bind "Ctrl g" { SwitchToMode "locked"; }
+        bind "," { SwitchToMode "renametab"; }
         bind "[" { SwitchToMode "scroll"; }
         bind "Ctrl r" { SwitchToMode "renametab"; }
         bind "t" { SwitchToMode "tab"; }
-        bind "Shift left" { MoveTab "left" }
-        bind "Shift right" { MoveTab "right" }
+        bind "Shift left" { MoveTab "left"; }
+        bind "Shift right" { MoveTab "right"; }
         bind "up" { MoveFocus "down"; SwitchToMode "normal"; }
         bind "down" { MoveFocus "up"; SwitchToMode "normal"; }
         bind "space" { NextSwapLayout; SwitchToMode "normal"; }
