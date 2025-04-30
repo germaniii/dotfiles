@@ -59,7 +59,7 @@ fi
 eval "$(mise activate bash)"
 
 if [[ -z "$ZELLIJ" ]]; then
-    zellij attach --create germaniii
+    zellij attach --create "$(uname -n)"
 fi
 
 ####################################################################################
