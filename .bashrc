@@ -62,6 +62,12 @@ if [[ -z "$ZELLIJ" ]]; then
     zellij attach --create "$(uname -n)"
 fi
 
+# use ctrl-z to toggle in and out of bg
+if [[ $- == *i* ]]; then 
+  stty susp undef
+  bind '"\C-z":" fg\015"'
+fi
+
 ####################################################################################
 # Exports
 ####################################################################################
