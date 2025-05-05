@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# List of themes from zellij docs
+themes=(
+  "ansi" "ao" "atelier-sulphurpool" "ayu_mirage" "ayu_dark"
+  "catppuccin-frappe" "catppuccin-macchiato" "cyber-noir" "blade-runner" "retro-wave"
+  "dracula" "everforest-dark" "gruvbox-dark" "iceberg-dark" "kanagawa"
+  "lucario" "menace" "molokai-dark" "night-owl" "nightfox"
+  "nord" "one-half-dark" "onedark" "solarized-dark" "tokyo-night-dark"
+  "tokyo-night-storm" "tokyo-night" "vesper"
+)
+
+# Pick a random theme
+random_theme=${themes[$RANDOM % ${#themes[@]}]}
+
+# Replace the line
+sed -i -E "s/^theme \"[^\"]+\"/theme \"$random_theme\"/" "$HOME/.config/zellij/config.kdl"
