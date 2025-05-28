@@ -59,7 +59,7 @@ fi
 eval "$(mise activate bash)"
 
 if [[ -z "$ZELLIJ" ]]; then
-    zellij attach --create "$(uname -n)"
+    systemd-run --scope --user zellij attach --create "$(uname -n)"
 fi
 
 # use ctrl-z to toggle in and out of bg
