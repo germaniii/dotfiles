@@ -182,3 +182,7 @@ function mysql_connect () {
  sudo mysql -u root -pmysql2023 \
     -h $1 -P $2 
 }
+
+function logcmd() {
+    script --flush --quiet --return ./logs.txt --command {$@:1}
+}
