@@ -58,23 +58,33 @@ fi
 # All in one "Declarative" Package Manager
 eval "$(mise activate bash)"
 
-if [[ -z "$ZELLIJ" ]]; then
-    systemd-run --scope --user zellij attach --create "$(uname -n)"
-fi
+# if [[ -z "$ZELLIJ" ]]; then
+#     systemd-run --scope --user zellij attach --create "$(uname -n)"
+# fi
 
-# use ctrl-z to toggle in and out of bg
+# use ctrl-z to toggle in and out of bg (useful for vim bg)
 if [[ $- == *i* ]]; then 
   stty susp undef
   bind '"\C-z":" fg\015"'
 fi
 
-####################################################################################
-# Exports
-####################################################################################
+############################################################
+# PS1
+############################################################
+WORKING_DIR="\w"
+LOGGED_IN_USER="\u"
+MACHINE_NAME="\h"
+BG_JOBS="\j"
 
 # Git branch in prompt.
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+
+export PS1="$BGreen$LOGGED_IN_USER@$MACHINE_NAME $BCyan$WORKING_DIR$BYellow\$(parse_git_branch) $UBlack$BG_JOBS$Color_Off $BWhite$ $Color_Off"
+
+####################################################################################
+# Exports
+####################################################################################
 
 fastfetch
