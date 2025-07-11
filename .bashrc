@@ -57,6 +57,8 @@ fi
 
 # All in one "Declarative" Package Manager
 eval "$(mise activate bash)"
+# Shell design
+eval "$(starship init bash)"
 
 # if [[ -z "$ZELLIJ" ]]; then
 #     systemd-run --scope --user zellij attach --create "$(uname -n)"
