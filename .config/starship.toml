@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[█](color_yellow)\
+$shell\
 $hostname\
 [](bg:color_orange fg:color_yellow)\
 $os\
@@ -26,6 +26,8 @@ $python\
 $docker_context\
 $conda\
 $pixi\
+$direnv\
+$nix_shell\
 [](fg:color_bg3 bg:color_bg1)\
 [█ ](fg:color_bg1)"""
 
@@ -46,6 +48,7 @@ color_yellow = '#d79921'
 [os]
 disabled = false
 style = "bg:color_orange fg:color_fg0"
+format = '[ $symbol]($style)'
 
 [os.symbols]
 Windows = "󰍲"
@@ -73,7 +76,7 @@ Pop = ""
 [hostname]
 ssh_only = false
 style = "bg:color_yellow fg:color_fg0"
-format = '[$ssh_symbol$hostname]($style)'
+format = '[ $ssh_symbol$hostname ]($style)'
 trim_at = '.companyname.com'
 disabled = false
 
@@ -185,3 +188,31 @@ vimcmd_symbol = '[](bold fg:color_green)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
 vimcmd_replace_symbol = '[](bold fg:color_purple)'
 vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+[direnv]
+disabled = false
+symbol = 'direnv'
+loaded_msg = '✔️'
+allowed_msg = '✔️'
+unloaded_msg = '✖️'
+denied_msg = '✖️'
+not_allowed_msg = '✖️'
+style = 'fg:color_blue bg:color_bg3'
+format = '[ $symbol $loaded $allowed ]($style)'
+
+[nix_shell]
+disabled = true
+impure_msg = '🐻'
+pure_msg = '🐻‍❄️'
+unknown_msg = '❔'
+style = 'fg:color_blue bg:color_bg3'
+format = '[ ❄️ $state($name) ]($style)'
+
+[shell]
+disabled = false
+fish_indicator = '󰈺'
+powershell_indicator = '_'
+bash_indicator = '_'
+unknown_indicator = 'mystery shell'
+style = 'bg:color_yellow fg:color_fg0 bold'
+format = '[ $indicator ]($style)'
