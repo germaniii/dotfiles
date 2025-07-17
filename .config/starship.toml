@@ -29,8 +29,10 @@ $pixi\
 $direnv\
 $nix_shell\
 [](fg:color_bg3 bg:color_bg1)\
-[█ ](fg:color_bg1)"""
+[█](fg:color_bg1)\
+$line_break$character"""
 
+add_newline = false
 palette = 'gruvbox_dark'
 
 [palettes.gruvbox_dark]
@@ -182,8 +184,8 @@ disabled = false
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:color_green)'
-error_symbol = '[](bold fg:color_red)'
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
 vimcmd_symbol = '[](bold fg:color_green)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
 vimcmd_replace_symbol = '[](bold fg:color_purple)'
@@ -192,21 +194,21 @@ vimcmd_visual_symbol = '[](bold fg:color_yellow)'
 [direnv]
 disabled = false
 symbol = 'direnv'
-loaded_msg = '✔️'
-allowed_msg = '✔️'
-unloaded_msg = '✖️'
-denied_msg = '✖️'
-not_allowed_msg = '✖️'
+loaded_msg = '✓'
+allowed_msg = '✓'
+unloaded_msg = '✗'
+denied_msg = '✗'
+not_allowed_msg = '✗'
 style = 'fg:color_blue bg:color_bg3'
-format = '[ $symbol $loaded $allowed ]($style)'
+format = '[ $symbol $loaded$allowed ]($style)'
 
 [nix_shell]
 disabled = true
-impure_msg = '🐻'
-pure_msg = '🐻‍❄️'
-unknown_msg = '❔'
+impure_msg = ''
+pure_msg = '✓'
+unknown_msg = ''
 style = 'fg:color_blue bg:color_bg3'
-format = '[ ❄️ $state($name) ]($style)'
+format = '[ 󱄅 $state($name) ]($style)'
 
 [shell]
 disabled = false
