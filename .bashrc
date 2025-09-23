@@ -55,6 +55,8 @@ if [ -f ~/.bash_aliases ]; then
     . "$HOME/.bash_aliases"
 fi
 
+# Macos tings
+eval "$(/opt/homebrew/bin/brew shellenv)"
 # All in one "Declarative" Package Manager
 eval "$(mise activate bash)"
 # Shell design

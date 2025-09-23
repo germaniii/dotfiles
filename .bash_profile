@@ -20,7 +20,7 @@ export HISTFILESIZE=
 ############################################################
 # PATH
 ############################################################
-export PATH=~/Documents/Programs/bin:~/.config/zellij:$PATH
+export PATH=~/Documents/Programs/bin:~/.config/zellij:~/.local/bin:$PATH
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
