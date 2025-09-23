@@ -6,9 +6,16 @@ chsh -s /opt/homebrew/bin/bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew install starship \
-	neovim \
 	fastfetch \
 	ghostty \
+	# neovim tings
+	neovim \
+	ripgrep \
+	fd \
+	imagemagick \
+	gs \
+	tectonic \
+	# tmux tings
 	tpm \
 	tmux
 
