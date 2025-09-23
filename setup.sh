@@ -1,3 +1,3 @@
 cd ~
-git clone https://github.com/germaniii/dotfiles
+git clone https://github.com/germaniii/dotfiles-macos
 ./install.sh
