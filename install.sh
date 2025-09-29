@@ -1,15 +1,25 @@
+# Install Brew package manager
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install bash
+
 # Set Bash default shell
 echo "/opt/homebrew/bin/bash" >> /etc/shells 
 chsh -s /opt/homebrew/bin/bash
 
-# Install Brew package manager
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 brew install starship \
 	fastfetch \
 	ghostty \
+	zen \
+	gimp \
+	wget \
+	git \
+	coreutils \
+	gh \
+	ffmpeg \
 	# neovim tings
 	neovim \
+	fzf \
 	ripgrep \
 	fd \
 	imagemagick \
@@ -19,6 +29,7 @@ brew install starship \
 	tpm \
 	tmux
 
+brew install --cask font-fira-code
 brew install --cask nikitabobko/tap/aerospace
 brew install --cask --no-quarantine middleclick
 # Battery Toolkit
