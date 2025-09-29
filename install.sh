@@ -20,6 +20,10 @@ brew install starship \
 	tmux
 
 brew install --cask nikitabobko/tap/aerospace
+brew install --cask --no-quarantine middleclick
+# Battery Toolkit
+brew tap mhaeuser/mhaeuser
+brew install battery-toolkit --no-quarantine
 
 # install mise
 curl https://mise.run | sh
