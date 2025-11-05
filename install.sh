@@ -10,7 +10,8 @@ chsh -s /opt/homebrew/bin/bash
 brew install starship \
 	fastfetch \
 	ghostty \
-	zen \
+	zen \ #firefox-based
+	arc \ #chromium-based
 	wget \
 	git \
 	coreutils \
