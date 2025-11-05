@@ -2,4 +2,4 @@
 
 ### Linux Scripts and Configs
 
-To install run `curl -fsSL https://raw.githubusercontent.com/germaniii/dotfiles/refs/heads/master/setup.sh | sh`.
+To install run `curl -fsSL https://github.com/germaniii/dotfiles/raw/refs/heads/linux/setup.sh | sh`.
