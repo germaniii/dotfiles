@@ -1,2 +1,3 @@
 __pycache__/
 **/yay-logs.*
+.local/**
