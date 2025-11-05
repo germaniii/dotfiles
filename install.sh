@@ -30,6 +30,7 @@ brew install starship \
 
 brew install --cask font-fira-code
 brew install --cask nikitabobko/tap/aerospace
+brew install --cask mediosz/tap/swipeaerospace
 brew install --cask --no-quarantine middleclick
 brew install --cask gimp
 # Battery Toolkit
