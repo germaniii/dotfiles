@@ -34,6 +34,8 @@ brew install --cask nikitabobko/tap/aerospace
 brew install --cask mediosz/tap/swipeaerospace
 brew install --cask --no-quarantine middleclick
 brew install --cask gimp
+# macos notch 
+# brew install --cask TheBoredTeam/boring-notch/boring-notch --no-quarantine
 # Battery Toolkit
 brew tap mhaeuser/mhaeuser
 brew install battery-toolkit --no-quarantine
