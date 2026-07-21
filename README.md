@@ -5,7 +5,11 @@ Cross-platform dotfiles for macOS (AeroSpace) and Linux (Hyprland).
 ## Quick Install
 
 ```bash
+# Bash/dialog wizard (lightweight)
 curl -fsSL https://raw.githubusercontent.com/germaniii/dotfiles/main/installers/bash/setup.sh | sh
+
+# Gum wizard (glamorous)
+curl -fsSL https://raw.githubusercontent.com/germaniii/dotfiles/main/installers/gum/setup.sh | sh
 ```
 
 The installer auto-detects your OS and package manager, then guides you through:
@@ -43,7 +47,7 @@ The installer auto-detects your OS and package manager, then guides you through:
 ```
 installers/
   bash/             # Bash/dialog interactive wizard
-  # (future: nix/, docker/, etc.)
+  gum/              # Gum (charmbracelet) glamorous wizard
 ```
 
 ## Directory Structure
@@ -51,11 +55,15 @@ installers/
 ```
 dotfiles/
   installers/
-    bash/           # Installer scripts
+    bash/           # Bash/dialog installer
       setup.sh      # Bootstrap: curl | sh entry point
       install.sh    # Interactive dialog/whiptail wizard
-      lib/          # Library scripts
-      packages/     # Package definitions by platform
+      lib/          # Shared library scripts
+    gum/            # Gum (charmbracelet) glamorous installer
+      setup.sh      # Bootstrap: curl | sh entry point
+      install.sh    # Interactive gum wizard
+      lib/
+        wizard.sh   # Gum UI wrappers
   configs/
     common/         # Cross-platform dotfiles (.bashrc, starship, tmux, etc.)
     linux/          # Linux-specific (hyprland, waybar, kitty, rofi, etc.)
@@ -68,5 +76,6 @@ dotfiles/
 ```bash
 git clone -b main https://github.com/germaniii/dotfiles ~/dotfiles
 cd ~/dotfiles
-./installers/bash/install.sh
+./installers/bash/install.sh    # Bash/dialog wizard
+./installers/gum/install.sh     # Gum wizard
 ```
