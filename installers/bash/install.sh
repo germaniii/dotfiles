@@ -207,34 +207,45 @@ show_confirmation() {
 
 # --- Installation ---
 
+INSTALL_LOG="$HOME/.dotfiles-install-$(date +%Y%m%d-%H%M%S).log"
+
 run_installation() {
     local install_list=($(build_install_list))
     local total=${#install_list[@]}
     [ "$total" -eq 0 ] && echo_warn "No packages selected, skipping installation." && return
 
-    echo_title "Installing packages..."
+    echo_info "Installation log: $INSTALL_LOG"
 
     (
-        local count=0
+        local count=0 errors=0
         for entry in "${install_list[@]}"; do
-            local name desc
+            local name
             name=$(pkg_virtual_name "$entry")
-            desc=$(pkg_description "$entry")
-            local pct=$((count * 100 / total))
-            echo "XXX"
-            echo "$pct"
-            echo "Installing: $name"
-            echo "XXX"
-            install_single_package "$entry" &>/dev/null 2>&1 || true
             count=$((count + 1))
-        done
-        echo "XXX"
-        echo "100"
-        echo "Installation complete!"
-        echo "XXX"
-    ) | $DIALOG_CMD --title "Installing Packages" --gauge "Starting..." 12 70 0
 
-    echo_ok "Package installation complete"
+            if ! pkg_available "$entry"; then
+                echo "[$count/$total] $name (not available on this OS)"
+                continue
+            fi
+
+            {
+                echo "[$count/$total] Installing $name..."
+                if install_single_package "$entry" 2>&1; then
+                    echo "[$count/$total] $name installed"
+                else
+                    echo "[$count/$total] $name failed"
+                    errors=$((errors + 1))
+                fi
+            } | tee -a "$INSTALL_LOG"
+            echo
+        done
+
+        echo "---"
+        echo "$((total - errors)) packages installed"
+        [ "$errors" -gt 0 ] && echo "$errors packages failed"
+    ) | $DIALOG_CMD $(dialog_opts) --title "Installing Packages" --progressbox 30 85
+
+    echo_ok "Log saved to: $INSTALL_LOG"
 }
 
 # --- Dotfile deployment ---

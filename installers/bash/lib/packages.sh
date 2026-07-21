@@ -46,7 +46,6 @@ install_single_package() {
     method=$(pkg_method "$entry")
 
     if ! pkg_available "$entry"; then
-        echo "skip"
         return 0
     fi
 
