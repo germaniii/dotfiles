@@ -16,7 +16,7 @@
     "debian": "ripgrep",
     "macos": "ripgrep",
     "default": true,
-    "description": "Fast recursive text search",
+    "description": "Fast recursive text search [Neovim Essential]",
     "category": "terminal_utils"
   },
   {
@@ -26,7 +26,7 @@
     "debian": "fd-find",
     "macos": "fd",
     "default": true,
-    "description": "Fast alternative to find",
+    "description": "Fast alternative to find [Neovim Essential]",
     "category": "terminal_utils"
   },
   {
@@ -96,7 +96,7 @@
     "debian": "neovim",
     "macos": "neovim",
     "default": true,
-    "description": "Modern Vim-based editor",
+    "description": "Modern Vim-based editor [Neovim Essential]",
     "category": "terminal_utils"
   },
   {
@@ -146,7 +146,7 @@
     "debian": "git",
     "macos": "git",
     "default": true,
-    "description": "Distributed version control",
+    "description": "Distributed version control [Neovim Essential]",
     "category": "dev_core"
   },
   {
@@ -186,7 +186,7 @@
     "debian": "build-essential",
     "macos": null,
     "default": true,
-    "description": "Essential build tools",
+    "description": "Essential build tools [Neovim Essential]",
     "category": "dev_core"
   },
   {
@@ -366,7 +366,7 @@
     "debian": "tflint",
     "macos": "tflint",
     "default": false,
-    "description": "Terraform linter",
+    "description": "Terraform linter [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
@@ -376,7 +376,7 @@
     "debian": null,
     "macos": null,
     "default": false,
-    "description": "Protobuf tooling",
+    "description": "Protobuf tooling [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
@@ -386,7 +386,7 @@
     "debian": "sqlfluff",
     "macos": "sqlfluff",
     "default": false,
-    "description": "SQL linter and formatter",
+    "description": "SQL linter and formatter [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
@@ -396,7 +396,7 @@
     "debian": null,
     "macos": null,
     "default": false,
-    "description": "YAML formatter",
+    "description": "YAML formatter [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
@@ -406,7 +406,7 @@
     "debian": null,
     "macos": null,
     "default": false,
-    "description": "Go linter",
+    "description": "Go linter [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
@@ -416,7 +416,7 @@
     "debian": "shellcheck",
     "macos": "shellcheck",
     "default": false,
-    "description": "Shell script linter",
+    "description": "Shell script linter [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
@@ -426,7 +426,7 @@
     "debian": "hadolint",
     "macos": "hadolint",
     "default": false,
-    "description": "Dockerfile linter",
+    "description": "Dockerfile linter [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
@@ -436,7 +436,7 @@
     "debian": null,
     "macos": null,
     "default": false,
-    "description": "Markdown linter",
+    "description": "Markdown linter [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
@@ -446,7 +446,7 @@
     "debian": "stylua",
     "macos": "stylua",
     "default": false,
-    "description": "Lua formatter",
+    "description": "Lua formatter [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
@@ -456,7 +456,7 @@
     "debian": null,
     "macos": null,
     "default": false,
-    "description": "Multi-language code formatter",
+    "description": "Multi-language code formatter [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
@@ -466,7 +466,37 @@
     "debian": "shfmt",
     "macos": "shfmt",
     "default": false,
-    "description": "Shell script formatter",
+    "description": "Shell script formatter [Neovim Essential]",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "ruff",
+    "method": "pip",
+    "arch": "ruff",
+    "debian": null,
+    "macos": "ruff",
+    "default": false,
+    "description": "Python linter/formatter [Neovim Essential]",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "yamllint",
+    "method": "pkg",
+    "arch": "yamllint",
+    "debian": "yamllint",
+    "macos": "yamllint",
+    "default": false,
+    "description": "YAML linter [Neovim Essential]",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "taplo",
+    "method": "cargo",
+    "arch": "taplo-cli",
+    "debian": null,
+    "macos": "taplo-cli",
+    "default": false,
+    "description": "TOML formatter/LSP server [Neovim Essential]",
     "category": "dev_lsp_tools"
   },
   {
