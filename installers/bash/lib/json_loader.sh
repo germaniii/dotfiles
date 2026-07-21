@@ -9,7 +9,7 @@ load_packages_json() {
     [ ! -f "$file" ] && return
     while IFS= read -r line; do
         [ -n "$line" ] && arr_ref+=("$line")
-    done < <(jq -r '.[] | select(.category == "'"$category_filter"'") | [.name, .method, (.arch // "-"), (.debian // "-"), (.macos // "-"), (if .default then "1" else "0" end), .description] | join("|")' "$file")
+    done < <(jq -r '.[] | select(.category == "'"$category_filter"'") | [.name, .method, (.arch // "-"), (.debian // "-"), (.macos // "-"), (if .default then "1" else "0" end), .description, ([if .arch != null then "arch" else empty end, if .debian != null then "debian" else empty end, if .macos != null then "macos" else empty end] | join(","))] | join("|")' "$file")
 }
 
 load_all_packages() {

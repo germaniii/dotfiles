@@ -616,7 +616,7 @@
     "debian": null,
     "macos": null,
     "default": false,
-    "description": "Rofi for Wayland (AUR)",
+    "description": "Rofi for Wayland",
     "category": "theming"
   },
   {
@@ -696,7 +696,7 @@
     "debian": null,
     "macos": "arc",
     "default": false,
-    "description": "Arc web browser (macOS)",
+    "description": "Arc web browser",
     "category": "applications"
   },
   {
@@ -706,7 +706,7 @@
     "debian": null,
     "macos": "boring-notch",
     "default": false,
-    "description": "Hide notch (macOS, brew cask)",
+    "description": "Hide notch",
     "category": "applications"
   },
   {
@@ -716,7 +716,7 @@
     "debian": null,
     "macos": "battery-toolkit",
     "default": false,
-    "description": "Battery management (macOS, brew cask)",
+    "description": "Battery management",
     "category": "applications"
   },
   {
@@ -726,7 +726,7 @@
     "debian": null,
     "macos": "middleclick",
     "default": false,
-    "description": "Middle click emulation (macOS)",
+    "description": "Middle click emulation",
     "category": "applications"
   },
   {

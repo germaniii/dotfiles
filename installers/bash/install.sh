@@ -118,9 +118,11 @@ select_packages() {
             local -n cat_array="$arr_name"
             local pkg_items=()
             for pkg_entry in "${cat_array[@]}"; do
-                local name desc default selected
+                local name desc default selected platform_badge
                 name=$(pkg_virtual_name "$pkg_entry")
                 desc=$(pkg_description "$pkg_entry")
+                platform_badge=$(pkg_platform_badge "$(pkg_supported_platforms "$pkg_entry")")
+                [ -n "$platform_badge" ] && desc="$desc ($platform_badge)"
                 default=$(pkg_default "$pkg_entry")
                 if [ "$default" = "1" ]; then
                     selected="on"

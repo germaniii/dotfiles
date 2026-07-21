@@ -117,9 +117,11 @@ select_packages() {
         local -n cat_array="$arr_name"
         local pkg_options=() pkg_names=()
         for pkg_entry in "${cat_array[@]}"; do
-            local name desc
+            local name desc platform_badge
             name=$(pkg_virtual_name "$pkg_entry")
             desc=$(pkg_description "$pkg_entry")
+            platform_badge=$(pkg_platform_badge "$(pkg_supported_platforms "$pkg_entry")")
+            [ -n "$platform_badge" ] && desc="$desc ($platform_badge)"
             pkg_options+=("$name — $desc")
             pkg_names+=("$name")
         done

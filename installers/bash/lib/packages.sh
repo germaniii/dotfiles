@@ -9,7 +9,23 @@ pkg_arch()           { get_platform_pkg_name "$1" 3; }
 pkg_debian()         { get_platform_pkg_name "$1" 4; }
 pkg_macos()          { get_platform_pkg_name "$1" 5; }
 pkg_default()        { get_platform_pkg_name "$1" 6; }
-pkg_description()    { get_platform_pkg_name "$1" 7; }
+pkg_description()           { get_platform_pkg_name "$1" 7; }
+pkg_supported_platforms()   { get_platform_pkg_name "$1" 8; }
+
+pkg_platform_badge() {
+    local platforms="$1"
+    [ -z "$platforms" ] || [ "$platforms" = "-" ] && return
+    local names=()
+    for p in $(echo "$platforms" | tr ',' ' '); do
+        case "$p" in
+            arch)   names+=("Arch") ;;
+            debian) names+=("Deb") ;;
+            macos)  names+=("Mac") ;;
+        esac
+    done
+    local IFS=', '
+    echo "${names[*]}"
+}
 
 resolve_pkg_name() {
     local entry="$1"
