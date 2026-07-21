@@ -1,0 +1,103 @@
+{
+  "categories": [
+    {
+      "id": "terminal_utils",
+      "array_name": "TERMINAL_UTILITIES",
+      "label": "Terminal Utilities",
+      "description": "Core CLI tools (fzf, ripgrep, htop, tmux, etc.)",
+      "default_selected": true
+    },
+    {
+      "id": "terminal_emulators",
+      "array_name": "TERMINAL_EMULATORS",
+      "label": "Terminal Emulators",
+      "description": "Terminal emulator (kitty/ghostty)",
+      "default_selected": true
+    },
+    {
+      "id": "dev_core",
+      "array_name": "DEV_CORE",
+      "label": "Development - Core",
+      "description": "Essential dev tools (git, docker, build tools)",
+      "default_selected": true
+    },
+    {
+      "id": "dev_runtimes",
+      "array_name": "DEV_RUNTIMES",
+      "label": "Development - Runtimes",
+      "description": "Language runtimes (Go, Ruby, Rust, Java, etc.)",
+      "default_selected": false
+    },
+    {
+      "id": "dev_lsp_tools",
+      "array_name": "DEV_LSP_TOOLS",
+      "label": "Development - LSP Tools",
+      "description": "LSP servers and formatters (terraform, sqlfluff, etc.)",
+      "default_selected": false
+    },
+    {
+      "id": "fonts",
+      "array_name": "FONTS",
+      "label": "Fonts",
+      "description": "Fira Code, Noto, DejaVu, and others",
+      "default_selected": true
+    },
+    {
+      "id": "theming",
+      "array_name": "THEMING",
+      "label": "Theming",
+      "description": "Gruvbox theme, Rofi/SDDM themes",
+      "default_selected": false
+    },
+    {
+      "id": "applications",
+      "array_name": "APPLICATIONS",
+      "label": "Applications",
+      "description": "GIMP, OBS, Flameshot, CopyQ, etc.",
+      "default_selected": false
+    },
+    {
+      "id": "audio_media",
+      "array_name": "AUDIO_MEDIA",
+      "label": "Audio & Media",
+      "description": "PipeWire, FFmpeg, ImageMagick",
+      "default_selected": false
+    },
+    {
+      "id": "networking",
+      "array_name": "NETWORKING",
+      "label": "Networking",
+      "description": "NetworkManager, Cloudflare Tunnel, firewall",
+      "default_selected": false
+    },
+    {
+      "id": "system",
+      "array_name": "SYSTEM",
+      "label": "System Utilities",
+      "description": "Cron, unzip, direnv, LaTeX engine",
+      "default_selected": true
+    }
+  ],
+  "desktop_environments": [
+    {
+      "id": "GNOME",
+      "label": "GNOME Desktop Environment",
+      "default_selected": false
+    },
+    {
+      "id": "XFCE",
+      "label": "XFCE Desktop Environment (lightweight)",
+      "default_selected": false
+    },
+    {
+      "id": "HYPRLAND",
+      "label": "Hyprland Wayland Compositor",
+      "default_selected": false
+    },
+    {
+      "id": "NONE",
+      "label": "Do not install a desktop environment",
+      "default_selected": true
+    }
+  ]
+}

@@ -1,0 +1,1052 @@
+[
+  {
+    "name": "fzf",
+    "method": "pkg",
+    "arch": "fzf",
+    "debian": "fzf",
+    "macos": "fzf",
+    "default": true,
+    "description": "Command-line fuzzy finder",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "ripgrep",
+    "method": "pkg",
+    "arch": "ripgrep",
+    "debian": "ripgrep",
+    "macos": "ripgrep",
+    "default": true,
+    "description": "Fast recursive text search",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "fd",
+    "method": "pkg",
+    "arch": "fd",
+    "debian": "fd-find",
+    "macos": "fd",
+    "default": true,
+    "description": "Fast alternative to find",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "htop",
+    "method": "pkg",
+    "arch": "htop",
+    "debian": "htop",
+    "macos": "htop",
+    "default": true,
+    "description": "Interactive process viewer",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "fastfetch",
+    "method": "pkg",
+    "arch": "fastfetch",
+    "debian": "fastfetch",
+    "macos": "fastfetch",
+    "default": true,
+    "description": "System information tool",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "tmux",
+    "method": "pkg",
+    "arch": "tmux",
+    "debian": "tmux",
+    "macos": "tmux",
+    "default": true,
+    "description": "Terminal multiplexer",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "ranger",
+    "method": "pkg",
+    "arch": "ranger",
+    "debian": "ranger",
+    "macos": "ranger",
+    "default": true,
+    "description": "Terminal file manager",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "wget",
+    "method": "pkg",
+    "arch": "wget",
+    "debian": "wget",
+    "macos": "wget",
+    "default": true,
+    "description": "File retriever for web",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "curl",
+    "method": "pkg",
+    "arch": "curl",
+    "debian": "curl",
+    "macos": "curl",
+    "default": true,
+    "description": "Data transfer utility",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "neovim",
+    "method": "pkg",
+    "arch": "neovim",
+    "debian": "neovim",
+    "macos": "neovim",
+    "default": true,
+    "description": "Modern Vim-based editor",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "starship",
+    "method": "pkg",
+    "arch": "starship",
+    "debian": "starship",
+    "macos": "starship",
+    "default": true,
+    "description": "Cross-shell prompt",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "entr",
+    "method": "pkg",
+    "arch": "entr",
+    "debian": "entr",
+    "macos": "entr",
+    "default": true,
+    "description": "File change trigger",
+    "category": "terminal_utils"
+  },
+  {
+    "name": "kitty",
+    "method": "pkg",
+    "arch": "kitty",
+    "debian": "kitty",
+    "macos": "kitty",
+    "default": false,
+    "description": "Fast GPU-accelerated terminal",
+    "category": "terminal_emulators"
+  },
+  {
+    "name": "ghostty",
+    "method": "pkg",
+    "arch": "ghostty",
+    "debian": "ghostty",
+    "macos": "ghostty",
+    "default": true,
+    "description": "Native GPU-accelerated terminal",
+    "category": "terminal_emulators"
+  },
+  {
+    "name": "git",
+    "method": "pkg",
+    "arch": "git",
+    "debian": "git",
+    "macos": "git",
+    "default": true,
+    "description": "Distributed version control",
+    "category": "dev_core"
+  },
+  {
+    "name": "docker",
+    "method": "pkg",
+    "arch": "docker",
+    "debian": "docker.io",
+    "macos": "docker",
+    "default": true,
+    "description": "Containerization platform",
+    "category": "dev_core"
+  },
+  {
+    "name": "docker-compose",
+    "method": "pkg",
+    "arch": "docker-compose",
+    "debian": "docker-compose-v2",
+    "macos": null,
+    "default": true,
+    "description": "Multi-container Docker apps",
+    "category": "dev_core"
+  },
+  {
+    "name": "mise",
+    "method": "pkg",
+    "arch": "mise",
+    "debian": "mise",
+    "macos": "mise",
+    "default": false,
+    "description": "Multi-language version manager",
+    "category": "dev_core"
+  },
+  {
+    "name": "base-devel",
+    "method": "pkg",
+    "arch": "base-devel",
+    "debian": "build-essential",
+    "macos": null,
+    "default": true,
+    "description": "Essential build tools",
+    "category": "dev_core"
+  },
+  {
+    "name": "go",
+    "method": "pkg",
+    "arch": "go",
+    "debian": "golang",
+    "macos": "go",
+    "default": false,
+    "description": "Go programming language",
+    "category": "dev_core"
+  },
+  {
+    "name": "go",
+    "method": "pkg",
+    "arch": "go",
+    "debian": "golang",
+    "macos": "go",
+    "default": true,
+    "description": "Go programming language",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "ruby",
+    "method": "pkg",
+    "arch": "ruby",
+    "debian": "ruby",
+    "macos": "ruby",
+    "default": true,
+    "description": "Ruby programming language",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "rust",
+    "method": "pkg",
+    "arch": "rust",
+    "debian": "rustc",
+    "macos": "rustup",
+    "default": true,
+    "description": "Rust systems programming language",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "java-jdk",
+    "method": "pkg",
+    "arch": "jdk-openjdk",
+    "debian": "default-jdk",
+    "macos": "openjdk",
+    "default": true,
+    "description": "Java Development Kit",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "nodejs",
+    "method": "pkg",
+    "arch": "nodejs",
+    "debian": "nodejs",
+    "macos": "node",
+    "default": true,
+    "description": "JavaScript runtime",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "python",
+    "method": "pkg",
+    "arch": "python",
+    "debian": "python3",
+    "macos": "python3",
+    "default": true,
+    "description": "Python programming language",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "julia",
+    "method": "pkg",
+    "arch": "julia",
+    "debian": null,
+    "macos": "julia",
+    "default": true,
+    "description": "Julia scientific computing language",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "zig",
+    "method": "pkg",
+    "arch": "zig",
+    "debian": null,
+    "macos": "zig",
+    "default": true,
+    "description": "Zig systems programming language",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "nim",
+    "method": "pkg",
+    "arch": "nim",
+    "debian": null,
+    "macos": "nim",
+    "default": true,
+    "description": "Nim programming language",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "elm",
+    "method": "pkg",
+    "arch": "elm",
+    "debian": null,
+    "macos": "elm",
+    "default": true,
+    "description": "Elm functional language",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "clojure",
+    "method": "pkg",
+    "arch": "clojure",
+    "debian": null,
+    "macos": "clojure",
+    "default": true,
+    "description": "Clojure Lisp dialect",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "dart",
+    "method": "pkg",
+    "arch": "dart",
+    "debian": "dart",
+    "macos": "dart",
+    "default": true,
+    "description": "Dart programming language",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "elixir",
+    "method": "pkg",
+    "arch": "elixir",
+    "debian": "elixir",
+    "macos": "elixir",
+    "default": true,
+    "description": "Elixir language (Erlang VM)",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "gopls",
+    "method": "pkg",
+    "arch": "gopls",
+    "debian": "gopls",
+    "macos": null,
+    "default": false,
+    "description": "Go language server",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "rust-analyzer",
+    "method": "pkg",
+    "arch": "rust-analyzer",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Rust language server",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "terraform",
+    "method": "pkg",
+    "arch": "terraform",
+    "debian": "terraform",
+    "macos": "terraform",
+    "default": false,
+    "description": "Infrastructure as code (Terraform)",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "tflint",
+    "method": "pkg",
+    "arch": "tflint",
+    "debian": "tflint",
+    "macos": "tflint",
+    "default": false,
+    "description": "Terraform linter",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "buf",
+    "method": "go",
+    "arch": "github.com/bufbuild/buf/cmd/buf",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Protobuf tooling",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "sqlfluff",
+    "method": "pip",
+    "arch": "sqlfluff",
+    "debian": "sqlfluff",
+    "macos": "sqlfluff",
+    "default": false,
+    "description": "SQL linter and formatter",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "yamlfmt",
+    "method": "go",
+    "arch": "github.com/google/yamlfmt/cmd/yamlfmt",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "YAML formatter",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "golangci-lint",
+    "method": "go",
+    "arch": "github.com/golangci/golangci-lint/cmd/golangci-lint",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Go linter",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "shellcheck",
+    "method": "pkg",
+    "arch": "shellcheck",
+    "debian": "shellcheck",
+    "macos": "shellcheck",
+    "default": false,
+    "description": "Shell script linter",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "hadolint",
+    "method": "pkg",
+    "arch": "hadolint",
+    "debian": "hadolint",
+    "macos": "hadolint",
+    "default": false,
+    "description": "Dockerfile linter",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "markdownlint",
+    "method": "npm",
+    "arch": "markdownlint-cli",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Markdown linter",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "stylua",
+    "method": "pkg",
+    "arch": "stylua",
+    "debian": "stylua",
+    "macos": "stylua",
+    "default": false,
+    "description": "Lua formatter",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "prettier",
+    "method": "npm",
+    "arch": "prettier",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Multi-language code formatter",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "shfmt",
+    "method": "pkg",
+    "arch": "shfmt",
+    "debian": "shfmt",
+    "macos": "shfmt",
+    "default": false,
+    "description": "Shell script formatter",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "nerd-fonts-symbols",
+    "method": "pkg",
+    "arch": "ttf-nerd-fonts-symbols",
+    "debian": null,
+    "macos": "font-nerd-fonts-symbols",
+    "default": true,
+    "description": "Nerd Fonts symbols",
+    "category": "fonts"
+  },
+  {
+    "name": "noto-fonts",
+    "method": "pkg",
+    "arch": "noto-fonts",
+    "debian": "fonts-noto",
+    "macos": "font-noto",
+    "default": true,
+    "description": "Noto font family",
+    "category": "fonts"
+  },
+  {
+    "name": "noto-fonts-cjk",
+    "method": "pkg",
+    "arch": "noto-fonts-cjk",
+    "debian": "fonts-noto-cjk",
+    "macos": "font-noto-sans-cjk",
+    "default": true,
+    "description": "CJK font support",
+    "category": "fonts"
+  },
+  {
+    "name": "noto-fonts-emoji",
+    "method": "pkg",
+    "arch": "noto-fonts-emoji",
+    "debian": "fonts-noto-color-emoji",
+    "macos": "font-noto-emoji",
+    "default": true,
+    "description": "Emoji font support",
+    "category": "fonts"
+  },
+  {
+    "name": "dejavu-fonts",
+    "method": "pkg",
+    "arch": "ttf-dejavu",
+    "debian": "fonts-dejavu-core",
+    "macos": "font-dejavu",
+    "default": true,
+    "description": "DejaVu font family",
+    "category": "fonts"
+  },
+  {
+    "name": "ubuntu-font",
+    "method": "pkg",
+    "arch": "ttf-ubuntu-font-family",
+    "debian": "fonts-ubuntu",
+    "macos": "font-ubuntu",
+    "default": true,
+    "description": "Ubuntu font family",
+    "category": "fonts"
+  },
+  {
+    "name": "inconsolata",
+    "method": "pkg",
+    "arch": "ttf-inconsolata",
+    "debian": "fonts-inconsolata",
+    "macos": "font-inconsolata",
+    "default": true,
+    "description": "Monospace font",
+    "category": "fonts"
+  },
+  {
+    "name": "libertine-fonts",
+    "method": "pkg",
+    "arch": "ttf-linux-libertine",
+    "debian": "fonts-linuxlibertine",
+    "macos": "font-libertine-mono",
+    "default": false,
+    "description": "Linux Libertine fonts",
+    "category": "fonts"
+  },
+  {
+    "name": "ms-fonts",
+    "method": "aur",
+    "arch": "ttf-ms-fonts",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Microsoft TrueType core fonts",
+    "category": "fonts"
+  },
+  {
+    "name": "fira-code",
+    "method": "pkg",
+    "arch": "ttf-fira-code",
+    "debian": "fonts-firacode",
+    "macos": "font-fira-code",
+    "default": true,
+    "description": "Fira Code monospace font",
+    "category": "fonts"
+  },
+  {
+    "name": "gruvbox-theme",
+    "method": "pkg",
+    "arch": "gruvbox-material-gtk-theme",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Gruvbox Material GTK theme",
+    "category": "theming"
+  },
+  {
+    "name": "rofi-wayland",
+    "method": "aur",
+    "arch": "rofi-lbonn-wayland-git",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Rofi for Wayland (AUR)",
+    "category": "theming"
+  },
+  {
+    "name": "rofi-gruvbox",
+    "method": "aur",
+    "arch": "rofi-material-icon-theme-git",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Rofi Gruvbox Material icon theme",
+    "category": "theming"
+  },
+  {
+    "name": "sddm-dark",
+    "method": "aur",
+    "arch": "sddm-sugar-dark",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "SDDM Sugar Dark theme",
+    "category": "theming"
+  },
+  {
+    "name": "gimp",
+    "method": "pkg",
+    "arch": "gimp",
+    "debian": "gimp",
+    "macos": "gimp",
+    "default": false,
+    "description": "Image editor",
+    "category": "applications"
+  },
+  {
+    "name": "obs-studio",
+    "method": "pkg",
+    "arch": "obs-studio",
+    "debian": "obs-studio",
+    "macos": "obs-studio",
+    "default": false,
+    "description": "Video recording and streaming",
+    "category": "applications"
+  },
+  {
+    "name": "timeshift",
+    "method": "pkg",
+    "arch": "timeshift",
+    "debian": "timeshift",
+    "macos": null,
+    "default": false,
+    "description": "System restore utility",
+    "category": "applications"
+  },
+  {
+    "name": "flameshot",
+    "method": "pkg",
+    "arch": "flameshot",
+    "debian": "flameshot",
+    "macos": "flameshot",
+    "default": false,
+    "description": "Screenshot tool",
+    "category": "applications"
+  },
+  {
+    "name": "copyq",
+    "method": "pkg",
+    "arch": "copyq",
+    "debian": "copyq",
+    "macos": "copyq",
+    "default": false,
+    "description": "Clipboard manager",
+    "category": "applications"
+  },
+  {
+    "name": "arc-browser",
+    "method": "pkg",
+    "arch": null,
+    "debian": null,
+    "macos": "arc",
+    "default": false,
+    "description": "Arc web browser (macOS)",
+    "category": "applications"
+  },
+  {
+    "name": "boring-notch",
+    "method": "pkg",
+    "arch": null,
+    "debian": null,
+    "macos": "boring-notch",
+    "default": false,
+    "description": "Hide notch (macOS, brew cask)",
+    "category": "applications"
+  },
+  {
+    "name": "battery-toolkit",
+    "method": "pkg",
+    "arch": null,
+    "debian": null,
+    "macos": "battery-toolkit",
+    "default": false,
+    "description": "Battery management (macOS, brew cask)",
+    "category": "applications"
+  },
+  {
+    "name": "middleclick",
+    "method": "pkg",
+    "arch": null,
+    "debian": null,
+    "macos": "middleclick",
+    "default": false,
+    "description": "Middle click emulation (macOS)",
+    "category": "applications"
+  },
+  {
+    "name": "pipewire",
+    "method": "pkg",
+    "arch": "pipewire",
+    "debian": "pipewire",
+    "macos": "pipewire",
+    "default": false,
+    "description": "Low-latency audio engine",
+    "category": "audio_media"
+  },
+  {
+    "name": "wireplumber",
+    "method": "pkg",
+    "arch": "wireplumber",
+    "debian": "wireplumber",
+    "macos": "wireplumber",
+    "default": false,
+    "description": "PipeWire session manager",
+    "category": "audio_media"
+  },
+  {
+    "name": "ffmpeg",
+    "method": "pkg",
+    "arch": "ffmpeg",
+    "debian": "ffmpeg",
+    "macos": "ffmpeg",
+    "default": false,
+    "description": "Audio/video processing",
+    "category": "audio_media"
+  },
+  {
+    "name": "imagemagick",
+    "method": "pkg",
+    "arch": "imagemagick",
+    "debian": "imagemagick",
+    "macos": "imagemagick",
+    "default": false,
+    "description": "Image manipulation",
+    "category": "audio_media"
+  },
+  {
+    "name": "ghostscript",
+    "method": "pkg",
+    "arch": "ghostscript",
+    "debian": "ghostscript",
+    "macos": "ghostscript",
+    "default": false,
+    "description": "PDF/PostScript engine",
+    "category": "audio_media"
+  },
+  {
+    "name": "networkmanager",
+    "method": "pkg",
+    "arch": "networkmanager",
+    "debian": "network-manager",
+    "macos": null,
+    "default": false,
+    "description": "Network connection manager",
+    "category": "networking"
+  },
+  {
+    "name": "cloudflared",
+    "method": "pkg",
+    "arch": "cloudflared",
+    "debian": "cloudflared",
+    "macos": "cloudflared",
+    "default": false,
+    "description": "Cloudflare tunnel",
+    "category": "networking"
+  },
+  {
+    "name": "firewalld",
+    "method": "pkg",
+    "arch": "firewalld",
+    "debian": "firewalld",
+    "macos": null,
+    "default": false,
+    "description": "Firewall management",
+    "category": "networking"
+  },
+  {
+    "name": "reflector",
+    "method": "pkg",
+    "arch": "reflector",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Pacman mirror optimizer",
+    "category": "networking"
+  },
+  {
+    "name": "cronie",
+    "method": "pkg",
+    "arch": "cronie",
+    "debian": "cron",
+    "macos": "cronie",
+    "default": true,
+    "description": "Cron job scheduler",
+    "category": "system"
+  },
+  {
+    "name": "unzip",
+    "method": "pkg",
+    "arch": "unzip",
+    "debian": "unzip",
+    "macos": "unzip",
+    "default": true,
+    "description": "ZIP archive extractor",
+    "category": "system"
+  },
+  {
+    "name": "zip",
+    "method": "pkg",
+    "arch": "zip",
+    "debian": "zip",
+    "macos": "zip",
+    "default": true,
+    "description": "ZIP archive creator",
+    "category": "system"
+  },
+  {
+    "name": "unrar",
+    "method": "pkg",
+    "arch": "unrar",
+    "debian": "unrar",
+    "macos": "unrar",
+    "default": true,
+    "description": "RAR archive extractor",
+    "category": "system"
+  },
+  {
+    "name": "direnv",
+    "method": "pkg",
+    "arch": "direnv",
+    "debian": "direnv",
+    "macos": "direnv",
+    "default": true,
+    "description": "Directory-specific env loader",
+    "category": "system"
+  },
+  {
+    "name": "tectonic",
+    "method": "pkg",
+    "arch": "tectonic",
+    "debian": "tectonic",
+    "macos": "tectonic",
+    "default": true,
+    "description": "Modern LaTeX engine",
+    "category": "system"
+  },
+  {
+    "name": "gnome",
+    "method": "pkg",
+    "arch": "gnome",
+    "debian": "gnome",
+    "macos": null,
+    "default": false,
+    "description": "Complete GNOME desktop environment",
+    "category": "DE:GNOME"
+  },
+  {
+    "name": "xfce4",
+    "method": "pkg",
+    "arch": "xfce4",
+    "debian": "xfce4",
+    "macos": null,
+    "default": false,
+    "description": "Lightweight GTK desktop environment",
+    "category": "DE:XFCE"
+  },
+  {
+    "name": "xfce4-goodies",
+    "method": "pkg",
+    "arch": "xfce4-goodies",
+    "debian": "xfce4-goodies",
+    "macos": null,
+    "default": false,
+    "description": "Xfce extras and plugins",
+    "category": "DE:XFCE"
+  },
+  {
+    "name": "x11vnc",
+    "method": "pkg",
+    "arch": "x11vnc",
+    "debian": "x11vnc",
+    "macos": null,
+    "default": false,
+    "description": "VNC server for remote access",
+    "category": "DE:XFCE"
+  },
+  {
+    "name": "hyprland",
+    "method": "pkg",
+    "arch": "hyprland",
+    "debian": "hyprland",
+    "macos": null,
+    "default": false,
+    "description": "Dynamic Wayland tiling compositor",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "hyprpaper",
+    "method": "pkg",
+    "arch": "hyprpaper",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Wallpaper utility for Hyprland",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "hyprlock",
+    "method": "pkg",
+    "arch": "hyprlock",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "GPU-accelerated screen locker",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "xdg-desktop-portal-hyprland",
+    "method": "pkg",
+    "arch": "xdg-desktop-portal-hyprland",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "XDG desktop portal for Hyprland",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "waybar",
+    "method": "pkg",
+    "arch": "waybar",
+    "debian": "waybar",
+    "macos": null,
+    "default": false,
+    "description": "GTK status bar for wlroots compositors",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "wlogout",
+    "method": "pkg",
+    "arch": "wlogout",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Logout menu for Wayland",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "grim",
+    "method": "pkg",
+    "arch": "grim",
+    "debian": "grim",
+    "macos": null,
+    "default": false,
+    "description": "Wayland screenshot utility",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "slurp",
+    "method": "pkg",
+    "arch": "slurp",
+    "debian": "slurp",
+    "macos": null,
+    "default": false,
+    "description": "Wayland region selector",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "dunst",
+    "method": "pkg",
+    "arch": "dunst",
+    "debian": "dunst",
+    "macos": null,
+    "default": false,
+    "description": "Lightweight notification daemon",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "polkit-kde-agent",
+    "method": "pkg",
+    "arch": "polkit-kde-agent",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "KDE Polkit authentication agent",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "swaylock",
+    "method": "pkg",
+    "arch": "swaylock",
+    "debian": "swaylock",
+    "macos": null,
+    "default": false,
+    "description": "Wayland screen locker",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "swayidle",
+    "method": "pkg",
+    "arch": "swayidle",
+    "debian": "swayidle",
+    "macos": null,
+    "default": false,
+    "description": "Wayland idle management daemon",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "brightnessctl",
+    "method": "pkg",
+    "arch": "brightnessctl",
+    "debian": null,
+    "macos": null,
+    "default": false,
+    "description": "Screen brightness control",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "acpi",
+    "method": "pkg",
+    "arch": "acpi",
+    "debian": "acpi",
+    "macos": null,
+    "default": false,
+    "description": "Battery and power info",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "blueman",
+    "method": "pkg",
+    "arch": "blueman",
+    "debian": "blueman",
+    "macos": null,
+    "default": false,
+    "description": "Bluetooth manager",
+    "category": "DE:HYPRLAND"
+  },
+  {
+    "name": "wl-clipboard",
+    "method": "pkg",
+    "arch": "wl-clipboard",
+    "debian": "wl-clipboard",
+    "macos": null,
+    "default": false,
+    "description": "Wayland clipboard utilities",
+    "category": "DE:HYPRLAND"
+  }
+]

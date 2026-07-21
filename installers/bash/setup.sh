@@ -76,6 +76,41 @@ install_dialog() {
     esac
 }
 
+# --- Install jq (JSON processor) ---
+
+install_jq() {
+    echo_info "Installing jq (JSON processor)..."
+    case "$OS" in
+        Darwin)
+            brew install jq
+            ;;
+        Linux)
+            case "$DISTRO" in
+                arch|endeavouros|manjaro|garuda)
+                    sudo pacman -S --noconfirm jq
+                    ;;
+                ubuntu|debian|pop|elementary|linuxmint|neon)
+                    sudo apt update && sudo apt install -y jq
+                    ;;
+                fedora)
+                    sudo dnf install -y jq
+                    ;;
+                alpine)
+                    sudo apk add jq
+                    ;;
+                *)
+                    command -v apt && sudo apt install -y jq && return 0
+                    command -v pacman && sudo pacman -S --noconfirm jq && return 0
+                    command -v dnf && sudo dnf install -y jq && return 0
+                    command -v apk && sudo apk add jq && return 0
+                    echo_err "Could not install jq. Please install 'jq' manually."
+                    exit 1
+                    ;;
+            esac
+            ;;
+    esac
+}
+
 # --- Install yay (Arch Linux AUR helper) ---
 
 install_yay() {
@@ -141,6 +176,10 @@ fi
 
 if ! command -v dialog &>/dev/null && ! command -v whiptail &>/dev/null; then
     install_dialog
+fi
+
+if ! command -v jq &>/dev/null; then
+    install_jq
 fi
 
 if ! command -v git &>/dev/null; then

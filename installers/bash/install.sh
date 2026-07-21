@@ -9,7 +9,7 @@ source "$SCRIPT_DIR/lib/wizard.sh"
 source "$SCRIPT_DIR/lib/packages.sh"
 source "$SCRIPT_DIR/lib/deploy.sh"
 source "$SCRIPT_DIR/lib/nvim.sh"
-source "$SCRIPT_DIR/packages/base.sh"
+source "$SCRIPT_DIR/lib/json_loader.sh"
 
 if ! command -v dialog &>/dev/null && ! command -v whiptail &>/dev/null; then
     echo "Error: This installer requires 'dialog' or 'whiptail'."
@@ -17,6 +17,15 @@ if ! command -v dialog &>/dev/null && ! command -v whiptail &>/dev/null; then
     echo "  curl -fsSL https://raw.githubusercontent.com/germaniii/dotfiles/main/setup.sh | sh"
     exit 1
 fi
+
+if ! command -v jq &>/dev/null; then
+    echo "Error: This installer requires 'jq' (JSON processor)."
+    echo "Run the setup.sh bootstrap script which installs it automatically:"
+    echo "  curl -fsSL https://raw.githubusercontent.com/germaniii/dotfiles/main/setup.sh | sh"
+    exit 1
+fi
+
+load_all_packages
 
 SELECTED_PACKAGES=()
 SELECTED_DE="NONE"
