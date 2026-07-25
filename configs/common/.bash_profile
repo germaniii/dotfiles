@@ -25,6 +25,7 @@ export HISTFILESIZE=
 # PATH
 ############################################################
 export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/opt/openjdk/bin:~/Documents/Programs/bin:~/.config/zellij:~/.local/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
+export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-

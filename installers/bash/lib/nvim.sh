@@ -18,3 +18,11 @@ install_mason_servers() {
         echo_warn "Neovim not installed, skipping Mason installation"
     fi
 }
+
+init_opam() {
+    if command -v opam &>/dev/null && [ ! -f "$HOME/.opam/config" ]; then
+        echo_title "Initializing opam..."
+        opam init --disable-sandboxing --yes --no-setup 2>/dev/null || true
+        echo_ok "opam initialized"
+    fi
+}

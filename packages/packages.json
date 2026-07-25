@@ -314,7 +314,7 @@
     "method": "pkg",
     "arch": "dart",
     "debian": "dart",
-    "macos": "dart",
+    "macos": "dart-sdk",
     "default": true,
     "description": "Dart programming language",
     "category": "dev_runtimes"
@@ -327,6 +327,16 @@
     "macos": "elixir",
     "default": true,
     "description": "Elixir language (Erlang VM)",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "ocaml",
+    "method": "pkg",
+    "arch": "ocaml",
+    "debian": "ocaml",
+    "macos": "ocaml",
+    "default": false,
+    "description": "OCaml compiler for ocaml-lsp [Neovim Essential]",
     "category": "dev_runtimes"
   },
   {
@@ -354,7 +364,7 @@
     "method": "pkg",
     "arch": "terraform",
     "debian": "terraform",
-    "macos": "terraform",
+    "macos": "hashicorp/tap/terraform",
     "default": false,
     "description": "Infrastructure as code (Terraform)",
     "category": "dev_lsp_tools"
@@ -364,7 +374,7 @@
     "method": "pkg",
     "arch": "tflint",
     "debian": "tflint",
-    "macos": "tflint",
+    "macos": "terraform-linters/tap/tflint",
     "default": false,
     "description": "Terraform linter [Neovim Essential]",
     "category": "dev_lsp_tools"
@@ -381,7 +391,7 @@
   },
   {
     "name": "sqlfluff",
-    "method": "pip",
+    "method": "pkg",
     "arch": "sqlfluff",
     "debian": "sqlfluff",
     "macos": "sqlfluff",
@@ -471,7 +481,7 @@
   },
   {
     "name": "ruff",
-    "method": "pip",
+    "method": "pkg",
     "arch": "ruff",
     "debian": null,
     "macos": "ruff",
@@ -491,10 +501,10 @@
   },
   {
     "name": "taplo",
-    "method": "cargo",
-    "arch": "taplo-cli",
+    "method": "pkg",
+    "arch": "taplo",
     "debian": null,
-    "macos": "taplo-cli",
+    "macos": "taplo",
     "default": false,
     "description": "TOML formatter/LSP server [Neovim Essential]",
     "category": "dev_lsp_tools"

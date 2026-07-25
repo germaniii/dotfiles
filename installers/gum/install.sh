@@ -317,6 +317,7 @@ main() {
     run_installation
     run_deploy
     run_nvim_setup
+    init_opam
     show_summary
 }
 
