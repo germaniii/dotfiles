@@ -230,7 +230,7 @@
     "category": "dev_runtimes"
   },
   {
-    "name": "java-jdk",
+    "name": "openjdk",
     "method": "pkg",
     "arch": "jdk-openjdk",
     "debian": "default-jdk",
@@ -498,6 +498,46 @@
     "default": false,
     "description": "TOML formatter/LSP server [Neovim Essential]",
     "category": "dev_lsp_tools"
+  },
+  {
+    "name": "tree-sitter",
+    "method": "pkg",
+    "arch": "tree-sitter",
+    "debian": "tree-sitter",
+    "macos": "tree-sitter",
+    "default": false,
+    "description": "Parser generator tool for nvim-treesitter [Neovim Essential]",
+    "category": "dev_lsp_tools"
+  },
+  {
+    "name": "dotnet-sdk",
+    "method": "pkg",
+    "arch": "dotnet-sdk",
+    "debian": null,
+    "macos": "dotnet-sdk",
+    "default": false,
+    "description": "dotnet SDK for fsautocomplete / csharp-language-server [Neovim Essential]",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "opam",
+    "method": "pkg",
+    "arch": "opam",
+    "debian": "opam",
+    "macos": "opam",
+    "default": false,
+    "description": "OCaml package manager for ocaml-lsp [Neovim Essential]",
+    "category": "dev_runtimes"
+  },
+  {
+    "name": "ghcup",
+    "method": "pkg",
+    "arch": "ghcup",
+    "debian": null,
+    "macos": "ghcup",
+    "default": false,
+    "description": "Haskell toolchain manager for haskell-language-server [Neovim Essential]",
+    "category": "dev_runtimes"
   },
   {
     "name": "nerd-fonts-symbols",

@@ -192,7 +192,7 @@ build_install_list() {
             fi
         fi
     done
-    echo "${install_list[@]}"
+    printf '%s\n' "${install_list[@]}"
 }
 
 # --- Confirmation ---
@@ -221,7 +221,8 @@ show_confirmation() {
 INSTALL_LOG="$HOME/.dotfiles-install-$(date +%Y%m%d-%H%M%S).log"
 
 run_installation() {
-    local install_list=($(build_install_list))
+    local install_list=()
+    mapfile -t install_list < <(build_install_list)
     local total=${#install_list[@]}
     [ "$total" -eq 0 ] && echo_warn "No packages selected, skipping installation." && return
 

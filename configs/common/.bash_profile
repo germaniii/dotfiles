@@ -11,6 +11,10 @@ export EDITOR=nvim
 export VISUAL=nvim
 export TERM=tmux-256color
 
+# MACOS Specific
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export OPENCODE_ENABLE_EXA=1
+
 ############################################################
 # Unlimited history
 ############################################################
@@ -20,7 +24,7 @@ export HISTFILESIZE=
 ############################################################
 # PATH
 ############################################################
-export PATH=~/Documents/Programs/bin:~/.config/zellij:~/.local/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
+export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/opt/openjdk/bin:~/Documents/Programs/bin:~/.config/zellij:~/.local/bin:/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 

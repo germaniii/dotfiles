@@ -183,7 +183,7 @@ build_install_list() {
             fi
         fi
     done
-    echo "${install_list[@]}"
+    printf '%s\n' "${install_list[@]}"
 }
 
 show_confirmation() {
@@ -219,13 +219,15 @@ show_confirmation() {
 INSTALL_LOG="$HOME/.dotfiles-install-$(date +%Y%m%d-%H%M%S).log"
 
 run_installation() {
-    local install_list=($(build_install_list))
+    local install_list=()
+    mapfile -t install_list < <(build_install_list)
     local total=${#install_list[@]}
     [ "$total" -eq 0 ] && echo_warn "No packages selected, skipping installation." && return
 
     echo_info "Installation log: $INSTALL_LOG"
     echo
 
+    export SCRIPT_DIR
     local count=0 errors=0
     for entry in "${install_list[@]}"; do
         local name
@@ -237,8 +239,13 @@ run_installation() {
             continue
         fi
 
-        if wizard_spinner "[$count/$total] $name" -- \
-            bash -c "install_single_package \"$entry\" >> \"$INSTALL_LOG\" 2>&1"; then
+        if wizard_spinner "[$count/$total] $name" \
+            bash -c "
+              source \"$SCRIPT_DIR/../bash/lib/detect.sh\"
+              source \"$SCRIPT_DIR/lib/wizard.sh\"
+              source \"$SCRIPT_DIR/../bash/lib/packages.sh\"
+              install_single_package \"$entry\" >> \"$INSTALL_LOG\" 2>&1
+            "; then
             gum style --foreground 142 "[$count/$total] ✓ $name installed"
         else
             gum style --foreground 167 "[$count/$total] ✗ $name failed"
