@@ -1,2 +1,4 @@
 theme = Gruvbox Dark
 font-family = "Fira Code Nerd Font Mono"
+keybind = ctrl+left=esc:b
+keybind = ctrl+right=esc:f
